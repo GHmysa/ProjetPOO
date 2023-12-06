@@ -1,5 +1,6 @@
 #pragma once
 #include "sqlFunction.h"
+#include "Client.h"
 
 namespace ProjetPoo {
 
