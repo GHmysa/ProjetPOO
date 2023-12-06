@@ -133,17 +133,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Adresse.cpp" />
+    <ClCompile Include="Article.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Commande.cpp" />
     <ClCompile Include="FormClient.cpp" />
     <ClCompile Include="FormCommandes.cpp" />
     <ClCompile Include="FormStatistiques.cpp" />
     <ClCompile Include="FormStock.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="FormPersonnel.cpp" />
+    <ClCompile Include="Personne.cpp" />
+    <ClCompile Include="Personnel.cpp" />
     <ClCompile Include="sqlConn.cpp" />
     <ClCompile Include="sqlFunction.cpp" />
     <ClCompile Include="sqlMap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adresse.h" />
+    <ClInclude Include="Article.h" />
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="Commande.h" />
     <ClInclude Include="FormClient.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -162,6 +172,9 @@
     <ClInclude Include="FormPersonnel.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Personne.h" />
+    <ClInclude Include="Personnel.h" />
     <ClInclude Include="sqlConn.h" />
     <ClInclude Include="sqlFunction.h" />
     <ClInclude Include="sqlMap.h" />
