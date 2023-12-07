@@ -268,6 +268,7 @@ namespace ProjetPoo {
 			this->txtBirth->Name = L"txtBirth";
 			this->txtBirth->Size = System::Drawing::Size(376, 31);
 			this->txtBirth->TabIndex = 6;
+			this->txtBirth->Tag = L"hiring_p";
 			// 
 			// lbHiring
 			// 
@@ -284,6 +285,7 @@ namespace ProjetPoo {
 			this->txtPrenom->Name = L"txtPrenom";
 			this->txtPrenom->Size = System::Drawing::Size(376, 31);
 			this->txtPrenom->TabIndex = 4;
+			this->txtPrenom->Tag = L"firstname_p";
 			// 
 			// lbprenom
 			// 
@@ -309,6 +311,7 @@ namespace ProjetPoo {
 			this->txtNom->Name = L"txtNom";
 			this->txtNom->Size = System::Drawing::Size(376, 31);
 			this->txtNom->TabIndex = 1;
+			this->txtNom->Tag = L"lastname_p";
 			// 
 			// label1
 			// 
@@ -366,6 +369,7 @@ namespace ProjetPoo {
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(298, 31);
 			this->textBox5->TabIndex = 12;
+			this->textBox5->Tag = L"city_a";
 			// 
 			// lbCity
 			// 
@@ -382,6 +386,7 @@ namespace ProjetPoo {
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(298, 31);
 			this->textBox4->TabIndex = 10;
+			this->textBox4->Tag = L"zipcode_a";
 			// 
 			// lbZipCode
 			// 
@@ -398,6 +403,7 @@ namespace ProjetPoo {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(298, 31);
 			this->textBox3->TabIndex = 8;
+			this->textBox3->Tag = L"address_a";
 			// 
 			// lbAddress
 			// 
@@ -414,6 +420,7 @@ namespace ProjetPoo {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(298, 31);
 			this->textBox2->TabIndex = 6;
+			this->textBox2->Tag = L"hiring_p";
 			// 
 			// lbInsertHiring
 			// 
@@ -430,6 +437,7 @@ namespace ProjetPoo {
 			this->txtInsertHiring->Name = L"txtInsertHiring";
 			this->txtInsertHiring->Size = System::Drawing::Size(298, 31);
 			this->txtInsertHiring->TabIndex = 4;
+			this->txtInsertHiring->Tag = L"firstname_p";
 			// 
 			// lbInsertPrenom
 			// 
@@ -446,6 +454,7 @@ namespace ProjetPoo {
 			this->txtInsertNom->Name = L"txtInsertNom";
 			this->txtInsertNom->Size = System::Drawing::Size(298, 31);
 			this->txtInsertNom->TabIndex = 2;
+			this->txtInsertNom->Tag = L"lastname_p";
 			// 
 			// lbNomInsert
 			// 
@@ -494,6 +503,7 @@ namespace ProjetPoo {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(298, 31);
 			this->textBox1->TabIndex = 24;
+			this->textBox1->Tag = L"city_a";
 			// 
 			// label4
 			// 
@@ -510,6 +520,7 @@ namespace ProjetPoo {
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(298, 31);
 			this->textBox6->TabIndex = 22;
+			this->textBox6->Tag = L"zipcode_a";
 			// 
 			// label5
 			// 
@@ -526,6 +537,7 @@ namespace ProjetPoo {
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(298, 31);
 			this->textBox7->TabIndex = 20;
+			this->textBox7->Tag = L"address_a";
 			// 
 			// label6
 			// 
@@ -542,6 +554,7 @@ namespace ProjetPoo {
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->Size = System::Drawing::Size(298, 31);
 			this->textBox8->TabIndex = 18;
+			this->textBox8->Tag = L"hiring_p";
 			// 
 			// label7
 			// 
@@ -558,6 +571,7 @@ namespace ProjetPoo {
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->Size = System::Drawing::Size(298, 31);
 			this->textBox9->TabIndex = 16;
+			this->textBox9->Tag = L"firstname_p";
 			// 
 			// label8
 			// 
@@ -574,6 +588,7 @@ namespace ProjetPoo {
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->Size = System::Drawing::Size(298, 31);
 			this->textBox10->TabIndex = 14;
+			this->textBox10->Tag = L"lastname_p";
 			// 
 			// label9
 			// 
@@ -634,6 +649,7 @@ namespace ProjetPoo {
 			this->textBox14->Name = L"textBox14";
 			this->textBox14->Size = System::Drawing::Size(298, 31);
 			this->textBox14->TabIndex = 18;
+			this->textBox14->Tag = L"hiring_p";
 			// 
 			// label13
 			// 
@@ -650,6 +666,7 @@ namespace ProjetPoo {
 			this->textBox15->Name = L"textBox15";
 			this->textBox15->Size = System::Drawing::Size(298, 31);
 			this->textBox15->TabIndex = 16;
+			this->textBox15->Tag = L"firstname_p";
 			// 
 			// label14
 			// 
@@ -666,6 +683,7 @@ namespace ProjetPoo {
 			this->textBox16->Name = L"textBox16";
 			this->textBox16->Size = System::Drawing::Size(298, 31);
 			this->textBox16->TabIndex = 14;
+			this->textBox16->Tag = L"lastname_p";
 			// 
 			// label15
 			// 
