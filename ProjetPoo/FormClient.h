@@ -1,6 +1,9 @@
 #pragma once
 #include "sqlFunction.h"
 
+
+
+
 namespace ProjetPoo {
 
 	using namespace System;
@@ -9,6 +12,7 @@ namespace ProjetPoo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Description résumée de FormClient
@@ -19,9 +23,7 @@ namespace ProjetPoo {
 		FormClient(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: ajoutez ici le code du constructeur
-			//
+			
 		}
 
 	protected:
@@ -89,6 +91,8 @@ namespace ProjetPoo {
 	private: System::Windows::Forms::TextBox^ textBox10;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ lbUpdate;
+
+	
 
 	private: NS_sql_Function::sqlFunction^ oSvc;
 	private: System::Data::DataSet^ oDs;
@@ -239,6 +243,7 @@ namespace ProjetPoo {
 			this->textBox16->Name = L"textBox16";
 			this->textBox16->Size = System::Drawing::Size(298, 31);
 			this->textBox16->TabIndex = 14;
+			this->textBox16->Text = L"  ";
 			// 
 			// label15
 			// 
@@ -334,6 +339,7 @@ namespace ProjetPoo {
 			this->btnVSelect->TabIndex = 7;
 			this->btnVSelect->Text = L"Rechercher";
 			this->btnVSelect->UseVisualStyleBackColor = true;
+			this->btnVSelect->Click += gcnew System::EventHandler(this, &FormClient::btnVSelect_Click);
 			// 
 			// txtBirth
 			// 
@@ -357,6 +363,7 @@ namespace ProjetPoo {
 			this->txtPrenom->Name = L"txtPrenom";
 			this->txtPrenom->Size = System::Drawing::Size(376, 31);
 			this->txtPrenom->TabIndex = 4;
+			this->txtPrenom->Tag = L"firstname_c";
 			// 
 			// lbprenom
 			// 
@@ -382,6 +389,7 @@ namespace ProjetPoo {
 			this->txtNom->Name = L"txtNom";
 			this->txtNom->Size = System::Drawing::Size(376, 31);
 			this->txtNom->TabIndex = 1;
+			this->txtNom->Tag = L"lastname_c";
 			// 
 			// label1
 			// 
@@ -676,10 +684,10 @@ namespace ProjetPoo {
 			this->Controls->Add(this->btnInsert);
 			this->Controls->Add(this->btnAffiche);
 			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->panelDelete);
 			this->Controls->Add(this->panelSelect);
 			this->Controls->Add(this->panelInsert);
 			this->Controls->Add(this->panelUpdate);
+			this->Controls->Add(this->panelDelete);
 			this->Name = L"FormClient";
 			this->Text = L"FormClient";
 			this->Load += gcnew System::EventHandler(this, &FormClient::FormClient_Load);
@@ -730,5 +738,27 @@ namespace ProjetPoo {
 		this->dataGridView1->DataSource = this->oDs;
 		this->dataGridView1->DataMember = "Rsl";
 	}
+	private: System::Void btnVSelect_Click(System::Object^ sender, System::EventArgs^ e) {
+		List<TextBox^>^ textBoxList;
+		List<TextBox^>^ nonEmptyTxtBox;
+		textBoxList = (gcnew List<TextBox^>());
+		nonEmptyTxtBox = (gcnew List<TextBox^>());
+		textBoxList->Add(this->txtPrenom);
+		textBoxList->Add(this->txtNom);
+		for each (TextBox ^ textBox in textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oDs = this->oSvc->selectSpe("Rsl","Client", nonEmptyTxtBox);
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+
+  	}
 };
 }

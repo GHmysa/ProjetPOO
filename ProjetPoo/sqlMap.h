@@ -1,5 +1,6 @@
 #pragma once
 namespace NS_sql_Map{
+	using namespace System::Collections::Generic;
 	ref class sqlMap
 	{
 	private:
@@ -8,10 +9,11 @@ namespace NS_sql_Map{
 		System::String^ nom;
 		System::String^ prenom;
 	public:
-		System::String^ Select(System::String^);
+		System::String^ SelectTable(System::String^);
 		System::String^ Insert(void);
 		System::String^ Delete(void);
 		System::String^ Update(void);
+		System::String^ SelectSpeQuery(System::String^, List<System::Windows::Forms::TextBox^>^ nonEmptyTxtBox);
 	};
 }
 

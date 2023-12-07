@@ -10,6 +10,13 @@ System::Data::DataSet^ NS_sql_Function::sqlFunction::selectionnerToutesLesPerson
 {
 	System::String^ sql;
 
-	sql = this->oSqlMap->Select(tableName);
+	sql = this->oSqlMap->SelectTable(tableName);
+	return this->oConn->getRows(sql, dataTableName);
+}
+System::Data::DataSet^ NS_sql_Function::sqlFunction::selectSpe(System::String^ dataTableName,System::String^ tableName, List<System::Windows::Forms::TextBox^>^ nonEmptyTxtBox)
+{
+	System::String^ sql;
+
+	sql = this->oSqlMap->SelectSpeQuery(tableName,nonEmptyTxtBox);
 	return this->oConn->getRows(sql, dataTableName);
 }
