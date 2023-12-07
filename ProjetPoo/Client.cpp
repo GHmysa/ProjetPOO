@@ -1,7 +1,7 @@
 #include "Client.h"
 
 using namespace System;
-Client::Client(int idClient, String^ nom, String^ prenom, String^ dateNaissance) {
+NS_Client::Client::Client(int idClient, String^ nom, String^ prenom, String^ dateNaissance) {
 
 	this->idClient = idClient;
 	this->nom = nom;
@@ -9,40 +9,40 @@ Client::Client(int idClient, String^ nom, String^ prenom, String^ dateNaissance)
 	this->dateNaissance = dateNaissance;
 }
 
-Client::Client() {
+NS_Client::Client::Client() {
 
 }
 
-int Client::getIdClient() {
+int NS_Client::Client::getIdClient() {
 	return this->idClient;
 }
 
-String^ Client::getNom() {
+String^ NS_Client::Client::getNom() {
 	return this->nom;
 }
 
-String^ Client::getPrenom() {
+String^ NS_Client::Client::getPrenom() {
 	return this->prenom;
 }
 
 
-String^ Client::getDateNaissance() {
+String^ NS_Client::Client::getDateNaissance() {
 	return this->dateNaissance;
 }
 
-void Client::setIdClient(int idClient) {
+void NS_Client::Client::setIdClient(int idClient) {
 	this->idClient = idClient;
 }
 
-void Client::setNom(String^ nom) {
+void NS_Client::Client::setNom(String^ nom) {
 	this->nom = nom;
 }
 
-void Client::setPrenom(String^ prenom) {
+void NS_Client::Client::setPrenom(String^ prenom) {
 	this->prenom = prenom;
 }
 
 
-void Client::setDateNaissance(String^ dateNaissance) {
+void NS_Client::Client::setDateNaissance(String^ dateNaissance) {
 	this->dateNaissance = dateNaissance;
 }

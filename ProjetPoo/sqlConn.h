@@ -6,8 +6,8 @@ namespace NS_sql_Conn {
 	private:
 		System::String^ sSql;
 		System::String^ sCnx;
-		System::Data::SqlClient::SqlConnection^ oCnx;
-		System::Data::SqlClient::SqlCommand^ oCmd;
+		System::Data::SqlClient::SqlConnection^ conn;
+		System::Data::SqlClient::SqlCommand^ sqlCommand;
 		System::Data::SqlClient::SqlDataAdapter^ oDA;
 		System::Data::DataSet^ oDs;
 	public:

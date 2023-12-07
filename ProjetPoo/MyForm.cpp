@@ -11,5 +11,6 @@ int __clrcall main()
 	Application::SetCompatibleTextRenderingDefault(false);
 	ProjetPoo::MyForm monFormulaire;
 	Application::Run(% monFormulaire);
+	return 0;
 }
 

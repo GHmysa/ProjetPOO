@@ -1,6 +1,8 @@
 #pragma once
 #include "sqlFunction.h"
-#include "Client.h"
+
+
+
 
 namespace ProjetPoo {
 
@@ -10,9 +12,10 @@ namespace ProjetPoo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
-	/// Description résumée de FormClient
+	/// Description rÃ©sumÃ©e de FormClient
 	/// </summary>
 	public ref class FormClient : public System::Windows::Forms::Form
 	{
@@ -27,7 +30,7 @@ namespace ProjetPoo {
 
 	protected:
 		/// <summary>
-		/// Nettoyage des ressources utilisées.
+		/// Nettoyage des ressources utilisÃ©es.
 		/// </summary>
 		~FormClient()
 		{
@@ -91,6 +94,8 @@ namespace ProjetPoo {
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ lbUpdate;
 
+	
+
 	private: NS_sql_Function::sqlFunction^ oSvc;
 	private: System::Data::DataSet^ oDs;
 	private: System::Windows::Forms::Button^ btnBack;
@@ -101,14 +106,14 @@ namespace ProjetPoo {
 
 	private:
 		/// <summary>
-		/// Variable nécessaire au concepteur.
+		/// Variable nÃ©cessaire au concepteur.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
-		/// le contenu de cette méthode avec l'éditeur de code.
+		/// MÃ©thode requise pour la prise en charge du concepteur - ne modifiez pas
+		/// le contenu de cette mÃ©thode avec l'Ã©diteur de code.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -254,6 +259,7 @@ namespace ProjetPoo {
 			this->textBox16->Name = L"textBox16";
 			this->textBox16->Size = System::Drawing::Size(396, 38);
 			this->textBox16->TabIndex = 14;
+			this->textBox16->Text = L"  ";
 			// 
 			// label15
 			// 
@@ -357,6 +363,7 @@ namespace ProjetPoo {
 			this->btnVSelect->TabIndex = 7;
 			this->btnVSelect->Text = L"Rechercher";
 			this->btnVSelect->UseVisualStyleBackColor = true;
+			this->btnVSelect->Click += gcnew System::EventHandler(this, &FormClient::btnVSelect_Click);
 			// 
 			// txtBirth
 			// 
@@ -383,6 +390,7 @@ namespace ProjetPoo {
 			this->txtPrenom->Name = L"txtPrenom";
 			this->txtPrenom->Size = System::Drawing::Size(500, 38);
 			this->txtPrenom->TabIndex = 4;
+			this->txtPrenom->Tag = L"firstname_c";
 			// 
 			// lbprenom
 			// 
@@ -411,6 +419,7 @@ namespace ProjetPoo {
 			this->txtNom->Name = L"txtNom";
 			this->txtNom->Size = System::Drawing::Size(500, 38);
 			this->txtNom->TabIndex = 1;
+			this->txtNom->Tag = L"lastname_c";
 			// 
 			// label1
 			// 
@@ -749,11 +758,11 @@ namespace ProjetPoo {
 			this->Controls->Add(this->btnInsert);
 			this->Controls->Add(this->btnAffiche);
 			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->panelDelete);
 			this->Controls->Add(this->panelSelect);
 			this->Controls->Add(this->panelInsert);
 			this->Controls->Add(this->panelUpdate);
 			this->Margin = System::Windows::Forms::Padding(4);
+			this->Controls->Add(this->panelDelete);
 			this->Name = L"FormClient";
 			this->Text = L"FormClient";
 			this->Load += gcnew System::EventHandler(this, &FormClient::FormClient_Load);
@@ -813,7 +822,26 @@ namespace ProjetPoo {
 		this->dataGridView1->DataSource = this->oDs;
 		this->dataGridView1->DataMember = "Rsl";
 	}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void btnVSelect_Click(System::Object^ sender, System::EventArgs^ e) {
+		List<TextBox^>^ textBoxList;
+		List<TextBox^>^ nonEmptyTxtBox;
+		textBoxList = (gcnew List<TextBox^>());
+		nonEmptyTxtBox = (gcnew List<TextBox^>());
+		textBoxList->Add(this->txtPrenom);
+		textBoxList->Add(this->txtNom);
+		for each (TextBox ^ textBox in textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oDs = this->oSvc->selectSpe("Rsl","Client", nonEmptyTxtBox);
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+  	}
 };
 }
