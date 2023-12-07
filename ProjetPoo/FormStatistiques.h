@@ -15,12 +15,10 @@ namespace ProjetPoo {
 	public ref class FormStatistiques : public System::Windows::Forms::Form
 	{
 	public:
-		FormStatistiques(void)
+		FormStatistiques(Form^ f0)
 		{
 			InitializeComponent();
-			//
-			//TODO: ajoutez ici le code du constructeur
-			//
+			this->FormRetour = f0;
 		}
 
 	protected:
@@ -40,6 +38,9 @@ namespace ProjetPoo {
 		/// Variable nécessaire au concepteur.
 		/// </summary>
 		System::ComponentModel::Container ^components;
+	private: System::Windows::Forms::Button^ btnBack;
+
+	private: System::Windows::Forms::Form^ FormRetour;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -48,18 +49,37 @@ namespace ProjetPoo {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->btnBack = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
+			// 
+			// btnBack
+			// 
+			this->btnBack->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+			this->btnBack->Location = System::Drawing::Point(13, 13);
+			this->btnBack->Margin = System::Windows::Forms::Padding(4);
+			this->btnBack->Name = L"btnBack";
+			this->btnBack->Size = System::Drawing::Size(333, 124);
+			this->btnBack->TabIndex = 37;
+			this->btnBack->Text = L"Retour au menu";
+			this->btnBack->UseVisualStyleBackColor = true;
+			this->btnBack->Click += gcnew System::EventHandler(this, &FormStatistiques::btnBack_Click);
 			// 
 			// FormStatistiques
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
+			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(466, 356);
+			this->ClientSize = System::Drawing::Size(621, 441);
+			this->Controls->Add(this->btnBack);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"FormStatistiques";
 			this->Text = L"FormStatistiques";
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->FormRetour->Show();
+		this->Hide();
+	}
 	};
 }
