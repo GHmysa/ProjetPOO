@@ -42,5 +42,5 @@ System::String^ NS_sql_Map::sqlMap::SelectSpeQuery(System::String^ tableName, Li
 		}
 	}
 
-	return "SELECT "+ elem +" FROM[Projet].[dbo].[" + tableName + "] WHERE " + query+";";
+	return "SELECT "+ elem +" FROM [Projet].[dbo].[" + tableName + "] WHERE " + query+";";
 }
