@@ -10,17 +10,18 @@ namespace NS_Client {
 	{
 #pragma once
 	private:
-		int idClient;
+		System::Int32 idClient;
 		String^ dateNaissance;
+		
 
 	public:
-		Client(int idClient, String^ nom, String^ prenom, String^ dateNaissance);
+		Client(System::Int32 idClient, String^ nom, String^ prenom, String^ dateNaissance);
 		Client();
 		int getIdClient();
 		String^ getNom();
 		String^ getPrenom();
 		String^ getDateNaissance();
-		void setIdClient(int idClient);
+		void setIdClient(System::Int32 idClient);
 		void setNom(String^ nom);
 		void setPrenom(String^ prenom);
 		void setDateNaissance(String^ dateNaissance);

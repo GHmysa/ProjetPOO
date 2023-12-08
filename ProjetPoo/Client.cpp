@@ -1,7 +1,7 @@
 #include "Client.h"
 
 using namespace System;
-NS_Client::Client::Client(int idClient, String^ nom, String^ prenom, String^ dateNaissance) {
+NS_Client::Client::Client(System::Int32 idClient, String^ nom, String^ prenom, String^ dateNaissance) {
 
 	this->idClient = idClient;
 	this->nom = nom;
@@ -30,7 +30,7 @@ String^ NS_Client::Client::getDateNaissance() {
 	return this->dateNaissance;
 }
 
-void NS_Client::Client::setIdClient(int idClient) {
+void NS_Client::Client::setIdClient(System::Int32 idClient) {
 	this->idClient = idClient;
 }
 

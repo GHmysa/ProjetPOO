@@ -16,6 +16,8 @@ namespace NS_sql_Function{
 		System::Data::DataSet^ selectionnerToutesLesPersonnes(System::String^, System::String^);
 		System::Data::DataSet^ selectSpe(System::String^,System::String^,List<System::Windows::Forms::TextBox^>^ nonEmptyTxtBox, System::String^ elem);
 		void insertSpe(System::String^ res, System::String^ tableName, NS_objFonction::objFonction^ objFonction, List<System::Windows::Forms::TextBox^>^ TxtBoxList);
+		System::Windows::Forms::TextBox^ getSpeID(String^ tableName, List<System::Windows::Forms::TextBox^>^ TxtBoxList, String^ AN, String^ id);
+
 	};
 }
 
