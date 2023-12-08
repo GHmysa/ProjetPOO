@@ -17,6 +17,14 @@ String^ NS_objFonction::objFonction::getAttributs()
 	}
 	if (this->currentObj == "Personnel")
 	{
-		return "'" + this->personnel->getPrenom() + "', '" + this->personnel->getNom()+ "', " + this->personnel->getDateEmbauche() +"," + this->personnel->getSuperieur() + ", " + Convert::ToString(this->personnel->getAdresse()->getIdAdresse());
+		return "'" + this->personnel->getPrenom() + "', '" + this->personnel->getNom()+ "',' " + this->personnel->getDateEmbauche() +"'," + this->personnel->getSuperieur() + ", " + Convert::ToString(this->personnel->getAdresse()->getIdAdresse());
+	}
+	if (this->currentObj == "Client")
+	{
+		return "'" + this->client->getPrenom()+"','"+this->client->getNom()+"','"+this->client->getDateNaissance()+"'";
+	}
+	if (this->currentObj == "Have")
+	{
+		return Convert::ToString(this->adresse->getIdAdresse()) + "," + Convert::ToString(this->client->getIdClient());
 	}
 }
