@@ -1,5 +1,5 @@
 #pragma once
-
+#include "objFonction.h"
 namespace ProjetPoo {
 
 	using namespace System;
@@ -8,6 +8,7 @@ namespace ProjetPoo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Description résumée de FormStatistiques

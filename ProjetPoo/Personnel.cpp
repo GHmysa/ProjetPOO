@@ -1,31 +1,43 @@
 #include "Personnel.h"
 
-Personnel::Personnel()
+NS_Personnel::Personnel::Personnel()
 {
-
+	this->prenom = "";
+	this->nom = "";
+	this->dateEmbauche = "";
+	this->superieur = "";
+	this->idPersonnel = 0;
+	this->address = gcnew NS_Adresse::Adresse();
 }
 
-void Personnel::setIdPersonnel(int) {
+void NS_Personnel::Personnel::setIdPersonnel(int idPersonnel) {
 	this->idPersonnel = idPersonnel;
 }
 
-void Personnel::setDateEmbauche(String^) {
+void NS_Personnel::Personnel::setDateEmbauche(String^ dateEmbauche) {
 	this->dateEmbauche = dateEmbauche;
 }
 
-int Personnel::getIdPersonnel() {
+int NS_Personnel::Personnel::getIdPersonnel() {
 	return this->idPersonnel;
 }
 
-String^ Personnel::getDateEmbauche() {
+String^ NS_Personnel::Personnel::getDateEmbauche() {
 	return this->dateEmbauche;
 }
 
-Personnel^ Personnel::getSuperieur() {
+String^ NS_Personnel::Personnel::getSuperieur() {
 	return this->superieur;
 }
 
-void Personnel::setSuperieur(Personnel^ superieur) {
+void NS_Personnel::Personnel::setSuperieur(String^ superieur) {
 	this->superieur = superieur;
 }
-
+void NS_Personnel::Personnel::setAdresse(NS_Adresse::Adresse^ addresse)
+{
+	this->address = addresse;
+}
+NS_Adresse::Adresse^ NS_Personnel::Personnel::getAdresse()
+{
+	return this->address;
+}

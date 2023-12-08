@@ -5,54 +5,53 @@
 using namespace std;
 using namespace System;
 
-
-Adresse::Adresse(int codePostal, int idAdresse, String^ pays, String^ ville)
+NS_Adresse::Adresse::Adresse()
 {
-	this->codePostal = codePostal;
-	this->idAdresse = idAdresse;
-	this->pays = pays;
-	this->ville = ville;
-
-}
-
-Adresse::Adresse()
-{
-	this->codePostal = 0;
+	this->codePostal = "";
 	this->idAdresse = 0;
 	this->pays = "";
 	this->ville = "";
+	this->Address = "";
 }
 
-void Adresse::setCodePostal(int codePostal)
+void NS_Adresse::Adresse::setCodePostal(String^ codePostal)
 {
 	this->codePostal = codePostal;
 }
-void Adresse::setIdAdresse(int idAdresse)
+void NS_Adresse::Adresse::setIdAdresse(System::Int32^ idAdresse)
 {
 	this->idAdresse = idAdresse;
 }
-void Adresse::setPays(String^ pays)
+void NS_Adresse::Adresse::setPays(String^ pays)
 {
 	this->pays = pays;
 }
-void Adresse::setVille(String^ ville)
+void NS_Adresse::Adresse::setVille(String^ ville)
 {
 	this->ville = ville;
 }
+void NS_Adresse::Adresse::setAdresse(String^ addresse)
+{
+	this->Address = addresse;
+}
 
-int Adresse::getCodePostal()
+String^ NS_Adresse::Adresse::getCodePostal()
 {
 	return this->codePostal;
 }
-int Adresse::getIdAdresse()
+System::Int32^ NS_Adresse::Adresse::getIdAdresse()
 {
 	return this->idAdresse;
 }
-String^ Adresse::getPays()
+String^ NS_Adresse::Adresse::getPays()
 {
 	return this->pays;
 }
-String^ Adresse::getVille()
+String^ NS_Adresse::Adresse::getVille()
 {
 	return this->ville;
+}
+String^ NS_Adresse::Adresse::getAdresse()
+{
+	return this->Address;
 }

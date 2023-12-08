@@ -1,23 +1,30 @@
 #pragma once
 #include "Personne.h"
+#include "Adresse.h"
 using namespace System;
 
-ref class Personnel : public Personne
-{
-private:
-	int idPersonnel;
-	String^ dateEmbauche;
-	Personnel^ superieur;
+namespace NS_Personnel {
+	ref class Personnel : public Personne
+	{
+	private:
+		int idPersonnel;
+		String^ dateEmbauche;
+		String^ superieur;
+		NS_Adresse::Adresse^  address;
 
-public:
-	Personnel();
-	void setIdPersonnel(int);
-	void setDateEmbauche(String^);
+	public:
+		Personnel();
+		void setIdPersonnel(int);
+		void setDateEmbauche(String^);
 
-	int getIdPersonnel();
-	String^ getDateEmbauche();
-	Personnel^ getSuperieur();
-	void setSuperieur(Personnel^);
+		int getIdPersonnel();
+		String^ getDateEmbauche();
+		String^ getSuperieur();
+		NS_Adresse::Adresse^ getAdresse();
+		void setAdresse(NS_Adresse::Adresse^ adresse);
+		void setSuperieur(String^);
 
-};
+	};
+}
+
 

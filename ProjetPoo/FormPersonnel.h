@@ -1,4 +1,3 @@
-#pragma once
 #include "sqlFunction.h"
 
 namespace ProjetPoo {
@@ -9,9 +8,10 @@ namespace ProjetPoo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
-	/// Description résumée de FormPersonnel
+	/// Description rÃ©sumÃ©e de FormPersonnel
 	/// </summary>
 	public ref class FormPersonnel : public System::Windows::Forms::Form
 	{
@@ -24,7 +24,7 @@ namespace ProjetPoo {
 
 	protected:
 		/// <summary>
-		/// Nettoyage des ressources utilisées.
+		/// Nettoyage des ressources utilisÃ©es.
 		/// </summary>
 		~FormPersonnel()
 		{
@@ -35,6 +35,7 @@ namespace ProjetPoo {
 		}
 	private: NS_sql_Function::sqlFunction^ oSvc;
 	private: System::Data::DataSet^ oDs;
+	public: NS_objFonction::objFonction^ objfonction;
 
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::Button^ btnAffiche;
@@ -51,24 +52,30 @@ namespace ProjetPoo {
 
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Button^ btnVSelect;
-	private: System::Windows::Forms::TextBox^ txtBirth;
+	private: System::Windows::Forms::TextBox^ txtHiring;
+
 	private: System::Windows::Forms::Label^ lbHiring;
 
 	private: System::Windows::Forms::TextBox^ txtPrenom;
 	private: System::Windows::Forms::Label^ lbprenom;
-	private: System::Windows::Forms::TextBox^ textBox5;
+	private: System::Windows::Forms::TextBox^ txtInsertCity;
+
 	private: System::Windows::Forms::Label^ lbCity;
+	private: System::Windows::Forms::TextBox^ txtInsertZip;
 
-	private: System::Windows::Forms::TextBox^ textBox4;
+
 	private: System::Windows::Forms::Label^ lbZipCode;
+	private: System::Windows::Forms::TextBox^ txtInsertAddress;
 
-	private: System::Windows::Forms::TextBox^ textBox3;
+
 	private: System::Windows::Forms::Label^ lbAddress;
-
-
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::Label^ lbInsertHiring;
 	private: System::Windows::Forms::TextBox^ txtInsertHiring;
+
+
+
+	private: System::Windows::Forms::Label^ lbInsertHiring;
+	private: System::Windows::Forms::TextBox^ txtInsertPrenom;
+
 
 
 	private: System::Windows::Forms::Label^ lbInsertPrenom;
@@ -97,22 +104,29 @@ namespace ProjetPoo {
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::TextBox^ textBox16;
 	private: System::Windows::Forms::Label^ label15;
+	private: System::Windows::Forms::TextBox^ txtInsertSup;
+
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::TextBox^ txtInsertLand;
+	private: List<TextBox^>^ textBoxList;
 
 	private: System::Windows::Forms::Form^ FormRetour;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ btnBack;
 
 
+
 	private:
 		/// <summary>
-		/// Variable nécessaire au concepteur.
+		/// Variable nÃ©cessaire au concepteur.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
-		/// le contenu de cette méthode avec l'éditeur de code.
+		/// MÃ©thode requise pour la prise en charge du concepteur - ne modifiez pas
+		/// le contenu de cette mÃ©thode avec l'Ã©diteur de code.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -124,7 +138,7 @@ namespace ProjetPoo {
 			this->btnSupprimer = (gcnew System::Windows::Forms::Button());
 			this->panelSelect = (gcnew System::Windows::Forms::Panel());
 			this->btnVSelect = (gcnew System::Windows::Forms::Button());
-			this->txtBirth = (gcnew System::Windows::Forms::TextBox());
+			this->txtHiring = (gcnew System::Windows::Forms::TextBox());
 			this->lbHiring = (gcnew System::Windows::Forms::Label());
 			this->txtPrenom = (gcnew System::Windows::Forms::TextBox());
 			this->lbprenom = (gcnew System::Windows::Forms::Label());
@@ -132,17 +146,19 @@ namespace ProjetPoo {
 			this->txtNom = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panelInsert = (gcnew System::Windows::Forms::Panel());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->txtInsertSup = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->btnVInsert = (gcnew System::Windows::Forms::Button());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->txtInsertCity = (gcnew System::Windows::Forms::TextBox());
 			this->lbCity = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->txtInsertZip = (gcnew System::Windows::Forms::TextBox());
 			this->lbZipCode = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->txtInsertAddress = (gcnew System::Windows::Forms::TextBox());
 			this->lbAddress = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->lbInsertHiring = (gcnew System::Windows::Forms::Label());
 			this->txtInsertHiring = (gcnew System::Windows::Forms::TextBox());
+			this->lbInsertHiring = (gcnew System::Windows::Forms::Label());
+			this->txtInsertPrenom = (gcnew System::Windows::Forms::TextBox());
 			this->lbInsertPrenom = (gcnew System::Windows::Forms::Label());
 			this->txtInsertNom = (gcnew System::Windows::Forms::TextBox());
 			this->lbNomInsert = (gcnew System::Windows::Forms::Label());
@@ -170,8 +186,13 @@ namespace ProjetPoo {
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->textBox16 = (gcnew System::Windows::Forms::TextBox());
 			this->label15 = (gcnew System::Windows::Forms::Label());
+
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->txtInsertLand = (gcnew System::Windows::Forms::TextBox());
+
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->btnBack = (gcnew System::Windows::Forms::Button());
+
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panelSelect->SuspendLayout();
 			this->panelInsert->SuspendLayout();
@@ -249,7 +270,7 @@ namespace ProjetPoo {
 			this->panelSelect->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->panelSelect->Controls->Add(this->btnVSelect);
-			this->panelSelect->Controls->Add(this->txtBirth);
+			this->panelSelect->Controls->Add(this->txtHiring);
 			this->panelSelect->Controls->Add(this->lbHiring);
 			this->panelSelect->Controls->Add(this->txtPrenom);
 			this->panelSelect->Controls->Add(this->lbprenom);
@@ -271,15 +292,17 @@ namespace ProjetPoo {
 			this->btnVSelect->TabIndex = 7;
 			this->btnVSelect->Text = L"Rechercher";
 			this->btnVSelect->UseVisualStyleBackColor = true;
+			this->btnVSelect->Click += gcnew System::EventHandler(this, &FormPersonnel::btnVSelect_Click);
 			// 
-			// txtBirth
+			// txtHiring
 			// 
-			this->txtBirth->Location = System::Drawing::Point(769, 131);
-			this->txtBirth->Margin = System::Windows::Forms::Padding(4);
-			this->txtBirth->Name = L"txtBirth";
-			this->txtBirth->Size = System::Drawing::Size(500, 38);
-			this->txtBirth->TabIndex = 6;
-			this->txtBirth->Tag = L"hiring_p";
+
+			this->txtHiring->Location = System::Drawing::Point(577, 106);
+			this->txtHiring->Name = L"txtHiring";
+			this->txtHiring->Size = System::Drawing::Size(376, 31);
+			this->txtHiring->TabIndex = 6;
+			this->txtHiring->Tag = L"hiring_p";
+
 			// 
 			// lbHiring
 			// 
@@ -343,17 +366,21 @@ namespace ProjetPoo {
 			// 
 			this->panelInsert->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->panelInsert->Controls->Add(this->label11);
+			this->panelInsert->Controls->Add(this->txtInsertLand);
+			this->panelInsert->Controls->Add(this->label10);
+			this->panelInsert->Controls->Add(this->txtInsertSup);
 			this->panelInsert->Controls->Add(this->label2);
 			this->panelInsert->Controls->Add(this->btnVInsert);
-			this->panelInsert->Controls->Add(this->textBox5);
+			this->panelInsert->Controls->Add(this->txtInsertCity);
 			this->panelInsert->Controls->Add(this->lbCity);
-			this->panelInsert->Controls->Add(this->textBox4);
+			this->panelInsert->Controls->Add(this->txtInsertZip);
 			this->panelInsert->Controls->Add(this->lbZipCode);
-			this->panelInsert->Controls->Add(this->textBox3);
+			this->panelInsert->Controls->Add(this->txtInsertAddress);
 			this->panelInsert->Controls->Add(this->lbAddress);
-			this->panelInsert->Controls->Add(this->textBox2);
-			this->panelInsert->Controls->Add(this->lbInsertHiring);
 			this->panelInsert->Controls->Add(this->txtInsertHiring);
+			this->panelInsert->Controls->Add(this->lbInsertHiring);
+			this->panelInsert->Controls->Add(this->txtInsertPrenom);
 			this->panelInsert->Controls->Add(this->lbInsertPrenom);
 			this->panelInsert->Controls->Add(this->txtInsertNom);
 			this->panelInsert->Controls->Add(this->lbNomInsert);
@@ -362,6 +389,24 @@ namespace ProjetPoo {
 			this->panelInsert->Name = L"panelInsert";
 			this->panelInsert->Size = System::Drawing::Size(1345, 521);
 			this->panelInsert->TabIndex = 6;
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(776, 174);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(105, 25);
+			this->label10->TabIndex = 15;
+			this->label10->Text = L"SupÃ©rieur";
+			// 
+			// txtInsertSup
+			// 
+			this->txtInsertSup->AccessibleName = L"superieur";
+			this->txtInsertSup->Location = System::Drawing::Point(781, 220);
+			this->txtInsertSup->Name = L"txtInsertSup";
+			this->txtInsertSup->Size = System::Drawing::Size(149, 31);
+			this->txtInsertSup->TabIndex = 14;
+			this->txtInsertSup->Tag = L"sup_p";
 			// 
 			// label2
 			// 
@@ -382,15 +427,18 @@ namespace ProjetPoo {
 			this->btnVInsert->TabIndex = 13;
 			this->btnVInsert->Text = L"Inserer";
 			this->btnVInsert->UseVisualStyleBackColor = true;
+			this->btnVInsert->Click += gcnew System::EventHandler(this, &FormPersonnel::btnVInsert_Click);
 			// 
-			// textBox5
+			// txtInsertCity
 			// 
-			this->textBox5->Location = System::Drawing::Point(571, 413);
-			this->textBox5->Margin = System::Windows::Forms::Padding(4);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(396, 38);
-			this->textBox5->TabIndex = 12;
-			this->textBox5->Tag = L"city_a";
+
+			this->txtInsertCity->AccessibleName = L"ville";
+			this->txtInsertCity->Location = System::Drawing::Point(428, 333);
+			this->txtInsertCity->Name = L"txtInsertCity";
+			this->txtInsertCity->Size = System::Drawing::Size(298, 31);
+			this->txtInsertCity->TabIndex = 12;
+			this->txtInsertCity->Tag = L"city_a";
+
 			// 
 			// lbCity
 			// 
@@ -402,14 +450,16 @@ namespace ProjetPoo {
 			this->lbCity->TabIndex = 11;
 			this->lbCity->Text = L"Ville";
 			// 
-			// textBox4
+			// txtInsertZip
 			// 
-			this->textBox4->Location = System::Drawing::Point(571, 270);
-			this->textBox4->Margin = System::Windows::Forms::Padding(4);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(396, 38);
-			this->textBox4->TabIndex = 10;
-			this->textBox4->Tag = L"zipcode_a";
+
+			this->txtInsertZip->AccessibleName = L"codePostal";
+			this->txtInsertZip->Location = System::Drawing::Point(428, 218);
+			this->txtInsertZip->Name = L"txtInsertZip";
+			this->txtInsertZip->Size = System::Drawing::Size(298, 31);
+			this->txtInsertZip->TabIndex = 10;
+			this->txtInsertZip->Tag = L"zipcode_a";
+
 			// 
 			// lbZipCode
 			// 
@@ -421,14 +471,16 @@ namespace ProjetPoo {
 			this->lbZipCode->TabIndex = 9;
 			this->lbZipCode->Text = L"Code postal";
 			// 
-			// textBox3
+			// txtInsertAddress
 			// 
-			this->textBox3->Location = System::Drawing::Point(571, 133);
-			this->textBox3->Margin = System::Windows::Forms::Padding(4);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(396, 38);
-			this->textBox3->TabIndex = 8;
-			this->textBox3->Tag = L"address_a";
+
+			this->txtInsertAddress->AccessibleName = L"Address";
+			this->txtInsertAddress->Location = System::Drawing::Point(428, 107);
+			this->txtInsertAddress->Name = L"txtInsertAddress";
+			this->txtInsertAddress->Size = System::Drawing::Size(298, 31);
+			this->txtInsertAddress->TabIndex = 8;
+			this->txtInsertAddress->Tag = L"address_a";
+
 			// 
 			// lbAddress
 			// 
@@ -440,14 +492,16 @@ namespace ProjetPoo {
 			this->lbAddress->TabIndex = 7;
 			this->lbAddress->Text = L"Adresse";
 			// 
-			// textBox2
+			// txtInsertHiring
 			// 
-			this->textBox2->Location = System::Drawing::Point(33, 413);
-			this->textBox2->Margin = System::Windows::Forms::Padding(4);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(396, 38);
-			this->textBox2->TabIndex = 6;
-			this->textBox2->Tag = L"hiring_p";
+
+			this->txtInsertHiring->AccessibleName = L"dateEmbauche";
+			this->txtInsertHiring->Location = System::Drawing::Point(25, 333);
+			this->txtInsertHiring->Name = L"txtInsertHiring";
+			this->txtInsertHiring->Size = System::Drawing::Size(298, 31);
+			this->txtInsertHiring->TabIndex = 6;
+			this->txtInsertHiring->Tag = L"hiring_p";
+
 			// 
 			// lbInsertHiring
 			// 
@@ -459,14 +513,16 @@ namespace ProjetPoo {
 			this->lbInsertHiring->TabIndex = 5;
 			this->lbInsertHiring->Text = L"Date d\'embauche";
 			// 
-			// txtInsertHiring
+			// txtInsertPrenom
 			// 
-			this->txtInsertHiring->Location = System::Drawing::Point(33, 281);
-			this->txtInsertHiring->Margin = System::Windows::Forms::Padding(4);
-			this->txtInsertHiring->Name = L"txtInsertHiring";
-			this->txtInsertHiring->Size = System::Drawing::Size(396, 38);
-			this->txtInsertHiring->TabIndex = 4;
-			this->txtInsertHiring->Tag = L"firstname_p";
+
+			this->txtInsertPrenom->AccessibleName = L"prenom";
+			this->txtInsertPrenom->Location = System::Drawing::Point(25, 227);
+			this->txtInsertPrenom->Name = L"txtInsertPrenom";
+			this->txtInsertPrenom->Size = System::Drawing::Size(298, 31);
+			this->txtInsertPrenom->TabIndex = 4;
+			this->txtInsertPrenom->Tag = L"firstname_p";
+
 			// 
 			// lbInsertPrenom
 			// 
@@ -480,8 +536,9 @@ namespace ProjetPoo {
 			// 
 			// txtInsertNom
 			// 
-			this->txtInsertNom->Location = System::Drawing::Point(33, 133);
-			this->txtInsertNom->Margin = System::Windows::Forms::Padding(4);
+
+			this->txtInsertNom->AccessibleName = L"nom";
+			this->txtInsertNom->Location = System::Drawing::Point(25, 107);
 			this->txtInsertNom->Name = L"txtInsertNom";
 			this->txtInsertNom->Size = System::Drawing::Size(396, 38);
 			this->txtInsertNom->TabIndex = 2;
@@ -750,6 +807,25 @@ namespace ProjetPoo {
 			this->label15->TabIndex = 13;
 			this->label15->Text = L"Nom *";
 			// 
+
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(776, 63);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(60, 25);
+			this->label11->TabIndex = 17;
+			this->label11->Text = L"Pays";
+			// 
+			// txtInsertLand
+			// 
+			this->txtInsertLand->AccessibleName = L"pays";
+			this->txtInsertLand->Location = System::Drawing::Point(781, 109);
+			this->txtInsertLand->Name = L"txtInsertLand";
+			this->txtInsertLand->Size = System::Drawing::Size(149, 31);
+			this->txtInsertLand->TabIndex = 16;
+			this->txtInsertLand->Tag = L"land_a";
+
 			// btnBack
 			// 
 			this->btnBack->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
@@ -761,6 +837,7 @@ namespace ProjetPoo {
 			this->btnBack->Text = L"Retour au menu";
 			this->btnBack->UseVisualStyleBackColor = true;
 			this->btnBack->Click += gcnew System::EventHandler(this, &FormPersonnel::btnBack_Click);
+
 			// 
 			// FormPersonnel
 			// 
@@ -775,10 +852,10 @@ namespace ProjetPoo {
 			this->Controls->Add(this->btnInsert);
 			this->Controls->Add(this->btnAffiche);
 			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->panelDelete);
-			this->Controls->Add(this->panelSelect);
 			this->Controls->Add(this->panelInsert);
 			this->Controls->Add(this->panelUpdate);
+			this->Controls->Add(this->panelDelete);
+			this->Controls->Add(this->panelSelect);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"FormPersonnel";
@@ -814,9 +891,6 @@ namespace ProjetPoo {
 		this->panelInsert->Hide();
 		this->panelUpdate->Hide();
 		this->panelSelect->Show();
-		
-		
-
 	}
 	private: System::Void btnInsert_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->panelDelete->Hide();
@@ -838,6 +912,97 @@ namespace ProjetPoo {
 		this->panelSelect->Hide();
 		this->panelDelete->Show();
 	}
+
+	private: System::Void btnVSelect_Click(System::Object^ sender, System::EventArgs^ e) {
+		List<TextBox^>^ textBoxList;
+		List<TextBox^>^ nonEmptyTxtBox;
+		textBoxList = (gcnew List<TextBox^>());
+		nonEmptyTxtBox = (gcnew List<TextBox^>());
+		textBoxList->Add(this->txtPrenom);
+		textBoxList->Add(this->txtNom);
+		textBoxList->Add(this->txtHiring);
+		for each (TextBox ^ textBox in textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oDs = this->oSvc->selectSpe("Rsl", "Personnel", nonEmptyTxtBox,"*");
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+
+	}
+	private: void generatePersonnel()
+	{
+		this->objfonction = (gcnew NS_objFonction::objFonction);
+		this->textBoxList = (gcnew List<TextBox^>());
+		this->textBoxList->Add(this->txtInsertPrenom);
+		this->textBoxList->Add(this->txtInsertNom);
+		this->textBoxList->Add(this->txtInsertHiring);
+		this->textBoxList->Add(this->txtInsertAddress);
+		this->textBoxList->Add(this->txtInsertZip);
+		this->textBoxList->Add(this->txtInsertCity);
+		this->textBoxList->Add(this->txtInsertLand);
+		this->textBoxList->Add(this->txtInsertSup);
+		for each (TextBox ^ textbox in textBoxList)
+		{
+			if (textbox->AccessibleName == "prenom")
+			{
+				this->objfonction->personnel->setPrenom(textbox->Text);
+			}
+			if (textbox->AccessibleName == "nom")
+			{
+				this->objfonction->personnel->setNom(textbox->Text);
+			}
+			if (textbox->AccessibleName == "dateEmbauche")
+			{
+				this->objfonction->personnel->setDateEmbauche(textbox->Text);
+			}
+			if (textbox->AccessibleName == "Address")
+			{
+				this->objfonction->adresse->setAdresse(textbox->Text);
+			}
+			if (textbox->AccessibleName == "codePostal")
+			{
+				this->objfonction->adresse->setCodePostal(textbox->Text);
+			}
+			if (textbox->AccessibleName == "ville")
+			{
+				this->objfonction->adresse->setVille(textbox->Text);
+			}
+			if (textbox->AccessibleName == "pays")
+			{
+				this->objfonction->adresse->setPays(textbox->Text);
+			}
+			if (textbox->AccessibleName == "superieur")
+			{
+				this->objfonction->personnel->setSuperieur(textbox->Text);
+			}
+		}
+		this->objfonction->personnel->setAdresse(this->objfonction->adresse);
+		this->objfonction->has2Query = true;
+		this->objfonction->currentObj = "Personnel";
+
+
+	}
+	private: System::Void btnVInsert_Click(System::Object^ sender, System::EventArgs^ e) {
+		generatePersonnel();
+		System::String^ res = "Rsl";
+		System::String^ tableName = "Personnel";
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oSvc->insertSpe(res, tableName, this->objfonction, this->textBoxList);
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+		this->dataGridView1->Refresh();
+
+
+	}
+	
+
 	private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->panelDelete->Hide();
 		this->panelInsert->Hide();
@@ -846,5 +1011,6 @@ namespace ProjetPoo {
 		this->FormRetour->Show();
 		this->Hide();
 	}
+
 };
 }

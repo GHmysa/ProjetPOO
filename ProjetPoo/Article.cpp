@@ -1,10 +1,23 @@
 #include "Article.h"
 
-String^ Article::DonnerAttributsObjet() {
+String^ NS_Article::Article::DonnerAttributsObjet() {
 	return "Article";
 }
+NS_Article::Article::Article()
+{
+	this->couleurProduit = "";
+	this->idArticle = 0;
+	this->nomArticle = "";
+	this->prixHT = 0;
+	this->quantite = 0;
+	this->seuilReaprovisionnement = 0;
+	this->reference = "";
+	this->natureProduit = "";
+	this->prixTTC = 0;
+	this->tauxTVA = 0;
 
-Article::Article(int idArticle, String^ nomArticle, float prixHT, int quantite, int seuilReaprovisionnement, String^ reference, String^ natureProduit, String^ couleurProduit) {
+}
+NS_Article::Article::Article(int idArticle, String^ nomArticle, float prixHT, int quantite, int seuilReaprovisionnement, String^ reference, String^ natureProduit, String^ couleurProduit) {
 	this->idArticle = idArticle;
 	this->nomArticle = nomArticle;
 	this->prixHT = prixHT;
@@ -15,83 +28,83 @@ Article::Article(int idArticle, String^ nomArticle, float prixHT, int quantite, 
 	this->couleurProduit = couleurProduit;
 }
 
-int Article::getIdArticle() {
+int NS_Article::Article::getIdArticle() {
 	return idArticle;
 }
 
-String^ Article::getNomArticle() {
+String^ NS_Article::Article::getNomArticle() {
 	return nomArticle;
 }
 
-float Article::getPrixHT() {
+float NS_Article::Article::getPrixHT() {
 	return prixHT;
 }
 
-int Article::getQuantite() {
+int NS_Article::Article::getQuantite() {
 	return quantite;
 }
 
-int Article::getSeuilReaprovisionnement() {
+int NS_Article::Article::getSeuilReaprovisionnement() {
 	return seuilReaprovisionnement;
 }
 
-String^ Article::getReference() {
+String^ NS_Article::Article::getReference() {
 	return reference;
 }
 
-String^ Article::getNatureProduit() {
+String^ NS_Article::Article::getNatureProduit() {
 	return natureProduit;
 }
 
-String^ Article::getCouleurProduit() {
+String^ NS_Article::Article::getCouleurProduit() {
 	return couleurProduit;
 }
 
-void Article::setIdArticle(int idArticle) {
+void NS_Article::Article::setIdArticle(int idArticle) {
 	this->idArticle = idArticle;
 }
 
-void Article::setNomArticle(String^ nomArticle) {
+void NS_Article::Article::setNomArticle(String^ nomArticle) {
 	this->nomArticle = nomArticle;
 }
 
-void Article::setPrixHT(float prixHT) {
+void NS_Article::Article::setPrixHT(float prixHT) {
 	this->prixHT = prixHT;
 }
 
-void Article::setQuantite(int quantite) {
+void NS_Article::Article::setQuantite(int quantite) {
 	this->quantite = quantite;
 }
 
-void Article::setSeuilReaprovisionnement(int seuilReaprovisionnement) {
+void NS_Article::Article::setSeuilReaprovisionnement(int seuilReaprovisionnement) {
 	this->seuilReaprovisionnement = seuilReaprovisionnement;
 }
 
-void Article::setReference(String^ reference) {
+void NS_Article::Article::setReference(String^ reference) {
 	this->reference = reference;
 }
 
-void Article::setNatureProduit(String^ natureProduit) {
+void NS_Article::Article::setNatureProduit(String^ natureProduit) {
 	this->natureProduit = natureProduit;
 }
 
-void Article::setCouleurProduit(String^ couleurProduit) {
+void NS_Article::Article::setCouleurProduit(String^ couleurProduit) {
 	this->couleurProduit = couleurProduit;
 }
 
-void Article::setPrixTTC(float prixTTC) {
+void NS_Article::Article::setPrixTTC(float prixTTC) {
 	this->prixTTC = prixTTC;
 }
 
-float Article::getPrixTTC() {
+float NS_Article::Article::getPrixTTC() {
 	return prixTTC;
 }
 
-void Article::setTauxTVA(float tauxTVA) {
+void NS_Article::Article::setTauxTVA(float tauxTVA) {
 	this->tauxTVA = tauxTVA;
 }
 
-float Article::getTauxTVA() {
+float NS_Article::Article::getTauxTVA() {
 	return tauxTVA;
 }
 

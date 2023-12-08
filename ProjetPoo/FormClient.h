@@ -1,5 +1,6 @@
 #pragma once
 #include "sqlFunction.h"
+#include "objFonction.h"
 
 
 
@@ -839,7 +840,7 @@ namespace ProjetPoo {
 		}
 		this->dataGridView1->Refresh();
 		oSvc = gcnew NS_sql_Function::sqlFunction();
-		this->oDs = this->oSvc->selectSpe("Rsl","Client", nonEmptyTxtBox);
+		this->oDs = this->oSvc->selectSpe("Rsl","Client", nonEmptyTxtBox,"*");
 		this->dataGridView1->DataSource = this->oDs;
 		this->dataGridView1->DataMember = "Rsl";
   	}

@@ -31,7 +31,10 @@ void NS_sql_Conn::sqlConn::actionRows(System::String^ sSql)
 	this->sSql = sSql;
 	this->sqlCommand->CommandText = this->sSql;
 	this->oDA->SelectCommand = this->sqlCommand;
-	this->conn->Open();
+	if (this->conn->State != System::Data::ConnectionState::Open) {
+		this->conn->Open();
+	}
+
 	this->sqlCommand->ExecuteNonQuery();
 	this->conn->Close();
 }
