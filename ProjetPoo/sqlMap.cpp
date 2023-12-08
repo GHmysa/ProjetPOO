@@ -1,11 +1,23 @@
 #include "sqlMap.h"
 System::String^ NS_sql_Map::sqlMap::SelectTable(System::String^ tableName)
 {
-	return "SELECT * FROM [Projet].[dbo].["+tableName+"]";
+	return "SELECT * FROM [Projet].[dbo].["+tableName+"];";
 }
-System::String^ NS_sql_Map::sqlMap::Insert(void)
+System::String^ NS_sql_Map::sqlMap::insert(System::String^ tableName, NS_objFonction::objFonction^ objFonction, List<System::Windows::Forms::TextBox^>^ txtBoxList)
 {
-	return "";
+	System::String^ query1;
+	System::String^ queryf;
+
+	for each (System::Windows::Forms::TextBox ^ textbox in txtBoxList)
+	{
+		query1 = query1 + textbox->Tag;
+		if (textbox != txtBoxList[txtBoxList->Count - 1])
+		{
+			query1 = query1 + ",";
+		}
+	}
+	queryf = objFonction->getAttributs();
+	return "INSERT INTO "+tableName+" ("+query1+") VALUES ("+queryf+");";
 }
 System::String^ NS_sql_Map::sqlMap::Delete(void)
 {
@@ -15,7 +27,7 @@ System::String^ NS_sql_Map::sqlMap::Update(void)
 {
 	return "";
 }
-System::String^ NS_sql_Map::sqlMap::SelectSpeQuery(System::String^ tableName, List<System::Windows::Forms::TextBox^>^ nonEmptyTxtBox)
+System::String^ NS_sql_Map::sqlMap::SelectSpeQuery(System::String^ tableName, List<System::Windows::Forms::TextBox^>^ nonEmptyTxtBox, System::String^ elem)
 {
 	System::String^ query;
 	query = "";
@@ -29,5 +41,5 @@ System::String^ NS_sql_Map::sqlMap::SelectSpeQuery(System::String^ tableName, Li
 		}
 	}
 
-	return "SELECT * FROM [Projet].[dbo].[" + tableName + "] WHERE " + query;
+	return "SELECT "+ elem +" FROM[Projet].[dbo].[" + tableName + "] WHERE " + query+";";
 }

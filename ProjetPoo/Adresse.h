@@ -4,29 +4,30 @@
 using namespace std;
 using namespace System;
 
+namespace NS_Adresse {
 
-ref class Adresse
-{
-private:
+	ref class Adresse
+	{
+	private:
 
-	int idAdresse;
-	int codePostal;
-	String^ ville;
-	String^ pays;
+		System::Int32^ idAdresse;
+		String^ Address;
+		String^ codePostal;
+		String^ ville;
+		String^ pays;
 
-public:
-	Adresse();
-	Adresse(int, int, String^, String^);
-	void setIdAdresse(int);
-	void setCodePostal(int);
-	void setVille(String^);
-	void setPays(String^);
-
-	int getIdAdresse();
-	int getCodePostal();
-	String^ getVille();
-	String^ getPays();
-
-
-};
+	public:
+		Adresse();
+		void setIdAdresse(System::Int32^);
+		void setCodePostal(String^);
+		void setVille(String^);
+		void setPays(String^);
+		void setAdresse(String^);
+		System::Int32^ getIdAdresse();
+		String^ getCodePostal();
+		String^ getAdresse();
+		String^ getVille();
+		String^ getPays();
+	};
+}
 

@@ -1,45 +1,51 @@
 #include "Commande.h"
 
-Commande::Commande(String^ referenceCommande, String^ dateEmission, String^ dateLivraisonPrev, String^ moyenPaiement) {
+NS_Commande::Commande::Commande()
+{
+	this->referenceCommande = "";
+	this->dateEmission = "";
+	this->dateLivraisonPrev = "";
+	this->moyenPaiement = "";
+}
+NS_Commande::Commande::Commande(String^ referenceCommande, String^ dateEmission, String^ dateLivraisonPrev, String^ moyenPaiement) {
 	this->referenceCommande = referenceCommande;
 	this->dateEmission = dateEmission;
 	this->dateLivraisonPrev = dateLivraisonPrev;
-	
 	this->moyenPaiement = moyenPaiement;
 }
 
-String^ Commande::getReferenceCommande() {
+String^ NS_Commande::Commande::getReferenceCommande() {
 	return this->referenceCommande;
 }
 
-String^ Commande::getDateEmission() {
+String^ NS_Commande::Commande::getDateEmission() {
 	return this->dateEmission;
 }
 
-String^ Commande::getDateLivraisonPrev() {
+String^ NS_Commande::Commande::getDateLivraisonPrev() {
 	return this->dateLivraisonPrev;
 }
 
 
 
-String^ Commande::getMoyenPaiement() {
+String^ NS_Commande::Commande::getMoyenPaiement() {
 	return this->moyenPaiement;
 }
 
-void Commande::setReferenceCommande(String^ referenceCommande) {
+void NS_Commande::Commande::setReferenceCommande(String^ referenceCommande) {
 	this->referenceCommande = referenceCommande;
 }
 
-void Commande::setDateEmission(String^ dateEmission) {
+void NS_Commande::Commande::setDateEmission(String^ dateEmission) {
 	this->dateEmission = dateEmission;
 }
 
-void Commande::setDateLivraisonPrev(String^ dateLivraisonPrev) {
+void NS_Commande::Commande::setDateLivraisonPrev(String^ dateLivraisonPrev) {
 	this->dateLivraisonPrev = dateLivraisonPrev;
 }
 
 
-void Commande::setMoyenPaiement(String^ moyenPaiement) {
+void NS_Commande::Commande::setMoyenPaiement(String^ moyenPaiement) {
 	this->moyenPaiement = moyenPaiement;
 }
 

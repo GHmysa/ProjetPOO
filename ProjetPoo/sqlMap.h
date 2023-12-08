@@ -1,4 +1,5 @@
 #pragma once
+#include "objFonction.h"
 namespace NS_sql_Map{
 	using namespace System::Collections::Generic;
 	ref class sqlMap
@@ -10,10 +11,10 @@ namespace NS_sql_Map{
 		System::String^ prenom;
 	public:
 		System::String^ SelectTable(System::String^);
-		System::String^ Insert(void);
+		System::String^ insert(System::String^ tableName, NS_objFonction::objFonction^ objFonction, List<System::Windows::Forms::TextBox^>^ txtBoxList);
 		System::String^ Delete(void);
 		System::String^ Update(void);
-		System::String^ SelectSpeQuery(System::String^, List<System::Windows::Forms::TextBox^>^ nonEmptyTxtBox);
+		System::String^ SelectSpeQuery(System::String^, List<System::Windows::Forms::TextBox^>^ nonEmptyTxtBox, System::String^);
 	};
 }
 
