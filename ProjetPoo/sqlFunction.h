@@ -1,6 +1,7 @@
 #pragma once
 #include "sqlMap.h"
 #include "SqlConn.h"
+#include "objFonction.h"
 
 namespace NS_sql_Function{
 	using namespace System::Collections::Generic;
@@ -13,7 +14,8 @@ namespace NS_sql_Function{
 	public:
 		sqlFunction(void);
 		System::Data::DataSet^ selectionnerToutesLesPersonnes(System::String^, System::String^);
-		System::Data::DataSet^ selectSpe(System::String^,System::String^, List<System::Windows::Forms::TextBox^>^ nonEmptyTxtBox);
+		System::Data::DataSet^ selectSpe(System::String^,System::String^,List<System::Windows::Forms::TextBox^>^ nonEmptyTxtBox, System::String^ elem);
+		void insertSpe(System::String^ res, System::String^ tableName, NS_objFonction::objFonction^ objFonction, List<System::Windows::Forms::TextBox^>^ TxtBoxList);
 	};
 }
 

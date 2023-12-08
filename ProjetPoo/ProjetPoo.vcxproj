@@ -143,6 +143,7 @@
     <ClCompile Include="FormStock.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="FormPersonnel.cpp" />
+    <ClCompile Include="objFonction.cpp" />
     <ClCompile Include="Personne.cpp" />
     <ClCompile Include="Personnel.cpp" />
     <ClCompile Include="sqlConn.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="FormPersonnel.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="objFonction.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Personne.h" />
     <ClInclude Include="Personnel.h" />
