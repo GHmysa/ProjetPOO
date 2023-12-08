@@ -195,30 +195,32 @@ namespace ProjetPoo {
 #pragma endregion
 	
 	private: System::Void buttonPersonnel_Click(System::Object^ sender, System::EventArgs^ e) {
-		FormPersonnel^ form1 = gcnew FormPersonnel();
+		FormPersonnel^ form1 = gcnew FormPersonnel(this);
 		form1->Show();
 		this->Hide();
 	};
 	private: System::Void buttonClient_Click(System::Object^ sender, System::EventArgs^ e) {
-		FormClient^ form2 = gcnew FormClient();
+		FormClient^ form2 = gcnew FormClient(this);
 		form2->Show();
 		this->Hide();
 	};
 	private: System::Void buttonCommandes_Click(System::Object^ sender, System::EventArgs^ e) {
-		FormCommandes^ form3 = gcnew FormCommandes();
+		FormCommandes^ form3 = gcnew FormCommandes(this);
 		form3->Show();
 		this->Hide();
 	};
 	private: System::Void buttonStock_Click(System::Object^ sender, System::EventArgs^ e) {
-		FormStock^ form4 = gcnew FormStock();
+		FormStock^ form4 = gcnew FormStock(this);
 		form4->Show();
 		this->Hide();
 	};
 	private: System::Void buttonStats_Click(System::Object^ sender, System::EventArgs^ e) {
-		FormStatistiques^ form5 = gcnew FormStatistiques();
+		FormStatistiques^ form5 = gcnew FormStatistiques(this);
 		form5->Show();
 		this->Hide();
 	};
+
+
 
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 }

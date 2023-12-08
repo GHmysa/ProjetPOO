@@ -2,6 +2,7 @@
 System::String^ NS_sql_Map::sqlMap::SelectTable(System::String^ tableName)
 {
 	return "SELECT * FROM [Projet].[dbo].["+tableName+"];";
+
 }
 System::String^ NS_sql_Map::sqlMap::insert(System::String^ tableName, NS_objFonction::objFonction^ objFonction, List<System::Windows::Forms::TextBox^>^ txtBoxList)
 {
@@ -34,7 +35,7 @@ System::String^ NS_sql_Map::sqlMap::SelectSpeQuery(System::String^ tableName, Li
 	for each (System::Windows::Forms::TextBox ^ textbox in nonEmptyTxtBox)
 	{
 		query = query + textbox->Tag + "='" + textbox->Text+"'";
-		// Vérifie si textbox est le dernier élément dans la liste
+		// VÃ©rifie si textbox est le dernier Ã©lÃ©ment dans la liste
 		if (textbox != nonEmptyTxtBox[nonEmptyTxtBox->Count - 1])
 		{
 			query = query + " AND ";
