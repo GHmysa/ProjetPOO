@@ -1,5 +1,6 @@
 #pragma once
-#include "objFonction.h"
+#include "sqlFunction.h"
+
 namespace ProjetPoo {
 
 	using namespace System;
@@ -8,6 +9,7 @@ namespace ProjetPoo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	
 
 	/// <summary>
 	/// Description résumée de FormStatistiques
@@ -146,7 +148,7 @@ private: System::Windows::Forms::RadioButton^ radioButtonMarge1;
 
 
 
-public: int^ choix_stat = 0;
+public: String^ choix_stat = "0";
 public: String^ TauxTVA = "";
 public: String^ TauxMarge = "";
 public: String^ TauxRemise = "";
@@ -156,15 +158,9 @@ public: String^ dateChiffreAffaire = "";
 public: String^ nomClient = "";
 public: String^ prenomClient = "";
 
-private: List<TextBox^>^ textBoxList;
-
 private: System::Windows::Forms::Panel^ panel_Estimation_Libre;
-public:
-
-public:
-
-
-
+private: NS_sql_Function::sqlFunction^ oSvc;
+private: System::Data::DataSet^ oDs;
 
 
 
@@ -370,6 +366,7 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 			this->radioButtonBottom10->TabStop = true;
 			this->radioButtonBottom10->Text = L"10 articles les moins vendus";
 			this->radioButtonBottom10->UseVisualStyleBackColor = true;
+			this->radioButtonBottom10->CheckedChanged += gcnew System::EventHandler(this, &FormStatistiques::radioButtonBottom10Articles_CheckedChanged);
 			// 
 			// radioButtonTop10
 			// 
@@ -381,6 +378,7 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 			this->radioButtonTop10->TabStop = true;
 			this->radioButtonTop10->Text = L"10 articles les plus vendus";
 			this->radioButtonTop10->UseVisualStyleBackColor = true;
+			this->radioButtonTop10->CheckedChanged += gcnew System::EventHandler(this, &FormStatistiques::radioButtonTop10Articles_CheckedChanged);
 			// 
 			// radioButtonMTC
 			// 
@@ -937,36 +935,36 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 			this->label10->AutoSize = true;
 			this->label10->Location = System::Drawing::Point(18, 329);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(270, 32);
+			this->label10->Size = System::Drawing::Size(320, 32);
 			this->label10->TabIndex = 11;
-			this->label10->Text = L"Démarque inconnue";
+			this->label10->Text = L"Démarque inconnue (%)";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
 			this->label11->Location = System::Drawing::Point(18, 230);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(278, 32);
+			this->label11->Size = System::Drawing::Size(328, 32);
 			this->label11->TabIndex = 9;
-			this->label11->Text = L"Remise commerciale";
+			this->label11->Text = L"Remise commerciale (%)";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
 			this->label12->Location = System::Drawing::Point(18, 125);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(262, 32);
+			this->label12->Size = System::Drawing::Size(312, 32);
 			this->label12->TabIndex = 7;
-			this->label12->Text = L"Marge commerciale";
+			this->label12->Text = L"Marge commerciale (%)";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
 			this->label13->Location = System::Drawing::Point(18, 23);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(69, 32);
+			this->label13->Size = System::Drawing::Size(119, 32);
 			this->label13->TabIndex = 4;
-			this->label13->Text = L"TVA";
+			this->label13->Text = L"TVA (%)";
 			// 
 			// FormStatistiques
 			// 
@@ -1021,7 +1019,7 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 	}
 
 private: System::Void radioButtonPanierMoyen_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->choix_stat = 1;
+	this->choix_stat = "1";
 
 	this->panel_CA_mois->Hide();
 	this->panel_Montant_Total_Client->Hide();
@@ -1030,7 +1028,7 @@ private: System::Void radioButtonPanierMoyen_CheckedChanged(System::Object^ send
 	this->panel_Estimation_Type->Hide();
 }
 private: System::Void radioButtonChiffreAffaireMensuel_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->choix_stat = 2;
+	this->choix_stat = "2";
 
 	this->panel_CA_mois->Show();
 	this->panel_Montant_Total_Client->Hide();
@@ -1039,7 +1037,7 @@ private: System::Void radioButtonChiffreAffaireMensuel_CheckedChanged(System::Ob
 	this->panel_Estimation_Type->Hide();
 }
 private: System::Void radioButtonProduitReapprovisionnement_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->choix_stat = 3;
+	this->choix_stat = "3";
 
 	this->panel_CA_mois->Hide();
 	this->panel_Montant_Total_Client->Hide();
@@ -1048,7 +1046,7 @@ private: System::Void radioButtonProduitReapprovisionnement_CheckedChanged(Syste
 	this->panel_Estimation_Type->Hide();
 }
 private: System::Void radioButtonTotalClient_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->choix_stat = 4;
+	this->choix_stat = "4";
 
 	this->panel_CA_mois->Hide();
 	this->panel_Montant_Total_Client->Show();
@@ -1057,7 +1055,7 @@ private: System::Void radioButtonTotalClient_CheckedChanged(System::Object^ send
 	this->panel_Estimation_Type->Hide();
 }
 private: System::Void radioButtonTop10Articles_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->choix_stat = 5;
+	this->choix_stat = "5";
 
 	this->panel_CA_mois->Hide();
 	this->panel_Montant_Total_Client->Hide();
@@ -1066,7 +1064,7 @@ private: System::Void radioButtonTop10Articles_CheckedChanged(System::Object^ se
 	this->panel_Estimation_Type->Hide();
 }
 private: System::Void radioButtonBottom10Articles_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->choix_stat = 6;
+	this->choix_stat = "6";
 
 	this->panel_CA_mois->Hide();
 	this->panel_Montant_Total_Client->Hide();
@@ -1075,7 +1073,7 @@ private: System::Void radioButtonBottom10Articles_CheckedChanged(System::Object^
 	this->panel_Estimation_Type->Hide();
 }
 private: System::Void radioButtonValeurCommerciale_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->choix_stat = 7;
+	this->choix_stat = "7";
 
 	this->panel_CA_mois->Hide();
 	this->panel_Montant_Total_Client->Hide();
@@ -1084,7 +1082,7 @@ private: System::Void radioButtonValeurCommerciale_CheckedChanged(System::Object
 	this->panel_Estimation_Type->Hide();
 }
 private: System::Void radioButtonValeurAchat_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->choix_stat = 8;
+	this->choix_stat = "8";
 
 	this->panel_CA_mois->Hide();
 	this->panel_Montant_Total_Client->Hide();
@@ -1093,7 +1091,7 @@ private: System::Void radioButtonValeurAchat_CheckedChanged(System::Object^ send
 	this->panel_Estimation_Type->Hide();
 }
 private: System::Void radioButtonEstimation_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	this->choix_stat = 9;
+	this->choix_stat = "9";
 
 	this->panel_CA_mois->Hide();
 	this->panel_Montant_Total_Client->Hide();
@@ -1104,11 +1102,12 @@ private: System::Void radioButtonEstimation_CheckedChanged(System::Object^ sende
 private: System::Void radioButtonEstimationsPersonaliseesOUI_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	this->panel_Estimation_Choix->Hide();
 	this->panel_Estimation_Libre->Show();
-	this->choix_stat = 10;
+	this->choix_stat = "10";
 }
 private: System::Void radioButtonEstimationsPersonaliseesNON_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	this->panel_Estimation_Choix->Show();
 	this->panel_Estimation_Libre->Hide();
+	this->choix_stat = "9";
 }
 
 private: System::Void radioButtonTVA1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -1146,77 +1145,71 @@ private: System::Void radioButtonDemarque3_CheckedChanged(System::Object^ sender
 }
 
 private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	this->textBoxList = (gcnew List<TextBox^>());
-	this->textBoxList->Add(this->txtDemarqueEstimationLibre);
-	this->textBoxList->Add(this->txtMargeEstimationLibre);
-	this->textBoxList->Add(this->txtRemiseEstimationLibre);
-	this->textBoxList->Add(this->txtTVAEstimationLibre);
-
-	if (this->choix_stat == 0)
+	;
+	if (this->choix_stat == "0")
 	{
 		return;
 	}
-
 	String^ query = "";
-	if (this->choix_stat == 1){
-		query = "SELECT AVG(cout_commande) FROM (SELECT adds.id_o, SUM(adds.quantity * Payement.priceHT_pa) AS cout_commande FROM adds INNER JOIN Product ON adds.id_pr = Product.id_pr INNER JOIN Payement ON Product.id_pa = Payement.id_paGROUP BY adds.id_o) my_table";
+
+	if (this->choix_stat == "1"){
+		query = "SELECT AVG(cout_commande) FROM (SELECT adds.id_o, SUM(adds.quantity * Payement.priceHT_pa) AS cout_commande FROM adds INNER JOIN Product ON adds.id_pr = Product.id_pr INNER JOIN Payement ON Product.id_pa = Payement.id_pa GROUP BY adds.id_o) my_table";
 	}
-	else if (this->choix_stat == 2){
+	
+	else if (this->choix_stat == "2"){
 		this->dateChiffreAffaire = Convert::ToString(this->dateTimePickerChiffreAffaireMensuel->Value);
-		query = "SELECT SUM(adds.quantity * (Payement.priceTTC_pa - Payement.priceHT_pa)) AS CA_mensuel FROM adds INNER JOIN Product ON adds.id_pr = Product.id_pr INNER JOIN Payement ON Product.id_pa = Payement.id_pa WHERE id_o IN(SELECT id_o FROM Orders WHERE MONTH(paymentDate_o) = " + this->dateChiffreAffaire->Substring(3,4) + " AND YEAR(payementDate_o) = " + this->dateChiffreAffaire->Substring(0,2) + ")";
+		query = "SELECT SUM(adds.quantity * (Payement.priceTTC_pa - Payement.priceHT_pa)) AS CA_mensuel FROM adds INNER JOIN Product ON adds.id_pr = Product.id_pr INNER JOIN Payement ON Product.id_pa = Payement.id_pa WHERE id_o IN(SELECT id_o FROM Orders WHERE SUBSTRING(paymentDate_o,6,2) = " + this->dateChiffreAffaire->Substring(0, 2)  + " AND SUBSTRING(paymentDate_o,1,4) = " + this->dateChiffreAffaire->Substring(3, 4) + ")";
 	}
-	else if (this->choix_stat == 3){
+	else if (this->choix_stat == "3"){
 		query = "SELECT name_pr, ref_pr FROM Product WHERE quantity_pr < reorder_pr";
 	}
 
-	else if (this->choix_stat == 4){
+	else if (this->choix_stat == "4"){
 		this->nomClient = this->txtStatNom->Text;
 		this->prenomClient = this->txtStatPrenom->Text;
-		query = "SELECT SUM(adds.quantity * Payement.priceHT_pa) AS montant_achats_client FROM adds INNER JOIN Product ON adds.id_pr = Product.id_pr INNER JOIN Payement ON Product.id_pa = Payement.id_pa WHERE adds.id_o IN(SELECT id_o FROM Orders WHERE lastname_c = " + this->nomClient + " AND firstname_c = " + this->prenomClient + ")";
+		query = "SELECT SUM(adds.quantity * Payement.priceHT_pa) AS montant_achats_client FROM adds INNER JOIN Product ON adds.id_pr = Product.id_pr INNER JOIN Payement ON Product.id_pa = Payement.id_pa WHERE adds.id_o IN(SELECT id_o FROM Orders INNER JOIN Client ON Client.id_c = Orders.id_c WHERE lastname_c = '" + this->nomClient + "' AND firstname_c = '" + this->prenomClient + "')";
 	}
 
-	else if (this->choix_stat == 5){
-		query = "SELECT TOP 10 Product.name_pr, Product.ref_pr, SUM(adds.quantity) as quantite_vendue FROM Product INNER JOIN adds ON adds.id_pr = Product.id_pr GROUP BY Product.name_pr, Product.ref_pr ORDER BY quantite_vendu DESC";
+	else if (this->choix_stat == "5"){
+		query = "SELECT TOP 10 Product.name_pr, Product.ref_pr, SUM(adds.quantity) as quantite_vendue FROM Product INNER JOIN adds ON adds.id_pr = Product.id_pr GROUP BY Product.name_pr, Product.ref_pr ORDER BY quantite_vendue DESC";
 	}
 
-	else if (this->choix_stat == 6) {
-		query = "SELECT TOP 10 Product.name_pr, Product.ref_pr, SUM(adds.quantity) as quantite_vendue FROM Product INNER JOIN adds ON adds.id_pr = Product.id_pr GROUP BY Product.name_pr, Product.ref_pr ORDER BY quantite_vendu ASC";
+	else if (this->choix_stat == "6") {
+		query = "SELECT TOP 10 Product.name_pr, Product.ref_pr, SUM(adds.quantity) as quantite_vendue FROM Product INNER JOIN adds ON adds.id_pr = Product.id_pr GROUP BY Product.name_pr, Product.ref_pr ORDER BY quantite_vendue ASC";
 	}
 
-	else if (this->choix_stat == 7) {
+	else if (this->choix_stat == "7") {
 		query = "SELECT SUM(Product.quantity_pr * Payement.priceHT_pa) AS valeur_commerciale_stock FROM Product INNER JOIN Payement ON Product.id_pa = Payement.id_pa";
 	}
 
-	else if (this->choix_stat == 8) {
+	else if (this->choix_stat == "8") {
 		query = "SELECT SUM(Product.quantity_pr * Payement.priceHT_pa) AS valeur_achat_stock FROM Product INNER JOIN Payement ON Product.id_pa = Payement.id_pa";
 	}
 
-	else if (this->choix_stat == 9 || this->choix_stat == 10) {
-		if (this->choix_stat == 10)
-		{
-			this->TauxMarge = this->txtMargeEstimationLibre->Text;
-			this->TauxTVA = this->txtTVAEstimationLibre->Text;
-			this->TauxRemise = this->txtRemiseEstimationLibre->Text;
-			this->TauxDemarque = this->txtDemarqueEstimationLibre->Text;
-		}
+	else if (this->choix_stat == "9") 
+	{
 		query = "SELECT (" + this->TauxMarge + "*" + this->TauxTVA + "*" + this->TauxRemise + " - 1 ) *" + this->TauxDemarque + " * SUM(Product.quantity_pr * Payement.priceHT_pa) AS Estimation_valeur_stock FROM Product INNER JOIN Payement ON Product.id_pa = Payement.id_pa";
 	}
-	//execute action rows ??
+	else if (this->choix_stat == "10")
+	{
+		this->TauxMarge = this->txtMargeEstimationLibre->Text;
+		this->TauxTVA = this->txtTVAEstimationLibre->Text;
+		this->TauxRemise = this->txtRemiseEstimationLibre->Text;
+		this->TauxDemarque = this->txtDemarqueEstimationLibre->Text;
 
-	this->dataGridView1->Refresh();
-}
-/*
-private: System::Void btnVInsert_Click(System::Object^ sender, System::EventArgs^ e) {
-		generatePersonnel();
-		System::String^ res = "Rsl";
-		System::String^ tableName = "Personnel";
-		oSvc = gcnew NS_sql_Function::sqlFunction();
-		this->oSvc->insertSpe(res, tableName, this->objfonction, this->textBoxList);
-		this->dataGridView1->DataSource = this->oDs;
-		this->dataGridView1->DataMember = "Rsl";
+
+		query = "SELECT ((1 + 0.01 *"+this->TauxMarge +") * (1 + 0.01 *" + this->TauxTVA +") * (1 - 0.01 *" + this->TauxRemise + ") - 1 ) * (1 - 0.01 *" + this->TauxDemarque + ") * SUM(Product.quantity_pr * Payement.priceHT_pa) AS Estimation_valeur_stock FROM Product INNER JOIN Payement ON Product.id_pa = Payement.id_pa";
+	}
 		
-*/
+
+	
+	this->dataGridView1->Refresh();
+	this->oSvc = gcnew NS_sql_Function::sqlFunction();
+	this->oDs = this->oSvc->select("Rsl", query);
+	this->dataGridView1->DataSource = this->oDs;
+	this->dataGridView1->DataMember = "Rsl";
+	
+}
 
 private: System::Void ChiffreAffairepanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
