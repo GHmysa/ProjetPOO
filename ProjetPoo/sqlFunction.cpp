@@ -20,3 +20,8 @@ System::Data::DataSet^ NS_sql_Function::sqlFunction::selectSpe(System::String^ d
 	sql = this->oSqlMap->SelectSpeQuery(tableName,nonEmptyTxtBox);
 	return this->oConn->getRows(sql, dataTableName);
 }
+
+System::Data::DataSet^ NS_sql_Function::sqlFunction::select(System::String^ dataTableName, System::String^ sql)
+{
+	return this->oConn->getRows(sql, dataTableName);
+}
