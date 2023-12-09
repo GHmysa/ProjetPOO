@@ -142,45 +142,6 @@ namespace ProjetPoo {
 	private: System::Windows::Forms::TextBox^ txtSeuil;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
 		/// Variable nécessaire au concepteur.

@@ -77,7 +77,8 @@ namespace ProjetPoo {
 
 
 
-
+	private: List<TextBox^>^ textBoxList;
+	public: NS_objFonction::objFonction^ objfonction;
 
 
 
@@ -122,38 +123,11 @@ namespace ProjetPoo {
 
 	private: System::Windows::Forms::Label^ label8;
 
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::Button^ btnVModifier;
 	private: System::Windows::Forms::Panel^ panelUpdate;
 	private: System::Windows::Forms::TextBox^ txtUpdateNom;
 	private: System::Windows::Forms::TextBox^ txtUpdatePrenom;
 	private: System::Windows::Forms::TextBox^ txtUpdateDatePaiement;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	private: System::Windows::Forms::Label^ label25;
 	private: System::Windows::Forms::TextBox^ txtUpdateDateEmission;
@@ -183,71 +157,6 @@ namespace ProjetPoo {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
 		/// Variable nécessaire au concepteur.
@@ -262,6 +171,11 @@ namespace ProjetPoo {
 		void InitializeComponent(void)
 		{
 			this->panelDelete = (gcnew System::Windows::Forms::Panel());
+			this->txtDeleteDateLivraison = (gcnew System::Windows::Forms::TextBox());
+			this->txtDeleteDateReglement = (gcnew System::Windows::Forms::TextBox());
+			this->txtDeleteTotalItems = (gcnew System::Windows::Forms::TextBox());
+			this->txtDeleteDatePaiement = (gcnew System::Windows::Forms::TextBox());
+			this->txtDeleteDateEmission = (gcnew System::Windows::Forms::TextBox());
 			this->lbDelete = (gcnew System::Windows::Forms::Label());
 			this->btnVSupprimer = (gcnew System::Windows::Forms::Button());
 			this->txtDeleteReference = (gcnew System::Windows::Forms::TextBox());
@@ -276,6 +190,13 @@ namespace ProjetPoo {
 			this->btnAffiche = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->panelSelect = (gcnew System::Windows::Forms::Panel());
+			this->txtDateLivraison = (gcnew System::Windows::Forms::TextBox());
+			this->txtTotalItems = (gcnew System::Windows::Forms::TextBox());
+			this->txtDatePaiement = (gcnew System::Windows::Forms::TextBox());
+			this->txtDateEmission = (gcnew System::Windows::Forms::TextBox());
+			this->txtDateReglement = (gcnew System::Windows::Forms::TextBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->txtReference = (gcnew System::Windows::Forms::TextBox());
 			this->btnVSelect = (gcnew System::Windows::Forms::Button());
 			this->txtPrenom = (gcnew System::Windows::Forms::TextBox());
 			this->lbprenom = (gcnew System::Windows::Forms::Label());
@@ -289,51 +210,39 @@ namespace ProjetPoo {
 			this->lbInsertPrenom = (gcnew System::Windows::Forms::Label());
 			this->txtInsertNom = (gcnew System::Windows::Forms::TextBox());
 			this->lbNomInsert = (gcnew System::Windows::Forms::Label());
+			this->label19 = (gcnew System::Windows::Forms::Label());
+			this->txtInsertTotalItems = (gcnew System::Windows::Forms::TextBox());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->txtInsertDateDeReglement = (gcnew System::Windows::Forms::TextBox());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->txtInsertDateDePaiement = (gcnew System::Windows::Forms::TextBox());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->txtInsertDateEmission = (gcnew System::Windows::Forms::TextBox());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->txtInsertDeliveryDate = (gcnew System::Windows::Forms::TextBox());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->txtInsertReference = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->btnBack = (gcnew System::Windows::Forms::Button());
-			this->txtReference = (gcnew System::Windows::Forms::TextBox());
-			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->txtInsertReference = (gcnew System::Windows::Forms::TextBox());
-			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->txtInsertDeliveryDate = (gcnew System::Windows::Forms::TextBox());
-			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->txtInsertDateEmission = (gcnew System::Windows::Forms::TextBox());
-			this->label16 = (gcnew System::Windows::Forms::Label());
-			this->txtInsertDateDePaiement = (gcnew System::Windows::Forms::TextBox());
-			this->label17 = (gcnew System::Windows::Forms::Label());
-			this->txtInsertDateDeReglement = (gcnew System::Windows::Forms::TextBox());
-			this->label18 = (gcnew System::Windows::Forms::Label());
-			this->txtInsertTotalItems = (gcnew System::Windows::Forms::TextBox());
-			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->lbUpdate = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->btnVModifier = (gcnew System::Windows::Forms::Button());
 			this->panelUpdate = (gcnew System::Windows::Forms::Panel());
-			this->txtUpdateNom = (gcnew System::Windows::Forms::TextBox());
-			this->txtUpdatePrenom = (gcnew System::Windows::Forms::TextBox());
-			this->txtUpdateDateEmission = (gcnew System::Windows::Forms::TextBox());
-			this->label25 = (gcnew System::Windows::Forms::Label());
-			this->txtUpdateDatePaiement = (gcnew System::Windows::Forms::TextBox());
-			this->label26 = (gcnew System::Windows::Forms::Label());
-			this->txtUpdateTotalItems = (gcnew System::Windows::Forms::TextBox());
-			this->label27 = (gcnew System::Windows::Forms::Label());
-			this->label28 = (gcnew System::Windows::Forms::Label());
-			this->txtUpdateDateReglement = (gcnew System::Windows::Forms::TextBox());
-			this->label29 = (gcnew System::Windows::Forms::Label());
-			this->txtUpdateReference = (gcnew System::Windows::Forms::TextBox());
-			this->label30 = (gcnew System::Windows::Forms::Label());
 			this->txtUpdateDateLivraison = (gcnew System::Windows::Forms::TextBox());
-			this->txtDeleteDateEmission = (gcnew System::Windows::Forms::TextBox());
-			this->txtDeleteDatePaiement = (gcnew System::Windows::Forms::TextBox());
-			this->txtDeleteTotalItems = (gcnew System::Windows::Forms::TextBox());
-			this->txtDeleteDateReglement = (gcnew System::Windows::Forms::TextBox());
-			this->txtDeleteDateLivraison = (gcnew System::Windows::Forms::TextBox());
-			this->txtDateReglement = (gcnew System::Windows::Forms::TextBox());
-			this->txtDateEmission = (gcnew System::Windows::Forms::TextBox());
-			this->txtDatePaiement = (gcnew System::Windows::Forms::TextBox());
-			this->txtTotalItems = (gcnew System::Windows::Forms::TextBox());
-			this->txtDateLivraison = (gcnew System::Windows::Forms::TextBox());
+			this->label30 = (gcnew System::Windows::Forms::Label());
+			this->txtUpdateReference = (gcnew System::Windows::Forms::TextBox());
+			this->label29 = (gcnew System::Windows::Forms::Label());
+			this->txtUpdateDateReglement = (gcnew System::Windows::Forms::TextBox());
+			this->label28 = (gcnew System::Windows::Forms::Label());
+			this->label27 = (gcnew System::Windows::Forms::Label());
+			this->txtUpdateTotalItems = (gcnew System::Windows::Forms::TextBox());
+			this->label26 = (gcnew System::Windows::Forms::Label());
+			this->txtUpdateDatePaiement = (gcnew System::Windows::Forms::TextBox());
+			this->label25 = (gcnew System::Windows::Forms::Label());
+			this->txtUpdateDateEmission = (gcnew System::Windows::Forms::TextBox());
+			this->txtUpdatePrenom = (gcnew System::Windows::Forms::TextBox());
+			this->txtUpdateNom = (gcnew System::Windows::Forms::TextBox());
 			this->panelDelete->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panelSelect->SuspendLayout();
@@ -359,10 +268,65 @@ namespace ProjetPoo {
 			this->panelDelete->Controls->Add(this->txtDeleteNom);
 			this->panelDelete->Controls->Add(this->label15);
 			this->panelDelete->Location = System::Drawing::Point(135, 158);
-			this->panelDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panelDelete->Margin = System::Windows::Forms::Padding(2);
 			this->panelDelete->Name = L"panelDelete";
 			this->panelDelete->Size = System::Drawing::Size(982, 218);
 			this->panelDelete->TabIndex = 26;
+			// 
+			// txtDeleteDateLivraison
+			// 
+			this->txtDeleteDateLivraison->AccessibleName = L"dateLivraisonPrev";
+			this->txtDeleteDateLivraison->Location = System::Drawing::Point(243, 3);
+			this->txtDeleteDateLivraison->Margin = System::Windows::Forms::Padding(2);
+			this->txtDeleteDateLivraison->Name = L"txtDeleteDateLivraison";
+			this->txtDeleteDateLivraison->Size = System::Drawing::Size(107, 20);
+			this->txtDeleteDateLivraison->TabIndex = 34;
+			this->txtDeleteDateLivraison->Tag = L"deliveryDate_o";
+			this->txtDeleteDateLivraison->Visible = false;
+			// 
+			// txtDeleteDateReglement
+			// 
+			this->txtDeleteDateReglement->AccessibleName = L"dateReglement";
+			this->txtDeleteDateReglement->Location = System::Drawing::Point(243, 33);
+			this->txtDeleteDateReglement->Margin = System::Windows::Forms::Padding(2);
+			this->txtDeleteDateReglement->Name = L"txtDeleteDateReglement";
+			this->txtDeleteDateReglement->Size = System::Drawing::Size(112, 20);
+			this->txtDeleteDateReglement->TabIndex = 33;
+			this->txtDeleteDateReglement->Tag = L"settlementDate_o";
+			this->txtDeleteDateReglement->Visible = false;
+			// 
+			// txtDeleteTotalItems
+			// 
+			this->txtDeleteTotalItems->AccessibleName = L"totalItems";
+			this->txtDeleteTotalItems->Location = System::Drawing::Point(243, 125);
+			this->txtDeleteTotalItems->Margin = System::Windows::Forms::Padding(2);
+			this->txtDeleteTotalItems->Name = L"txtDeleteTotalItems";
+			this->txtDeleteTotalItems->Size = System::Drawing::Size(112, 20);
+			this->txtDeleteTotalItems->TabIndex = 32;
+			this->txtDeleteTotalItems->Tag = L"totalItems_o";
+			this->txtDeleteTotalItems->Visible = false;
+			// 
+			// txtDeleteDatePaiement
+			// 
+			this->txtDeleteDatePaiement->AccessibleName = L"datePaiement";
+			this->txtDeleteDatePaiement->Location = System::Drawing::Point(243, 98);
+			this->txtDeleteDatePaiement->Margin = System::Windows::Forms::Padding(2);
+			this->txtDeleteDatePaiement->Name = L"txtDeleteDatePaiement";
+			this->txtDeleteDatePaiement->Size = System::Drawing::Size(112, 20);
+			this->txtDeleteDatePaiement->TabIndex = 31;
+			this->txtDeleteDatePaiement->Tag = L"paymentDate_o";
+			this->txtDeleteDatePaiement->Visible = false;
+			// 
+			// txtDeleteDateEmission
+			// 
+			this->txtDeleteDateEmission->AccessibleName = L"dateEmission";
+			this->txtDeleteDateEmission->Location = System::Drawing::Point(243, 62);
+			this->txtDeleteDateEmission->Margin = System::Windows::Forms::Padding(2);
+			this->txtDeleteDateEmission->Name = L"txtDeleteDateEmission";
+			this->txtDeleteDateEmission->Size = System::Drawing::Size(112, 20);
+			this->txtDeleteDateEmission->TabIndex = 30;
+			this->txtDeleteDateEmission->Tag = L"issue_o";
+			this->txtDeleteDateEmission->Visible = false;
 			// 
 			// lbDelete
 			// 
@@ -377,7 +341,7 @@ namespace ProjetPoo {
 			// btnVSupprimer
 			// 
 			this->btnVSupprimer->Location = System::Drawing::Point(204, 152);
-			this->btnVSupprimer->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnVSupprimer->Margin = System::Windows::Forms::Padding(2);
 			this->btnVSupprimer->Name = L"btnVSupprimer";
 			this->btnVSupprimer->Size = System::Drawing::Size(140, 60);
 			this->btnVSupprimer->TabIndex = 19;
@@ -388,7 +352,7 @@ namespace ProjetPoo {
 			// 
 			this->txtDeleteReference->AccessibleName = L"referenceCommande";
 			this->txtDeleteReference->Location = System::Drawing::Point(13, 180);
-			this->txtDeleteReference->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtDeleteReference->Margin = System::Windows::Forms::Padding(2);
 			this->txtDeleteReference->Name = L"txtDeleteReference";
 			this->txtDeleteReference->Size = System::Drawing::Size(151, 20);
 			this->txtDeleteReference->TabIndex = 18;
@@ -408,7 +372,7 @@ namespace ProjetPoo {
 			// 
 			this->txtDeletePrenom->AccessibleName = L"prenom";
 			this->txtDeletePrenom->Location = System::Drawing::Point(13, 125);
-			this->txtDeletePrenom->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtDeletePrenom->Margin = System::Windows::Forms::Padding(2);
 			this->txtDeletePrenom->Name = L"txtDeletePrenom";
 			this->txtDeletePrenom->Size = System::Drawing::Size(151, 20);
 			this->txtDeletePrenom->TabIndex = 16;
@@ -428,7 +392,7 @@ namespace ProjetPoo {
 			// 
 			this->txtDeleteNom->AccessibleName = L"nom";
 			this->txtDeleteNom->Location = System::Drawing::Point(13, 63);
-			this->txtDeleteNom->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtDeleteNom->Margin = System::Windows::Forms::Padding(2);
 			this->txtDeleteNom->Name = L"txtDeleteNom";
 			this->txtDeleteNom->Size = System::Drawing::Size(151, 20);
 			this->txtDeleteNom->TabIndex = 14;
@@ -447,7 +411,7 @@ namespace ProjetPoo {
 			// btnSupprimer
 			// 
 			this->btnSupprimer->Location = System::Drawing::Point(6, 325);
-			this->btnSupprimer->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnSupprimer->Margin = System::Windows::Forms::Padding(2);
 			this->btnSupprimer->Name = L"btnSupprimer";
 			this->btnSupprimer->Size = System::Drawing::Size(125, 52);
 			this->btnSupprimer->TabIndex = 22;
@@ -458,7 +422,7 @@ namespace ProjetPoo {
 			// btnModifier
 			// 
 			this->btnModifier->Location = System::Drawing::Point(6, 269);
-			this->btnModifier->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnModifier->Margin = System::Windows::Forms::Padding(2);
 			this->btnModifier->Name = L"btnModifier";
 			this->btnModifier->Size = System::Drawing::Size(125, 52);
 			this->btnModifier->TabIndex = 21;
@@ -469,7 +433,7 @@ namespace ProjetPoo {
 			// btnInsert
 			// 
 			this->btnInsert->Location = System::Drawing::Point(6, 214);
-			this->btnInsert->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnInsert->Margin = System::Windows::Forms::Padding(2);
 			this->btnInsert->Name = L"btnInsert";
 			this->btnInsert->Size = System::Drawing::Size(125, 52);
 			this->btnInsert->TabIndex = 20;
@@ -481,7 +445,7 @@ namespace ProjetPoo {
 			// btnAffiche
 			// 
 			this->btnAffiche->Location = System::Drawing::Point(6, 159);
-			this->btnAffiche->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnAffiche->Margin = System::Windows::Forms::Padding(2);
 			this->btnAffiche->Name = L"btnAffiche";
 			this->btnAffiche->Size = System::Drawing::Size(125, 52);
 			this->btnAffiche->TabIndex = 19;
@@ -497,7 +461,7 @@ namespace ProjetPoo {
 			this->dataGridView1->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::DisplayedCells;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Location = System::Drawing::Point(6, 6);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 82;
 			this->dataGridView1->RowTemplate->Height = 33;
@@ -522,15 +486,90 @@ namespace ProjetPoo {
 			this->panelSelect->Controls->Add(this->txtNom);
 			this->panelSelect->Controls->Add(this->label1);
 			this->panelSelect->Location = System::Drawing::Point(134, 159);
-			this->panelSelect->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panelSelect->Margin = System::Windows::Forms::Padding(2);
 			this->panelSelect->Name = L"panelSelect";
 			this->panelSelect->Size = System::Drawing::Size(982, 218);
 			this->panelSelect->TabIndex = 23;
 			// 
+			// txtDateLivraison
+			// 
+			this->txtDateLivraison->AccessibleName = L"dateLivraisonPrev";
+			this->txtDateLivraison->Location = System::Drawing::Point(227, 183);
+			this->txtDateLivraison->Margin = System::Windows::Forms::Padding(2);
+			this->txtDateLivraison->Name = L"txtDateLivraison";
+			this->txtDateLivraison->Size = System::Drawing::Size(107, 20);
+			this->txtDateLivraison->TabIndex = 26;
+			this->txtDateLivraison->Tag = L"deliveryDate_o";
+			this->txtDateLivraison->Visible = false;
+			// 
+			// txtTotalItems
+			// 
+			this->txtTotalItems->AccessibleName = L"totalItems";
+			this->txtTotalItems->Location = System::Drawing::Point(16, 184);
+			this->txtTotalItems->Margin = System::Windows::Forms::Padding(2);
+			this->txtTotalItems->Name = L"txtTotalItems";
+			this->txtTotalItems->Size = System::Drawing::Size(189, 20);
+			this->txtTotalItems->TabIndex = 26;
+			this->txtTotalItems->Tag = L"totalItems_o";
+			this->txtTotalItems->Visible = false;
+			// 
+			// txtDatePaiement
+			// 
+			this->txtDatePaiement->AccessibleName = L"datePaiement";
+			this->txtDatePaiement->Location = System::Drawing::Point(287, 121);
+			this->txtDatePaiement->Margin = System::Windows::Forms::Padding(2);
+			this->txtDatePaiement->Name = L"txtDatePaiement";
+			this->txtDatePaiement->Size = System::Drawing::Size(190, 20);
+			this->txtDatePaiement->TabIndex = 26;
+			this->txtDatePaiement->Tag = L"paymentDate_o";
+			this->txtDatePaiement->Visible = false;
+			// 
+			// txtDateEmission
+			// 
+			this->txtDateEmission->AccessibleName = L"dateEmission";
+			this->txtDateEmission->Location = System::Drawing::Point(288, 89);
+			this->txtDateEmission->Margin = System::Windows::Forms::Padding(2);
+			this->txtDateEmission->Name = L"txtDateEmission";
+			this->txtDateEmission->Size = System::Drawing::Size(189, 20);
+			this->txtDateEmission->TabIndex = 37;
+			this->txtDateEmission->Tag = L"issue_o";
+			this->txtDateEmission->Visible = false;
+			// 
+			// txtDateReglement
+			// 
+			this->txtDateReglement->AccessibleName = L"dateReglement";
+			this->txtDateReglement->Location = System::Drawing::Point(16, 148);
+			this->txtDateReglement->Margin = System::Windows::Forms::Padding(2);
+			this->txtDateReglement->Name = L"txtDateReglement";
+			this->txtDateReglement->Size = System::Drawing::Size(189, 20);
+			this->txtDateReglement->TabIndex = 36;
+			this->txtDateReglement->Tag = L"settlementDate_o";
+			this->txtDateReglement->Visible = false;
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(285, 41);
+			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(61, 13);
+			this->label10->TabIndex = 9;
+			this->label10->Text = L"Reference*";
+			// 
+			// txtReference
+			// 
+			this->txtReference->AccessibleName = L"referenceCommande";
+			this->txtReference->Location = System::Drawing::Point(287, 56);
+			this->txtReference->Margin = System::Windows::Forms::Padding(2);
+			this->txtReference->Name = L"txtReference";
+			this->txtReference->Size = System::Drawing::Size(190, 20);
+			this->txtReference->TabIndex = 8;
+			this->txtReference->Tag = L"ref_o";
+			// 
 			// btnVSelect
 			// 
 			this->btnVSelect->Location = System::Drawing::Point(360, 156);
-			this->btnVSelect->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnVSelect->Margin = System::Windows::Forms::Padding(2);
 			this->btnVSelect->Name = L"btnVSelect";
 			this->btnVSelect->Size = System::Drawing::Size(117, 48);
 			this->btnVSelect->TabIndex = 7;
@@ -542,7 +581,7 @@ namespace ProjetPoo {
 			// 
 			this->txtPrenom->AccessibleName = L"prenom";
 			this->txtPrenom->Location = System::Drawing::Point(15, 110);
-			this->txtPrenom->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtPrenom->Margin = System::Windows::Forms::Padding(2);
 			this->txtPrenom->Name = L"txtPrenom";
 			this->txtPrenom->Size = System::Drawing::Size(190, 20);
 			this->txtPrenom->TabIndex = 4;
@@ -572,7 +611,7 @@ namespace ProjetPoo {
 			// 
 			this->txtNom->AccessibleName = L"nom";
 			this->txtNom->Location = System::Drawing::Point(15, 55);
-			this->txtNom->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtNom->Margin = System::Windows::Forms::Padding(2);
 			this->txtNom->Name = L"txtNom";
 			this->txtNom->Size = System::Drawing::Size(190, 20);
 			this->txtNom->TabIndex = 1;
@@ -611,7 +650,7 @@ namespace ProjetPoo {
 			this->panelInsert->Controls->Add(this->label11);
 			this->panelInsert->Controls->Add(this->txtInsertReference);
 			this->panelInsert->Location = System::Drawing::Point(132, 159);
-			this->panelInsert->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panelInsert->Margin = System::Windows::Forms::Padding(2);
 			this->panelInsert->Name = L"panelInsert";
 			this->panelInsert->Size = System::Drawing::Size(982, 218);
 			this->panelInsert->TabIndex = 24;
@@ -629,18 +668,19 @@ namespace ProjetPoo {
 			// btnVInsert
 			// 
 			this->btnVInsert->Location = System::Drawing::Point(381, 173);
-			this->btnVInsert->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnVInsert->Margin = System::Windows::Forms::Padding(2);
 			this->btnVInsert->Name = L"btnVInsert";
 			this->btnVInsert->Size = System::Drawing::Size(122, 44);
 			this->btnVInsert->TabIndex = 13;
 			this->btnVInsert->Text = L"Inserer";
 			this->btnVInsert->UseVisualStyleBackColor = true;
+			this->btnVInsert->Click += gcnew System::EventHandler(this, &FormCommandes::btnVInsert_Click);
 			// 
 			// txtInsertPrenom
 			// 
 			this->txtInsertPrenom->AccessibleName = L"prenom";
 			this->txtInsertPrenom->Location = System::Drawing::Point(12, 118);
-			this->txtInsertPrenom->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtInsertPrenom->Margin = System::Windows::Forms::Padding(2);
 			this->txtInsertPrenom->Name = L"txtInsertPrenom";
 			this->txtInsertPrenom->Size = System::Drawing::Size(112, 20);
 			this->txtInsertPrenom->TabIndex = 4;
@@ -660,7 +700,7 @@ namespace ProjetPoo {
 			// 
 			this->txtInsertNom->AccessibleName = L"nom";
 			this->txtInsertNom->Location = System::Drawing::Point(12, 56);
-			this->txtInsertNom->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtInsertNom->Margin = System::Windows::Forms::Padding(2);
 			this->txtInsertNom->Name = L"txtInsertNom";
 			this->txtInsertNom->Size = System::Drawing::Size(112, 20);
 			this->txtInsertNom->TabIndex = 2;
@@ -676,144 +716,15 @@ namespace ProjetPoo {
 			this->lbNomInsert->TabIndex = 1;
 			this->lbNomInsert->Text = L"Nom Client *";
 			// 
-			// button1
+			// label19
 			// 
-			this->button1->Location = System::Drawing::Point(0, 0);
-			this->button1->Margin = System::Windows::Forms::Padding(1, 1, 1, 1);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(28, 10);
-			this->button1->TabIndex = 28;
-			// 
-			// btnBack
-			// 
-			this->btnBack->Location = System::Drawing::Point(6, 381);
-			this->btnBack->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->btnBack->Name = L"btnBack";
-			this->btnBack->Size = System::Drawing::Size(125, 52);
-			this->btnBack->TabIndex = 27;
-			this->btnBack->Text = L"Retour au menu";
-			this->btnBack->UseVisualStyleBackColor = true;
-			this->btnBack->Click += gcnew System::EventHandler(this, &FormCommandes::btnBack_Click);
-			// 
-			// txtReference
-			// 
-			this->txtReference->AccessibleName = L"referenceCommande";
-			this->txtReference->Location = System::Drawing::Point(287, 56);
-			this->txtReference->Margin = System::Windows::Forms::Padding(2);
-			this->txtReference->Name = L"txtReference";
-			this->txtReference->Size = System::Drawing::Size(190, 20);
-			this->txtReference->TabIndex = 8;
-			this->txtReference->Tag = L"ref_o";
-			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(285, 41);
-			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(61, 13);
-			this->label10->TabIndex = 9;
-			this->label10->Text = L"Reference*";
-			// 
-			// txtInsertReference
-			// 
-			this->txtInsertReference->AccessibleName = L"referenceCommande";
-			this->txtInsertReference->Location = System::Drawing::Point(362, 56);
-			this->txtInsertReference->Margin = System::Windows::Forms::Padding(2);
-			this->txtInsertReference->Name = L"txtInsertReference";
-			this->txtInsertReference->Size = System::Drawing::Size(107, 20);
-			this->txtInsertReference->TabIndex = 14;
-			this->txtInsertReference->Tag = L"ref_o";
-			// 
-			// label11
-			// 
-			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(362, 39);
-			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(67, 13);
-			this->label11->TabIndex = 15;
-			this->label11->Text = L"Reference * ";
-			// 
-			// txtInsertDeliveryDate
-			// 
-			this->txtInsertDeliveryDate->AccessibleName = L"dateLivraisonPrev";
-			this->txtInsertDeliveryDate->Location = System::Drawing::Point(362, 118);
-			this->txtInsertDeliveryDate->Margin = System::Windows::Forms::Padding(2);
-			this->txtInsertDeliveryDate->Name = L"txtInsertDeliveryDate";
-			this->txtInsertDeliveryDate->Size = System::Drawing::Size(107, 20);
-			this->txtInsertDeliveryDate->TabIndex = 16;
-			this->txtInsertDeliveryDate->Tag = L"deliveryDate_o";
-			// 
-			// label12
-			// 
-			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(359, 99);
-			this->label12->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(86, 13);
-			this->label12->TabIndex = 17;
-			this->label12->Text = L"Date de livraison";
-			// 
-			// txtInsertDateEmission
-			// 
-			this->txtInsertDateEmission->AccessibleName = L"dateEmission";
-			this->txtInsertDateEmission->Location = System::Drawing::Point(183, 56);
-			this->txtInsertDateEmission->Margin = System::Windows::Forms::Padding(2);
-			this->txtInsertDateEmission->Name = L"txtInsertDateEmission";
-			this->txtInsertDateEmission->Size = System::Drawing::Size(112, 20);
-			this->txtInsertDateEmission->TabIndex = 18;
-			this->txtInsertDateEmission->Tag = L"issue_o";
-			// 
-			// label16
-			// 
-			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(180, 41);
-			this->label16->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(89, 13);
-			this->label16->TabIndex = 19;
-			this->label16->Text = L"Date d\'emmission";
-			// 
-			// txtInsertDateDePaiement
-			// 
-			this->txtInsertDateDePaiement->AccessibleName = L"datePaiement";
-			this->txtInsertDateDePaiement->Location = System::Drawing::Point(183, 119);
-			this->txtInsertDateDePaiement->Margin = System::Windows::Forms::Padding(2);
-			this->txtInsertDateDePaiement->Name = L"txtInsertDateDePaiement";
-			this->txtInsertDateDePaiement->Size = System::Drawing::Size(112, 20);
-			this->txtInsertDateDePaiement->TabIndex = 20;
-			this->txtInsertDateDePaiement->Tag = L"paymentDate_o";
-			// 
-			// label17
-			// 
-			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(183, 104);
-			this->label17->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(91, 13);
-			this->label17->TabIndex = 21;
-			this->label17->Text = L"Date de paiement";
-			// 
-			// txtInsertDateDeReglement
-			// 
-			this->txtInsertDateDeReglement->AccessibleName = L"dateReglement";
-			this->txtInsertDateDeReglement->Location = System::Drawing::Point(12, 166);
-			this->txtInsertDateDeReglement->Margin = System::Windows::Forms::Padding(2);
-			this->txtInsertDateDeReglement->Name = L"txtInsertDateDeReglement";
-			this->txtInsertDateDeReglement->Size = System::Drawing::Size(112, 20);
-			this->txtInsertDateDeReglement->TabIndex = 22;
-			this->txtInsertDateDeReglement->Tag = L"settlementDate_o";
-			// 
-			// label18
-			// 
-			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(11, 151);
-			this->label18->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(94, 13);
-			this->label18->TabIndex = 23;
-			this->label18->Text = L"Date de reglement";
+			this->label19->AutoSize = true;
+			this->label19->Location = System::Drawing::Point(183, 151);
+			this->label19->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(58, 13);
+			this->label19->TabIndex = 25;
+			this->label19->Text = L"Total items";
 			// 
 			// txtInsertTotalItems
 			// 
@@ -825,15 +736,124 @@ namespace ProjetPoo {
 			this->txtInsertTotalItems->TabIndex = 24;
 			this->txtInsertTotalItems->Tag = L"totalItems_o";
 			// 
-			// label19
+			// label18
 			// 
-			this->label19->AutoSize = true;
-			this->label19->Location = System::Drawing::Point(183, 151);
-			this->label19->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(58, 13);
-			this->label19->TabIndex = 25;
-			this->label19->Text = L"Total items";
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(11, 151);
+			this->label18->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(94, 13);
+			this->label18->TabIndex = 23;
+			this->label18->Text = L"Date de reglement";
+			// 
+			// txtInsertDateDeReglement
+			// 
+			this->txtInsertDateDeReglement->AccessibleName = L"dateReglement";
+			this->txtInsertDateDeReglement->Location = System::Drawing::Point(12, 166);
+			this->txtInsertDateDeReglement->Margin = System::Windows::Forms::Padding(2);
+			this->txtInsertDateDeReglement->Name = L"txtInsertDateDeReglement";
+			this->txtInsertDateDeReglement->Size = System::Drawing::Size(112, 20);
+			this->txtInsertDateDeReglement->TabIndex = 22;
+			this->txtInsertDateDeReglement->Tag = L"settlementDate_o";
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(183, 104);
+			this->label17->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(91, 13);
+			this->label17->TabIndex = 21;
+			this->label17->Text = L"Date de paiement";
+			// 
+			// txtInsertDateDePaiement
+			// 
+			this->txtInsertDateDePaiement->AccessibleName = L"datePaiement";
+			this->txtInsertDateDePaiement->Location = System::Drawing::Point(183, 119);
+			this->txtInsertDateDePaiement->Margin = System::Windows::Forms::Padding(2);
+			this->txtInsertDateDePaiement->Name = L"txtInsertDateDePaiement";
+			this->txtInsertDateDePaiement->Size = System::Drawing::Size(112, 20);
+			this->txtInsertDateDePaiement->TabIndex = 20;
+			this->txtInsertDateDePaiement->Tag = L"paymentDate_o";
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(180, 41);
+			this->label16->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(89, 13);
+			this->label16->TabIndex = 19;
+			this->label16->Text = L"Date d\'emmission";
+			// 
+			// txtInsertDateEmission
+			// 
+			this->txtInsertDateEmission->AccessibleName = L"dateEmission";
+			this->txtInsertDateEmission->Location = System::Drawing::Point(183, 56);
+			this->txtInsertDateEmission->Margin = System::Windows::Forms::Padding(2);
+			this->txtInsertDateEmission->Name = L"txtInsertDateEmission";
+			this->txtInsertDateEmission->Size = System::Drawing::Size(112, 20);
+			this->txtInsertDateEmission->TabIndex = 18;
+			this->txtInsertDateEmission->Tag = L"issue_o";
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(359, 99);
+			this->label12->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(86, 13);
+			this->label12->TabIndex = 17;
+			this->label12->Text = L"Date de livraison";
+			// 
+			// txtInsertDeliveryDate
+			// 
+			this->txtInsertDeliveryDate->AccessibleName = L"dateLivraisonPrev";
+			this->txtInsertDeliveryDate->Location = System::Drawing::Point(362, 118);
+			this->txtInsertDeliveryDate->Margin = System::Windows::Forms::Padding(2);
+			this->txtInsertDeliveryDate->Name = L"txtInsertDeliveryDate";
+			this->txtInsertDeliveryDate->Size = System::Drawing::Size(107, 20);
+			this->txtInsertDeliveryDate->TabIndex = 16;
+			this->txtInsertDeliveryDate->Tag = L"deliveryDate_o";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(362, 39);
+			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(67, 13);
+			this->label11->TabIndex = 15;
+			this->label11->Text = L"Reference * ";
+			// 
+			// txtInsertReference
+			// 
+			this->txtInsertReference->AccessibleName = L"referenceCommande";
+			this->txtInsertReference->Location = System::Drawing::Point(362, 56);
+			this->txtInsertReference->Margin = System::Windows::Forms::Padding(2);
+			this->txtInsertReference->Name = L"txtInsertReference";
+			this->txtInsertReference->Size = System::Drawing::Size(107, 20);
+			this->txtInsertReference->TabIndex = 14;
+			this->txtInsertReference->Tag = L"ref_o";
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(0, 0);
+			this->button1->Margin = System::Windows::Forms::Padding(1);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(28, 10);
+			this->button1->TabIndex = 28;
+			// 
+			// btnBack
+			// 
+			this->btnBack->Location = System::Drawing::Point(6, 381);
+			this->btnBack->Margin = System::Windows::Forms::Padding(2);
+			this->btnBack->Name = L"btnBack";
+			this->btnBack->Size = System::Drawing::Size(125, 52);
+			this->btnBack->TabIndex = 27;
+			this->btnBack->Text = L"Retour au menu";
+			this->btnBack->UseVisualStyleBackColor = true;
+			this->btnBack->Click += gcnew System::EventHandler(this, &FormCommandes::btnBack_Click);
 			// 
 			// lbUpdate
 			// 
@@ -905,125 +925,15 @@ namespace ProjetPoo {
 			this->panelUpdate->Size = System::Drawing::Size(982, 218);
 			this->panelUpdate->TabIndex = 25;
 			// 
-			// txtUpdateNom
+			// txtUpdateDateLivraison
 			// 
-			this->txtUpdateNom->AccessibleName = L"nom";
-			this->txtUpdateNom->Location = System::Drawing::Point(10, 56);
-			this->txtUpdateNom->Margin = System::Windows::Forms::Padding(2);
-			this->txtUpdateNom->Name = L"txtUpdateNom";
-			this->txtUpdateNom->Size = System::Drawing::Size(112, 20);
-			this->txtUpdateNom->TabIndex = 26;
-			this->txtUpdateNom->Tag = L"lastname_c";
-			// 
-			// txtUpdatePrenom
-			// 
-			this->txtUpdatePrenom->AccessibleName = L"prenom";
-			this->txtUpdatePrenom->Location = System::Drawing::Point(10, 116);
-			this->txtUpdatePrenom->Margin = System::Windows::Forms::Padding(2);
-			this->txtUpdatePrenom->Name = L"txtUpdatePrenom";
-			this->txtUpdatePrenom->Size = System::Drawing::Size(112, 20);
-			this->txtUpdatePrenom->TabIndex = 27;
-			this->txtUpdatePrenom->Tag = L"firstname_c";
-			// 
-			// txtUpdateDateEmission
-			// 
-			this->txtUpdateDateEmission->AccessibleName = L"dateEmission";
-			this->txtUpdateDateEmission->Location = System::Drawing::Point(202, 56);
-			this->txtUpdateDateEmission->Margin = System::Windows::Forms::Padding(2);
-			this->txtUpdateDateEmission->Name = L"txtUpdateDateEmission";
-			this->txtUpdateDateEmission->Size = System::Drawing::Size(112, 20);
-			this->txtUpdateDateEmission->TabIndex = 28;
-			this->txtUpdateDateEmission->Tag = L"issue_o";
-			// 
-			// label25
-			// 
-			this->label25->AutoSize = true;
-			this->label25->Location = System::Drawing::Point(199, 41);
-			this->label25->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label25->Name = L"label25";
-			this->label25->Size = System::Drawing::Size(89, 13);
-			this->label25->TabIndex = 26;
-			this->label25->Text = L"Date d\'emmission";
-			// 
-			// txtUpdateDatePaiement
-			// 
-			this->txtUpdateDatePaiement->AccessibleName = L"datePaiement";
-			this->txtUpdateDatePaiement->Location = System::Drawing::Point(202, 118);
-			this->txtUpdateDatePaiement->Margin = System::Windows::Forms::Padding(2);
-			this->txtUpdateDatePaiement->Name = L"txtUpdateDatePaiement";
-			this->txtUpdateDatePaiement->Size = System::Drawing::Size(112, 20);
-			this->txtUpdateDatePaiement->TabIndex = 26;
-			this->txtUpdateDatePaiement->Tag = L"paymentDate_o";
-			// 
-			// label26
-			// 
-			this->label26->AutoSize = true;
-			this->label26->Location = System::Drawing::Point(202, 101);
-			this->label26->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label26->Name = L"label26";
-			this->label26->Size = System::Drawing::Size(91, 13);
-			this->label26->TabIndex = 29;
-			this->label26->Text = L"Date de paiement";
-			// 
-			// txtUpdateTotalItems
-			// 
-			this->txtUpdateTotalItems->AccessibleName = L"totalItems";
-			this->txtUpdateTotalItems->Location = System::Drawing::Point(202, 171);
-			this->txtUpdateTotalItems->Margin = System::Windows::Forms::Padding(2);
-			this->txtUpdateTotalItems->Name = L"txtUpdateTotalItems";
-			this->txtUpdateTotalItems->Size = System::Drawing::Size(112, 20);
-			this->txtUpdateTotalItems->TabIndex = 30;
-			this->txtUpdateTotalItems->Tag = L"totalItems_o";
-			// 
-			// label27
-			// 
-			this->label27->AutoSize = true;
-			this->label27->Location = System::Drawing::Point(201, 157);
-			this->label27->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label27->Name = L"label27";
-			this->label27->Size = System::Drawing::Size(58, 13);
-			this->label27->TabIndex = 31;
-			this->label27->Text = L"Total items";
-			// 
-			// label28
-			// 
-			this->label28->AutoSize = true;
-			this->label28->Location = System::Drawing::Point(7, 157);
-			this->label28->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label28->Name = L"label28";
-			this->label28->Size = System::Drawing::Size(94, 13);
-			this->label28->TabIndex = 32;
-			this->label28->Text = L"Date de reglement";
-			// 
-			// txtUpdateDateReglement
-			// 
-			this->txtUpdateDateReglement->AccessibleName = L"dateReglement";
-			this->txtUpdateDateReglement->Location = System::Drawing::Point(11, 173);
-			this->txtUpdateDateReglement->Margin = System::Windows::Forms::Padding(2);
-			this->txtUpdateDateReglement->Name = L"txtUpdateDateReglement";
-			this->txtUpdateDateReglement->Size = System::Drawing::Size(112, 20);
-			this->txtUpdateDateReglement->TabIndex = 33;
-			this->txtUpdateDateReglement->Tag = L"settlementDate_o";
-			// 
-			// label29
-			// 
-			this->label29->AutoSize = true;
-			this->label29->Location = System::Drawing::Point(386, 41);
-			this->label29->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label29->Name = L"label29";
-			this->label29->Size = System::Drawing::Size(67, 13);
-			this->label29->TabIndex = 34;
-			this->label29->Text = L"Reference * ";
-			// 
-			// txtUpdateReference
-			// 
-			this->txtUpdateReference->AccessibleName = L"referenceCommande";
-			this->txtUpdateReference->Location = System::Drawing::Point(388, 56);
-			this->txtUpdateReference->Margin = System::Windows::Forms::Padding(2);
-			this->txtUpdateReference->Name = L"txtUpdateReference";
-			this->txtUpdateReference->Size = System::Drawing::Size(107, 20);
-			this->txtUpdateReference->TabIndex = 35;
-			this->txtUpdateReference->Tag = L"ref_o";
+			this->txtUpdateDateLivraison->AccessibleName = L"dateLivraisonPrev";
+			this->txtUpdateDateLivraison->Location = System::Drawing::Point(388, 124);
+			this->txtUpdateDateLivraison->Margin = System::Windows::Forms::Padding(2);
+			this->txtUpdateDateLivraison->Name = L"txtUpdateDateLivraison";
+			this->txtUpdateDateLivraison->Size = System::Drawing::Size(107, 20);
+			this->txtUpdateDateLivraison->TabIndex = 37;
+			this->txtUpdateDateLivraison->Tag = L"deliveryDate_o";
 			// 
 			// label30
 			// 
@@ -1035,125 +945,125 @@ namespace ProjetPoo {
 			this->label30->TabIndex = 36;
 			this->label30->Text = L"Date de livraison";
 			// 
-			// txtUpdateDateLivraison
+			// txtUpdateReference
 			// 
-			this->txtUpdateDateLivraison->AccessibleName = L"dateLivraisonPrev";
-			this->txtUpdateDateLivraison->Location = System::Drawing::Point(388, 124);
-			this->txtUpdateDateLivraison->Margin = System::Windows::Forms::Padding(2);
-			this->txtUpdateDateLivraison->Name = L"txtUpdateDateLivraison";
-			this->txtUpdateDateLivraison->Size = System::Drawing::Size(107, 20);
-			this->txtUpdateDateLivraison->TabIndex = 37;
-			this->txtUpdateDateLivraison->Tag = L"deliveryDate_o";
+			this->txtUpdateReference->AccessibleName = L"referenceCommande";
+			this->txtUpdateReference->Location = System::Drawing::Point(388, 56);
+			this->txtUpdateReference->Margin = System::Windows::Forms::Padding(2);
+			this->txtUpdateReference->Name = L"txtUpdateReference";
+			this->txtUpdateReference->Size = System::Drawing::Size(107, 20);
+			this->txtUpdateReference->TabIndex = 35;
+			this->txtUpdateReference->Tag = L"ref_o";
 			// 
-			// txtDeleteDateEmission
+			// label29
 			// 
-			this->txtDeleteDateEmission->AccessibleName = L"dateEmission";
-			this->txtDeleteDateEmission->Location = System::Drawing::Point(243, 62);
-			this->txtDeleteDateEmission->Margin = System::Windows::Forms::Padding(2);
-			this->txtDeleteDateEmission->Name = L"txtDeleteDateEmission";
-			this->txtDeleteDateEmission->Size = System::Drawing::Size(112, 20);
-			this->txtDeleteDateEmission->TabIndex = 30;
-			this->txtDeleteDateEmission->Tag = L"issue_o";
-			this->txtDeleteDateEmission->Visible = false;
+			this->label29->AutoSize = true;
+			this->label29->Location = System::Drawing::Point(386, 41);
+			this->label29->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label29->Name = L"label29";
+			this->label29->Size = System::Drawing::Size(67, 13);
+			this->label29->TabIndex = 34;
+			this->label29->Text = L"Reference * ";
 			// 
-			// txtDeleteDatePaiement
+			// txtUpdateDateReglement
 			// 
-			this->txtDeleteDatePaiement->AccessibleName = L"datePaiement";
-			this->txtDeleteDatePaiement->Location = System::Drawing::Point(243, 98);
-			this->txtDeleteDatePaiement->Margin = System::Windows::Forms::Padding(2);
-			this->txtDeleteDatePaiement->Name = L"txtDeleteDatePaiement";
-			this->txtDeleteDatePaiement->Size = System::Drawing::Size(112, 20);
-			this->txtDeleteDatePaiement->TabIndex = 31;
-			this->txtDeleteDatePaiement->Tag = L"paymentDate_o";
-			this->txtDeleteDatePaiement->Visible = false;
+			this->txtUpdateDateReglement->AccessibleName = L"dateReglement";
+			this->txtUpdateDateReglement->Location = System::Drawing::Point(11, 173);
+			this->txtUpdateDateReglement->Margin = System::Windows::Forms::Padding(2);
+			this->txtUpdateDateReglement->Name = L"txtUpdateDateReglement";
+			this->txtUpdateDateReglement->Size = System::Drawing::Size(112, 20);
+			this->txtUpdateDateReglement->TabIndex = 33;
+			this->txtUpdateDateReglement->Tag = L"settlementDate_o";
 			// 
-			// txtDeleteTotalItems
+			// label28
 			// 
-			this->txtDeleteTotalItems->AccessibleName = L"totalItems";
-			this->txtDeleteTotalItems->Location = System::Drawing::Point(243, 125);
-			this->txtDeleteTotalItems->Margin = System::Windows::Forms::Padding(2);
-			this->txtDeleteTotalItems->Name = L"txtDeleteTotalItems";
-			this->txtDeleteTotalItems->Size = System::Drawing::Size(112, 20);
-			this->txtDeleteTotalItems->TabIndex = 32;
-			this->txtDeleteTotalItems->Tag = L"totalItems_o";
-			this->txtDeleteTotalItems->Visible = false;
+			this->label28->AutoSize = true;
+			this->label28->Location = System::Drawing::Point(7, 157);
+			this->label28->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label28->Name = L"label28";
+			this->label28->Size = System::Drawing::Size(94, 13);
+			this->label28->TabIndex = 32;
+			this->label28->Text = L"Date de reglement";
 			// 
-			// txtDeleteDateReglement
+			// label27
 			// 
-			this->txtDeleteDateReglement->AccessibleName = L"dateReglement";
-			this->txtDeleteDateReglement->Location = System::Drawing::Point(243, 33);
-			this->txtDeleteDateReglement->Margin = System::Windows::Forms::Padding(2);
-			this->txtDeleteDateReglement->Name = L"txtDeleteDateReglement";
-			this->txtDeleteDateReglement->Size = System::Drawing::Size(112, 20);
-			this->txtDeleteDateReglement->TabIndex = 33;
-			this->txtDeleteDateReglement->Tag = L"settlementDate_o";
-			this->txtDeleteDateReglement->Visible = false;
+			this->label27->AutoSize = true;
+			this->label27->Location = System::Drawing::Point(201, 157);
+			this->label27->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label27->Name = L"label27";
+			this->label27->Size = System::Drawing::Size(58, 13);
+			this->label27->TabIndex = 31;
+			this->label27->Text = L"Total items";
 			// 
-			// txtDeleteDateLivraison
+			// txtUpdateTotalItems
 			// 
-			this->txtDeleteDateLivraison->AccessibleName = L"dateLivraisonPrev";
-			this->txtDeleteDateLivraison->Location = System::Drawing::Point(243, 3);
-			this->txtDeleteDateLivraison->Margin = System::Windows::Forms::Padding(2);
-			this->txtDeleteDateLivraison->Name = L"txtDeleteDateLivraison";
-			this->txtDeleteDateLivraison->Size = System::Drawing::Size(107, 20);
-			this->txtDeleteDateLivraison->TabIndex = 34;
-			this->txtDeleteDateLivraison->Tag = L"deliveryDate_o";
-			this->txtDeleteDateLivraison->Visible = false;
+			this->txtUpdateTotalItems->AccessibleName = L"totalItems";
+			this->txtUpdateTotalItems->Location = System::Drawing::Point(202, 171);
+			this->txtUpdateTotalItems->Margin = System::Windows::Forms::Padding(2);
+			this->txtUpdateTotalItems->Name = L"txtUpdateTotalItems";
+			this->txtUpdateTotalItems->Size = System::Drawing::Size(112, 20);
+			this->txtUpdateTotalItems->TabIndex = 30;
+			this->txtUpdateTotalItems->Tag = L"totalItems_o";
 			// 
-			// txtDateReglement
+			// label26
 			// 
-			this->txtDateReglement->AccessibleName = L"dateReglement";
-			this->txtDateReglement->Location = System::Drawing::Point(16, 148);
-			this->txtDateReglement->Margin = System::Windows::Forms::Padding(2);
-			this->txtDateReglement->Name = L"txtDateReglement";
-			this->txtDateReglement->Size = System::Drawing::Size(189, 20);
-			this->txtDateReglement->TabIndex = 36;
-			this->txtDateReglement->Tag = L"settlementDate_o";
-			this->txtDateReglement->Visible = false;
+			this->label26->AutoSize = true;
+			this->label26->Location = System::Drawing::Point(202, 101);
+			this->label26->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label26->Name = L"label26";
+			this->label26->Size = System::Drawing::Size(91, 13);
+			this->label26->TabIndex = 29;
+			this->label26->Text = L"Date de paiement";
 			// 
-			// txtDateEmission
+			// txtUpdateDatePaiement
 			// 
-			this->txtDateEmission->AccessibleName = L"dateEmission";
-			this->txtDateEmission->Location = System::Drawing::Point(288, 89);
-			this->txtDateEmission->Margin = System::Windows::Forms::Padding(2);
-			this->txtDateEmission->Name = L"txtDateEmission";
-			this->txtDateEmission->Size = System::Drawing::Size(189, 20);
-			this->txtDateEmission->TabIndex = 37;
-			this->txtDateEmission->Tag = L"issue_o";
-			this->txtDateEmission->Visible = false;
+			this->txtUpdateDatePaiement->AccessibleName = L"datePaiement";
+			this->txtUpdateDatePaiement->Location = System::Drawing::Point(202, 118);
+			this->txtUpdateDatePaiement->Margin = System::Windows::Forms::Padding(2);
+			this->txtUpdateDatePaiement->Name = L"txtUpdateDatePaiement";
+			this->txtUpdateDatePaiement->Size = System::Drawing::Size(112, 20);
+			this->txtUpdateDatePaiement->TabIndex = 26;
+			this->txtUpdateDatePaiement->Tag = L"paymentDate_o";
 			// 
-			// txtDatePaiement
+			// label25
 			// 
-			this->txtDatePaiement->AccessibleName = L"datePaiement";
-			this->txtDatePaiement->Location = System::Drawing::Point(287, 121);
-			this->txtDatePaiement->Margin = System::Windows::Forms::Padding(2);
-			this->txtDatePaiement->Name = L"txtDatePaiement";
-			this->txtDatePaiement->Size = System::Drawing::Size(190, 20);
-			this->txtDatePaiement->TabIndex = 26;
-			this->txtDatePaiement->Tag = L"paymentDate_o";
-			this->txtDatePaiement->Visible = false;
+			this->label25->AutoSize = true;
+			this->label25->Location = System::Drawing::Point(199, 41);
+			this->label25->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label25->Name = L"label25";
+			this->label25->Size = System::Drawing::Size(89, 13);
+			this->label25->TabIndex = 26;
+			this->label25->Text = L"Date d\'emmission";
 			// 
-			// txtTotalItems
+			// txtUpdateDateEmission
 			// 
-			this->txtTotalItems->AccessibleName = L"totalItems";
-			this->txtTotalItems->Location = System::Drawing::Point(16, 184);
-			this->txtTotalItems->Margin = System::Windows::Forms::Padding(2);
-			this->txtTotalItems->Name = L"txtTotalItems";
-			this->txtTotalItems->Size = System::Drawing::Size(189, 20);
-			this->txtTotalItems->TabIndex = 26;
-			this->txtTotalItems->Tag = L"totalItems_o";
-			this->txtTotalItems->Visible = false;
+			this->txtUpdateDateEmission->AccessibleName = L"dateEmission";
+			this->txtUpdateDateEmission->Location = System::Drawing::Point(202, 56);
+			this->txtUpdateDateEmission->Margin = System::Windows::Forms::Padding(2);
+			this->txtUpdateDateEmission->Name = L"txtUpdateDateEmission";
+			this->txtUpdateDateEmission->Size = System::Drawing::Size(112, 20);
+			this->txtUpdateDateEmission->TabIndex = 28;
+			this->txtUpdateDateEmission->Tag = L"issue_o";
 			// 
-			// txtDateLivraison
+			// txtUpdatePrenom
 			// 
-			this->txtDateLivraison->AccessibleName = L"dateLivraisonPrev";
-			this->txtDateLivraison->Location = System::Drawing::Point(227, 183);
-			this->txtDateLivraison->Margin = System::Windows::Forms::Padding(2);
-			this->txtDateLivraison->Name = L"txtDateLivraison";
-			this->txtDateLivraison->Size = System::Drawing::Size(107, 20);
-			this->txtDateLivraison->TabIndex = 26;
-			this->txtDateLivraison->Tag = L"deliveryDate_o";
-			this->txtDateLivraison->Visible = false;
+			this->txtUpdatePrenom->AccessibleName = L"prenom";
+			this->txtUpdatePrenom->Location = System::Drawing::Point(10, 116);
+			this->txtUpdatePrenom->Margin = System::Windows::Forms::Padding(2);
+			this->txtUpdatePrenom->Name = L"txtUpdatePrenom";
+			this->txtUpdatePrenom->Size = System::Drawing::Size(112, 20);
+			this->txtUpdatePrenom->TabIndex = 27;
+			this->txtUpdatePrenom->Tag = L"firstname_c";
+			// 
+			// txtUpdateNom
+			// 
+			this->txtUpdateNom->AccessibleName = L"nom";
+			this->txtUpdateNom->Location = System::Drawing::Point(10, 56);
+			this->txtUpdateNom->Margin = System::Windows::Forms::Padding(2);
+			this->txtUpdateNom->Name = L"txtUpdateNom";
+			this->txtUpdateNom->Size = System::Drawing::Size(112, 20);
+			this->txtUpdateNom->TabIndex = 26;
+			this->txtUpdateNom->Tag = L"lastname_c";
 			// 
 			// FormCommandes
 			// 
@@ -1167,11 +1077,11 @@ namespace ProjetPoo {
 			this->Controls->Add(this->btnModifier);
 			this->Controls->Add(this->btnAffiche);
 			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->panelSelect);
 			this->Controls->Add(this->panelInsert);
 			this->Controls->Add(this->panelUpdate);
 			this->Controls->Add(this->panelDelete);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Controls->Add(this->panelSelect);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"FormCommandes";
 			this->Text = L"FormCommandes";
 			this->Load += gcnew System::EventHandler(this, &FormCommandes::FormCommandes_Load);
@@ -1237,8 +1147,120 @@ namespace ProjetPoo {
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
-	private: System::Void btnVSelect_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void btnVSelect_Click(System::Object^ sender, System::EventArgs^ e) { //select button click
+		List<TextBox^>^ textBoxList;
+		List<TextBox^>^ nonEmptyTxtBox;
+		textBoxList = (gcnew List<TextBox^>());
+		nonEmptyTxtBox = (gcnew List<TextBox^>());
+		textBoxList->Add(this->txtReference);
+		for each (TextBox ^ textBox in textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oDs = this->oSvc->selectSpe("Rsl", "Orders", nonEmptyTxtBox, "*");
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+	}
+
+
+
+		   private: void generateCommande()
+		   {
+			   this->objfonction = (gcnew NS_objFonction::objFonction);
+			   this->textBoxList = (gcnew List<TextBox^>());
+			   this->textBoxList->Add(this->txtInsertPrenom);
+			   this->textBoxList->Add(this->txtInsertNom);
+			   this->textBoxList->Add(this->txtInsertDateDeReglement);
+			   this->textBoxList->Add(this->txtInsertDateEmission);
+			   this->textBoxList->Add(this->txtInsertDateDePaiement);
+			   this->textBoxList->Add(this->txtInsertTotalItems);
+			   this->textBoxList->Add(this->txtInsertReference);
+			   this->textBoxList->Add(this->txtDateLivraison);
+			   for each (TextBox ^ textbox in this->textBoxList)
+			   {
+				   if (textbox->AccessibleName == "prenom")
+				   {
+					   this->objfonction->client->setPrenom(textbox->Text);
+				   }
+				   if (textbox->AccessibleName == "nom")
+				   {
+					   this->objfonction->client->setNom(textbox->Text);
+				   }
+				   if (textbox->AccessibleName == "dateReglement")
+				   {
+					   this->objfonction->commande->setDateReglement(textbox->Text);
+				   }
+				   if (textbox->AccessibleName == "dateEmission")
+				   {
+					   this->objfonction->commande->setDateEmission(textbox->Text);
+				   }
+				   if (textbox->AccessibleName == "datePaiement")
+				   {
+					   this->objfonction->commande->setDatePaiement(textbox->Text);
+				   }
+				   if (textbox->AccessibleName == "totalItems")
+				   {
+					   this->objfonction->commande->setTotalItems(Convert::ToInt32(textbox->Text));
+				   }
+				   if (textbox->AccessibleName == "referenceCommande")
+				   {
+					   this->objfonction->commande->setReferenceCommande(textbox->Text);
+				   }
+				   if (textbox->AccessibleName == "dateLivraisonPrev")
+				   {
+					   this->objfonction->commande->setDateLivraisonPrev(textbox->Text);
+				   }
+			   }
+			   this->objfonction->has2Query = true;
+			   this->objfonction->currentObj = "Client";
+		   }
+
+
+
+private: System::Void btnVDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+		List<TextBox^>^ textBoxList;
+		List<TextBox^>^ nonEmptyTxtBox;
+		textBoxList = (gcnew List<TextBox^>());
+		nonEmptyTxtBox = (gcnew List<TextBox^>());
+		textBoxList->Add(this->txtDeleteReference);
+		for each (TextBox ^ textBox in textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oSvc->deleteSpe("Rsl", "Orders", gcnew NS_objFonction::objFonction(), nonEmptyTxtBox);
+		this->oDs = this->oSvc->selectionnerToutesLesPersonnes("Rsl", "Orders");
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+	}
+	private: System::Void btnVInsert_Click(System::Object^ sender, System::EventArgs^ e) {
+		generateCommande();
+		System::String^ res = "Rsl";
+		System::String^ tableName = "Orders";
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oSvc->insertSpe(res, tableName, this->objfonction, this->textBoxList);
+		this->dataGridView1->Refresh();
 
 	}
-	};
+
+	private: System::Void btnVUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+		generateCommande();
+		System::String^ res = "Rsl";
+			   System::String^ tableName = "Orders";
+			   oSvc = gcnew NS_sql_Function::sqlFunction();
+			   this->oSvc->updateSpe(res, tableName, this->objfonction, this->textBoxList);
+			   this->dataGridView1->Refresh();
+		   }
+};
 }
