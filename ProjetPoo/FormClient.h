@@ -101,7 +101,8 @@ namespace ProjetPoo {
 	private: System::Windows::Forms::TextBox^ txtUpdateBirth;
 
 	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::TextBox^ textBox9;
+	private: System::Windows::Forms::TextBox^ txtUpdatePrenom;
+
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::TextBox^ txtUpdateNom;
 
@@ -118,6 +119,11 @@ namespace ProjetPoo {
 	private: System::Windows::Forms::Form^ FormRetour;
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::TextBox^ txtInsertLand;
+	private: System::Windows::Forms::TextBox^ txtUpdateLand;
+	private: System::Windows::Forms::Label^ label11;
+private: System::Windows::Forms::Label^ lbl;
+private: System::Windows::Forms::TextBox^ txtUpdateIdClient;
+
 
 
 
@@ -176,6 +182,10 @@ namespace ProjetPoo {
 			this->txtInsertNom = (gcnew System::Windows::Forms::TextBox());
 			this->lbNomInsert = (gcnew System::Windows::Forms::Label());
 			this->panelUpdate = (gcnew System::Windows::Forms::Panel());
+			this->lbl = (gcnew System::Windows::Forms::Label());
+			this->txtUpdateIdClient = (gcnew System::Windows::Forms::TextBox());
+			this->txtUpdateLand = (gcnew System::Windows::Forms::TextBox());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->btnVModifier = (gcnew System::Windows::Forms::Button());
 			this->txtUpdateCity = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -185,7 +195,7 @@ namespace ProjetPoo {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtUpdateBirth = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
+			this->txtUpdatePrenom = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->txtUpdateNom = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
@@ -232,6 +242,7 @@ namespace ProjetPoo {
 			this->btnVSupprimer->TabIndex = 19;
 			this->btnVSupprimer->Text = L"Supprimer";
 			this->btnVSupprimer->UseVisualStyleBackColor = true;
+			this->btnVSupprimer->Click += gcnew System::EventHandler(this, &FormClient::btnVSupprimer_Click);
 			// 
 			// txtDeleteBirth
 			// 
@@ -612,6 +623,10 @@ namespace ProjetPoo {
 			// 
 			this->panelUpdate->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->panelUpdate->Controls->Add(this->lbl);
+			this->panelUpdate->Controls->Add(this->txtUpdateIdClient);
+			this->panelUpdate->Controls->Add(this->txtUpdateLand);
+			this->panelUpdate->Controls->Add(this->label11);
 			this->panelUpdate->Controls->Add(this->btnVModifier);
 			this->panelUpdate->Controls->Add(this->txtUpdateCity);
 			this->panelUpdate->Controls->Add(this->label4);
@@ -621,7 +636,7 @@ namespace ProjetPoo {
 			this->panelUpdate->Controls->Add(this->label6);
 			this->panelUpdate->Controls->Add(this->txtUpdateBirth);
 			this->panelUpdate->Controls->Add(this->label7);
-			this->panelUpdate->Controls->Add(this->textBox9);
+			this->panelUpdate->Controls->Add(this->txtUpdatePrenom);
 			this->panelUpdate->Controls->Add(this->label8);
 			this->panelUpdate->Controls->Add(this->txtUpdateNom);
 			this->panelUpdate->Controls->Add(this->label9);
@@ -631,6 +646,43 @@ namespace ProjetPoo {
 			this->panelUpdate->Size = System::Drawing::Size(991, 420);
 			this->panelUpdate->TabIndex = 34;
 			// 
+			// lbl
+			// 
+			this->lbl->AccessibleName = L"idClient";
+			this->lbl->AutoSize = true;
+			this->lbl->Location = System::Drawing::Point(755, 175);
+			this->lbl->Name = L"lbl";
+			this->lbl->Size = System::Drawing::Size(90, 25);
+			this->lbl->TabIndex = 29;
+			this->lbl->Text = L"Id Client";
+			// 
+			// txtUpdateIdClient
+			// 
+			this->txtUpdateIdClient->AccessibleName = L"idClient";
+			this->txtUpdateIdClient->Location = System::Drawing::Point(760, 219);
+			this->txtUpdateIdClient->Name = L"txtUpdateIdClient";
+			this->txtUpdateIdClient->Size = System::Drawing::Size(207, 31);
+			this->txtUpdateIdClient->TabIndex = 28;
+			this->txtUpdateIdClient->Tag = L"id_c";
+			// 
+			// txtUpdateLand
+			// 
+			this->txtUpdateLand->AccessibleName = L"pays";
+			this->txtUpdateLand->Location = System::Drawing::Point(760, 106);
+			this->txtUpdateLand->Name = L"txtUpdateLand";
+			this->txtUpdateLand->Size = System::Drawing::Size(225, 31);
+			this->txtUpdateLand->TabIndex = 27;
+			this->txtUpdateLand->Tag = L"land_a";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(755, 62);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(60, 25);
+			this->label11->TabIndex = 26;
+			this->label11->Text = L"Pays";
+			// 
 			// btnVModifier
 			// 
 			this->btnVModifier->Location = System::Drawing::Point(778, 319);
@@ -639,6 +691,7 @@ namespace ProjetPoo {
 			this->btnVModifier->TabIndex = 25;
 			this->btnVModifier->Text = L"Modifier";
 			this->btnVModifier->UseVisualStyleBackColor = true;
+			this->btnVModifier->Click += gcnew System::EventHandler(this, &FormClient::btnVModifier_Click);
 			// 
 			// txtUpdateCity
 			// 
@@ -711,13 +764,14 @@ namespace ProjetPoo {
 			this->label7->TabIndex = 17;
 			this->label7->Text = L"Date de naissance";
 			// 
-			// textBox9
+			// txtUpdatePrenom
 			// 
-			this->textBox9->Location = System::Drawing::Point(22, 228);
-			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(298, 31);
-			this->textBox9->TabIndex = 16;
-			this->textBox9->Tag = L"firstname_c";
+			this->txtUpdatePrenom->AccessibleName = L"prenom";
+			this->txtUpdatePrenom->Location = System::Drawing::Point(22, 228);
+			this->txtUpdatePrenom->Name = L"txtUpdatePrenom";
+			this->txtUpdatePrenom->Size = System::Drawing::Size(298, 31);
+			this->txtUpdatePrenom->TabIndex = 16;
+			this->txtUpdatePrenom->Tag = L"firstname_c";
 			// 
 			// label8
 			// 
@@ -777,10 +831,10 @@ namespace ProjetPoo {
 			this->Controls->Add(this->btnInsert);
 			this->Controls->Add(this->btnAffiche);
 			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->panelInsert);
-			this->Controls->Add(this->panelUpdate);
 			this->Controls->Add(this->panelDelete);
 			this->Controls->Add(this->panelSelect);
+			this->Controls->Add(this->panelInsert);
+			this->Controls->Add(this->panelUpdate);
 			this->Name = L"FormClient";
 			this->Text = L"FormClient";
 			this->Load += gcnew System::EventHandler(this, &FormClient::FormClient_Load);
@@ -839,6 +893,7 @@ namespace ProjetPoo {
 		this->oDs = this->oSvc->selectionnerToutesLesPersonnes("Rsl", "Client");
 		this->dataGridView1->DataSource = this->oDs;
 		this->dataGridView1->DataMember = "Rsl";
+		
 	}
 	private: System::Void btnVSelect_Click(System::Object^ sender, System::EventArgs^ e) {
 		List<TextBox^>^ textBoxList;
@@ -916,5 +971,54 @@ namespace ProjetPoo {
 		this->oSvc->insertSpe(res, tableName, this->objfonction, this->textBoxList);
 		this->dataGridView1->Refresh();
 	}
+	private: System::Void btnVModifier_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->objfonction = (gcnew NS_objFonction::objFonction);
+		List<TextBox^>^ nonEmptyTxtBox;
+		nonEmptyTxtBox = (gcnew List<TextBox^>());
+		this->textBoxList = (gcnew List<TextBox^>());
+		this->textBoxList->Add(this->txtUpdateNom);
+		this->textBoxList->Add(this->txtUpdatePrenom);
+		this->textBoxList->Add(this->txtUpdateBirth);
+		this->textBoxList->Add(this->txtUpdateAddress);
+		this->textBoxList->Add(this->txtUpdateLand);
+		this->textBoxList->Add(this->txtUpdateCity);
+		this->textBoxList->Add(this->txtUpdateZip);
+		this->textBoxList->Add(this->txtUpdateIdClient);
+		for each (TextBox ^ textBox in this->textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oDs = this->oSvc->updateSpe("Rsl", "Client", nonEmptyTxtBox, "idClient","id_c");
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+	}
+	private: System::Void btnVSupprimer_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->objfonction = (gcnew NS_objFonction::objFonction);
+		List<TextBox^>^ nonEmptyTxtBox = (gcnew List<TextBox^>());
+		this->textBoxList = (gcnew List<TextBox^>());
+		this->textBoxList->Add(this->txtDeleteBirth);
+		this->textBoxList->Add(this->txtDeleteNom);
+		this->textBoxList->Add(this->txtDeletePrenom);
+		for each (TextBox ^ textBox in this->textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oDs = this->oSvc->deleteSpe("Rsl", "Client", nonEmptyTxtBox, "idClient", "id_c");
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+	}
+
 };
 }

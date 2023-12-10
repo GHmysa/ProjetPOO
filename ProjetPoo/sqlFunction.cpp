@@ -111,12 +111,35 @@ void NS_sql_Function::sqlFunction::insertSpe(System::String^ res, System::String
 		{
 			sql = this->oSqlMap->insert(tableName, objFonction, txtCommande);
 			this->oConn->actionRows(sql);
-		}
-			
-			
-
-			
-		
+		}	
 
 	}
+}
+
+System::Data::DataSet^ NS_sql_Function::sqlFunction::updateSpe(System::String^ dataTableName, System::String^ tableName, List<System::Windows::Forms::TextBox^>^ TxtBoxList, System::String^ AN, System::String^ id)
+{
+	System::Windows::Forms::TextBox^ txtId = gcnew(System::Windows::Forms::TextBox);
+	System::String^ sql;
+	System::Data::DataSet^ ds;
+
+	sql = this->oSqlMap->Update(tableName, TxtBoxList);
+	this->oConn->actionRows(sql);
+	return this->selectSpe(dataTableName, tableName, TxtBoxList, "*");
+
+
+}
+System::Data::DataSet^ NS_sql_Function::sqlFunction::deleteSpe(System::String^ dataTableName, System::String^ tableName, List<System::Windows::Forms::TextBox^>^ TxtBoxList,System::String^ AN, System::String^ id)
+{
+	System::String^ sql;
+	System::Windows::Forms::TextBox^ txtBox;
+	txtBox = getSpeID(tableName, TxtBoxList, AN, id);
+	if (tableName == "Client")
+	{
+		sql = this->oSqlMap->Delete("Orders", txtBox);
+		this->oConn->actionRows(sql);
+	}
+	sql = this->oSqlMap->Delete(tableName, txtBox);
+	this->oConn->actionRows(sql);
+	return this->selectionnerToutesLesPersonnes(dataTableName, tableName);
+
 }

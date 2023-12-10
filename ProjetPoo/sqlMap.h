@@ -12,8 +12,8 @@ namespace NS_sql_Map{
 	public:
 		System::String^ SelectTable(System::String^);
 		System::String^ insert(System::String^ tableName, NS_objFonction::objFonction^ objFonction, List<System::Windows::Forms::TextBox^>^ txtBoxList);
-		System::String^ Delete(void);
-		System::String^ Update(void);
+		System::String^ Delete(System::String^ tableName, System::Windows::Forms::TextBox^ txtbox);
+		System::String^ Update(System::String^ tableName, List<System::Windows::Forms::TextBox^>^ TextBoxList);
 		System::String^ SelectSpeQuery(System::String^, List<System::Windows::Forms::TextBox^>^ nonEmptyTxtBox, System::String^);
 	};
 }
