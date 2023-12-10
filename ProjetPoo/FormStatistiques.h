@@ -1158,7 +1158,7 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 	
 	else if (this->choix_stat == "2"){
 		this->dateChiffreAffaire = Convert::ToString(this->dateTimePickerChiffreAffaireMensuel->Value);
-		query = "SELECT SUM(adds.quantity * (Payement.priceTTC_pa - Payement.priceHT_pa)) AS CA_mensuel FROM adds INNER JOIN Product ON adds.id_pr = Product.id_pr INNER JOIN Payement ON Product.id_pa = Payement.id_pa WHERE id_o IN(SELECT id_o FROM Orders WHERE SUBSTRING(paymentDate_o,6,2) = " + this->dateChiffreAffaire->Substring(0, 2)  + " AND SUBSTRING(paymentDate_o,1,4) = " + this->dateChiffreAffaire->Substring(3, 4) + ")";
+		query = "SELECT SUM(adds.quantity * (Payement.priceTTC_pa - Payement.priceHT_pa)) AS CA_mensuel FROM adds INNER JOIN Product ON adds.id_pr = Product.id_pr INNER JOIN Payement ON Product.id_pa = Payement.id_pa WHERE id_o IN(SELECT id_o FROM Orders WHERE SUBSTRING(paymentDate_o,6,2) = " + this->dateChiffreAffaire->Substring(3, 2) + " AND SUBSTRING(paymentDate_o,1,4) = " + this->dateChiffreAffaire->Substring(6, 4) + ")";
 	}
 	else if (this->choix_stat == "3"){
 		query = "SELECT name_pr, ref_pr FROM Product WHERE quantity_pr < reorder_pr";
@@ -1183,32 +1183,25 @@ private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^
 	}
 
 	else if (this->choix_stat == "8") {
-		query = "SELECT SUM(Product.quantity_pr * Payement.priceHT_pa) AS valeur_achat_stock FROM Product INNER JOIN Payement ON Product.id_pa = Payement.id_pa";
+		query = "SELECT SUM(Product.quantity_pr * Payement.priceTTC_pa) AS valeur_achat_stock FROM Product INNER JOIN Payement ON Product.id_pa = Payement.id_pa";
 	}
 
-	else if (this->choix_stat == "9") 
-	{
+	else if (this->choix_stat == "9") {
 		query = "SELECT (" + this->TauxMarge + "*" + this->TauxTVA + "*" + this->TauxRemise + " - 1 ) *" + this->TauxDemarque + " * SUM(Product.quantity_pr * Payement.priceHT_pa) AS Estimation_valeur_stock FROM Product INNER JOIN Payement ON Product.id_pa = Payement.id_pa";
 	}
-	else if (this->choix_stat == "10")
-	{
+	else if (this->choix_stat == "10") {
 		this->TauxMarge = this->txtMargeEstimationLibre->Text;
 		this->TauxTVA = this->txtTVAEstimationLibre->Text;
 		this->TauxRemise = this->txtRemiseEstimationLibre->Text;
 		this->TauxDemarque = this->txtDemarqueEstimationLibre->Text;
-
-
 		query = "SELECT ((1 + 0.01 *"+this->TauxMarge +") * (1 + 0.01 *" + this->TauxTVA +") * (1 - 0.01 *" + this->TauxRemise + ") - 1 ) * (1 - 0.01 *" + this->TauxDemarque + ") * SUM(Product.quantity_pr * Payement.priceHT_pa) AS Estimation_valeur_stock FROM Product INNER JOIN Payement ON Product.id_pa = Payement.id_pa";
 	}
-		
 
-	
 	this->dataGridView1->Refresh();
 	this->oSvc = gcnew NS_sql_Function::sqlFunction();
 	this->oDs = this->oSvc->select("Rsl", query);
 	this->dataGridView1->DataSource = this->oDs;
 	this->dataGridView1->DataMember = "Rsl";
-	
 }
 
 private: System::Void ChiffreAffairepanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
