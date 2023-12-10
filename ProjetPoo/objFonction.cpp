@@ -27,4 +27,12 @@ String^ NS_objFonction::objFonction::getAttributs()
 	{
 		return Convert::ToString(this->adresse->getIdAdresse()) + "," + Convert::ToString(this->client->getIdClient());
 	}
+	if (this->currentObj == "Commande")
+	{
+		return "'" + this->commande->getReferenceCommande() + "', '" + this->commande->getDateEmission() + "', '" + this->commande->getDateLivraisonPrev() + "', '" + this->commande->getDatePaiement() + "', '" + this->commande->getMoyenPaiement() + "', '" + this->commande->getDateReglement() + "'.'" + Convert::ToString(this->commande->getTotalItems()) + "'.'";
+	}
+
+	if (this->currentObj == "Article") {
+		return "'";
+	}
 }

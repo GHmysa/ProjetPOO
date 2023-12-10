@@ -9,7 +9,11 @@ namespace NS_Commande
 		String^ referenceCommande;
 		String^ dateEmission;
 		String^ dateLivraisonPrev;
-		String^ moyenPaiement;
+		String^ moyenPaiement; // pas dans la BDD
+		String^ datePaiement;
+		String^ dateReglement;
+		Int32^ totalItems;
+
 
 	public:
 		Commande();
@@ -19,10 +23,20 @@ namespace NS_Commande
 		String^ getDateEmission();
 		String^ getDateLivraisonPrev();
 		String^ getMoyenPaiement();
+		String^ getDatePaiement();
+		String^ getDateReglement();
+		Int32^ getTotalItems();
+
+
 		void setReferenceCommande(String^ referenceCommande);
 		void setDateEmission(String^ dateEmission);
 		void setDateLivraisonPrev(String^ dateLivraisonPrev);
 		void setMoyenPaiement(String^ moyenPaiement);
+		void setDatePaiement(String^ datePaiement);
+		void setDateReglement(String^ dateReglement);
+		void setTotalItems(Int32^ totalItems);
+
+
 
 	};
 }
