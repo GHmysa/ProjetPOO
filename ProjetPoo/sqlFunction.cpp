@@ -20,6 +20,11 @@ System::Data::DataSet^ NS_sql_Function::sqlFunction::selectSpe(System::String^ d
 	sql = this->oSqlMap->SelectSpeQuery(tableName,nonEmptyTxtBox,elem);
 	return this->oConn->getRows(sql, dataTableName);
 }
+
+System::Data::DataSet^ NS_sql_Function::sqlFunction::select(System::String^ dataTableName, System::String^ sql)
+{
+	return this->oConn->getRows(sql, dataTableName);
+
 System::Windows::Forms::TextBox^ NS_sql_Function::sqlFunction::getSpeID(String^ tableName, List<System::Windows::Forms::TextBox^>^ TxtBoxList, String^ AN, String^ id)
 {
 	System::Data::DataSet^ ds = gcnew(System::Data::DataSet);
@@ -198,5 +203,4 @@ System::Data::DataSet^ NS_sql_Function::sqlFunction::deleteSpe(System::String^ d
 	sql = this->oSqlMap->Delete(tableName, txtBox);
 	this->oConn->actionRows(sql);
 	return this->selectionnerToutesLesPersonnes(dataTableName, tableName);
-
 }

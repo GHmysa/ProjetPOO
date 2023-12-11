@@ -1008,7 +1008,7 @@ namespace ProjetPoo {
 		this->panelUpdate->Hide();
 		this->panelSelect->Hide();
 		this->FormRetour->Show();
-		this->Hide();
+		this->Close();
 	}
 
 	private: System::Void btnVSupprimer_Click(System::Object^ sender, System::EventArgs^ e) {
