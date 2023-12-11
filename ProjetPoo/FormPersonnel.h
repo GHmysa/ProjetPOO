@@ -844,7 +844,7 @@ namespace ProjetPoo {
 		this->panelUpdate->Hide();
 		this->panelSelect->Hide();
 		this->FormRetour->Show();
-		this->Hide();
+		this->Close();
 	}
 };
 }

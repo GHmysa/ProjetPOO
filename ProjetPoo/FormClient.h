@@ -809,7 +809,7 @@ namespace ProjetPoo {
 		this->panelUpdate->Hide();
 		this->panelSelect->Hide();
 		this->FormRetour->Show();
-		this->Hide();
+		this->Close();
 
 }
 	private: System::Void FormClient_Load(System::Object^ sender, System::EventArgs^ e) {

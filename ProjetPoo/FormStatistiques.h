@@ -1013,7 +1013,7 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 #pragma endregion
 	private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->FormRetour->Show();
-		this->Hide();
+		this->Close();
 	}
 	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 	}
