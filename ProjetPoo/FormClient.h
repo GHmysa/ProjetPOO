@@ -141,6 +141,7 @@ private: System::Windows::Forms::TextBox^ txtUpdateIdClient;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FormClient::typeid));
 			this->panelDelete = (gcnew System::Windows::Forms::Panel());
 			this->lbDelete = (gcnew System::Windows::Forms::Label());
 			this->btnVSupprimer = (gcnew System::Windows::Forms::Button());
@@ -824,6 +825,8 @@ private: System::Windows::Forms::TextBox^ txtUpdateIdClient;
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1290, 859);
 			this->Controls->Add(this->btnBack);
 			this->Controls->Add(this->btnSupprimer);
@@ -835,6 +838,7 @@ private: System::Windows::Forms::TextBox^ txtUpdateIdClient;
 			this->Controls->Add(this->panelSelect);
 			this->Controls->Add(this->panelInsert);
 			this->Controls->Add(this->panelUpdate);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"FormClient";
 			this->Text = L"FormClient";
 			this->Load += gcnew System::EventHandler(this, &FormClient::FormClient_Load);

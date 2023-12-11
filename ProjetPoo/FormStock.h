@@ -139,6 +139,16 @@ private: System::Windows::Forms::TextBox^ txtInsertPriceTVA;
 private: System::Windows::Forms::TextBox^ txtInsertPriceHT;
 
 private: System::Windows::Forms::Label^ label3;
+private: System::Windows::Forms::TextBox^ txtUpdateIdArticle;
+private: System::Windows::Forms::Button^ button1;
+private: System::Windows::Forms::TextBox^ txtUpdateCommande;
+private: System::Windows::Forms::Label^ label13;
+private: System::Windows::Forms::TextBox^ txtQuantiteAdds;
+private: System::Windows::Forms::Label^ label16;
+private: System::Windows::Forms::Button^ btnAfficherAdds;
+
+
+private: System::Windows::Forms::Label^ label12;
 
 
 	private:
@@ -154,6 +164,7 @@ private: System::Windows::Forms::Label^ label3;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FormStock::typeid));
 			this->panelDelete = (gcnew System::Windows::Forms::Panel());
 			this->txtDeleteCouleur = (gcnew System::Windows::Forms::TextBox());
 			this->txtDeleteNature = (gcnew System::Windows::Forms::TextBox());
@@ -182,6 +193,12 @@ private: System::Windows::Forms::Label^ label3;
 			this->txtReference = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panelInsert = (gcnew System::Windows::Forms::Panel());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->txtInsertPriceTTC = (gcnew System::Windows::Forms::TextBox());
+			this->txtInsertPriceTVA = (gcnew System::Windows::Forms::TextBox());
+			this->txtInsertPriceHT = (gcnew System::Windows::Forms::TextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->btnVInsert = (gcnew System::Windows::Forms::Button());
 			this->txtInsertCouleur = (gcnew System::Windows::Forms::TextBox());
@@ -197,6 +214,13 @@ private: System::Windows::Forms::Label^ label3;
 			this->txtInsertReference = (gcnew System::Windows::Forms::TextBox());
 			this->lbNomInsert = (gcnew System::Windows::Forms::Label());
 			this->panelUpdate = (gcnew System::Windows::Forms::Panel());
+			this->txtQuantiteAdds = (gcnew System::Windows::Forms::TextBox());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->txtUpdateCommande = (gcnew System::Windows::Forms::TextBox());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->txtUpdateIdArticle = (gcnew System::Windows::Forms::TextBox());
+			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->btnVModifier = (gcnew System::Windows::Forms::Button());
 			this->txtUpdateCouleur = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -212,12 +236,7 @@ private: System::Windows::Forms::Label^ label3;
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->lbUpdate = (gcnew System::Windows::Forms::Label());
 			this->btnBack = (gcnew System::Windows::Forms::Button());
-			this->txtInsertPriceTTC = (gcnew System::Windows::Forms::TextBox());
-			this->txtInsertPriceTVA = (gcnew System::Windows::Forms::TextBox());
-			this->txtInsertPriceHT = (gcnew System::Windows::Forms::TextBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->btnAfficherAdds = (gcnew System::Windows::Forms::Button());
 			this->panelDelete->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panelSelect->SuspendLayout();
@@ -248,7 +267,7 @@ private: System::Windows::Forms::Label^ label3;
 			// txtDeleteCouleur
 			// 
 			this->txtDeleteCouleur->AccessibleName = L"couleurProduit";
-			this->txtDeleteCouleur->Location = System::Drawing::Point(460, 238);
+			this->txtDeleteCouleur->Location = System::Drawing::Point(945, 304);
 			this->txtDeleteCouleur->Margin = System::Windows::Forms::Padding(4);
 			this->txtDeleteCouleur->Name = L"txtDeleteCouleur";
 			this->txtDeleteCouleur->Size = System::Drawing::Size(298, 31);
@@ -259,7 +278,7 @@ private: System::Windows::Forms::Label^ label3;
 			// txtDeleteNature
 			// 
 			this->txtDeleteNature->AccessibleName = L"natureProduit";
-			this->txtDeleteNature->Location = System::Drawing::Point(460, 181);
+			this->txtDeleteNature->Location = System::Drawing::Point(945, 247);
 			this->txtDeleteNature->Margin = System::Windows::Forms::Padding(4);
 			this->txtDeleteNature->Name = L"txtDeleteNature";
 			this->txtDeleteNature->Size = System::Drawing::Size(298, 31);
@@ -270,7 +289,7 @@ private: System::Windows::Forms::Label^ label3;
 			// txtDeleteSeuil
 			// 
 			this->txtDeleteSeuil->AccessibleName = L"seuilReaprovisionnement";
-			this->txtDeleteSeuil->Location = System::Drawing::Point(460, 121);
+			this->txtDeleteSeuil->Location = System::Drawing::Point(945, 187);
 			this->txtDeleteSeuil->Margin = System::Windows::Forms::Padding(4);
 			this->txtDeleteSeuil->Name = L"txtDeleteSeuil";
 			this->txtDeleteSeuil->Size = System::Drawing::Size(298, 31);
@@ -308,7 +327,7 @@ private: System::Windows::Forms::Label^ label3;
 			this->btnVSupprimer->TabIndex = 19;
 			this->btnVSupprimer->Text = L"Supprimer";
 			this->btnVSupprimer->UseVisualStyleBackColor = true;
-			this->btnVSupprimer->Click += gcnew System::EventHandler(this, &FormStock::btnSupprimer_Click);
+			this->btnVSupprimer->Click += gcnew System::EventHandler(this, &FormStock::btnVSupprimer_Click);
 			// 
 			// txtDeleteNomArticle
 			// 
@@ -401,7 +420,8 @@ private: System::Windows::Forms::Label^ label3;
 			// 
 			// dataGridView1
 			// 
-			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::DisplayedCells;
@@ -572,6 +592,66 @@ private: System::Windows::Forms::Label^ label3;
 			this->panelInsert->Size = System::Drawing::Size(2212, 419);
 			this->panelInsert->TabIndex = 15;
 			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(760, 290);
+			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(291, 25);
+			this->label11->TabIndex = 19;
+			this->label11->Text = L"Prix TTC = Somme TVA + HT";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(760, 171);
+			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(96, 25);
+			this->label10->TabIndex = 18;
+			this->label10->Text = L"Prix TVA";
+			// 
+			// txtInsertPriceTTC
+			// 
+			this->txtInsertPriceTTC->AccessibleName = L"prixTTC";
+			this->txtInsertPriceTTC->Location = System::Drawing::Point(764, 333);
+			this->txtInsertPriceTTC->Margin = System::Windows::Forms::Padding(4);
+			this->txtInsertPriceTTC->Name = L"txtInsertPriceTTC";
+			this->txtInsertPriceTTC->Size = System::Drawing::Size(298, 31);
+			this->txtInsertPriceTTC->TabIndex = 17;
+			this->txtInsertPriceTTC->Tag = L"priceTTC_pa";
+			// 
+			// txtInsertPriceTVA
+			// 
+			this->txtInsertPriceTVA->AccessibleName = L"tauxTVA";
+			this->txtInsertPriceTVA->Location = System::Drawing::Point(764, 217);
+			this->txtInsertPriceTVA->Margin = System::Windows::Forms::Padding(4);
+			this->txtInsertPriceTVA->Name = L"txtInsertPriceTVA";
+			this->txtInsertPriceTVA->Size = System::Drawing::Size(298, 31);
+			this->txtInsertPriceTVA->TabIndex = 16;
+			this->txtInsertPriceTVA->Tag = L"priceTVA_pa";
+			// 
+			// txtInsertPriceHT
+			// 
+			this->txtInsertPriceHT->AccessibleName = L"prixHT";
+			this->txtInsertPriceHT->Location = System::Drawing::Point(764, 108);
+			this->txtInsertPriceHT->Margin = System::Windows::Forms::Padding(4);
+			this->txtInsertPriceHT->Name = L"txtInsertPriceHT";
+			this->txtInsertPriceHT->Size = System::Drawing::Size(298, 31);
+			this->txtInsertPriceHT->TabIndex = 15;
+			this->txtInsertPriceHT->Tag = L"priceHT_pa";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(760, 63);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(77, 25);
+			this->label3->TabIndex = 14;
+			this->label3->Text = L"PrixHT";
+			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
@@ -715,8 +795,16 @@ private: System::Windows::Forms::Label^ label3;
 			// 
 			// panelUpdate
 			// 
-			this->panelUpdate->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->panelUpdate->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->panelUpdate->Controls->Add(this->btnAfficherAdds);
+			this->panelUpdate->Controls->Add(this->txtQuantiteAdds);
+			this->panelUpdate->Controls->Add(this->label16);
+			this->panelUpdate->Controls->Add(this->txtUpdateCommande);
+			this->panelUpdate->Controls->Add(this->label13);
+			this->panelUpdate->Controls->Add(this->button1);
+			this->panelUpdate->Controls->Add(this->txtUpdateIdArticle);
+			this->panelUpdate->Controls->Add(this->label12);
 			this->panelUpdate->Controls->Add(this->btnVModifier);
 			this->panelUpdate->Controls->Add(this->txtUpdateCouleur);
 			this->panelUpdate->Controls->Add(this->label4);
@@ -737,6 +825,77 @@ private: System::Windows::Forms::Label^ label3;
 			this->panelUpdate->Size = System::Drawing::Size(2212, 419);
 			this->panelUpdate->TabIndex = 16;
 			// 
+			// txtQuantiteAdds
+			// 
+			this->txtQuantiteAdds->AccessibleName = L"quantiteAdds";
+			this->txtQuantiteAdds->Location = System::Drawing::Point(1016, 272);
+			this->txtQuantiteAdds->Margin = System::Windows::Forms::Padding(4);
+			this->txtQuantiteAdds->Name = L"txtQuantiteAdds";
+			this->txtQuantiteAdds->Size = System::Drawing::Size(211, 31);
+			this->txtQuantiteAdds->TabIndex = 32;
+			this->txtQuantiteAdds->Tag = L"quantity";
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(1010, 227);
+			this->label16->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(93, 25);
+			this->label16->TabIndex = 31;
+			this->label16->Text = L"Quantite";
+			// 
+			// txtUpdateCommande
+			// 
+			this->txtUpdateCommande->AccessibleName = L"idCommande";
+			this->txtUpdateCommande->Location = System::Drawing::Point(1015, 178);
+			this->txtUpdateCommande->Margin = System::Windows::Forms::Padding(4);
+			this->txtUpdateCommande->Name = L"txtUpdateCommande";
+			this->txtUpdateCommande->Size = System::Drawing::Size(211, 31);
+			this->txtUpdateCommande->TabIndex = 30;
+			this->txtUpdateCommande->Tag = L"id_o";
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(1009, 133);
+			this->label13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(147, 25);
+			this->label13->TabIndex = 29;
+			this->label13->Text = L"ID Commande";
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(1014, 307);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(211, 88);
+			this->button1->TabIndex = 28;
+			this->button1->Text = L"Inserer Article->Commande";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &FormStock::button1_Click_1);
+			// 
+			// txtUpdateIdArticle
+			// 
+			this->txtUpdateIdArticle->AccessibleName = L"idArticle";
+			this->txtUpdateIdArticle->Location = System::Drawing::Point(1014, 94);
+			this->txtUpdateIdArticle->Margin = System::Windows::Forms::Padding(4);
+			this->txtUpdateIdArticle->Name = L"txtUpdateIdArticle";
+			this->txtUpdateIdArticle->Size = System::Drawing::Size(211, 31);
+			this->txtUpdateIdArticle->TabIndex = 27;
+			this->txtUpdateIdArticle->Tag = L"id_pr";
+			this->txtUpdateIdArticle->TextChanged += gcnew System::EventHandler(this, &FormStock::txtUpdateIdArticle_TextChanged);
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(1008, 49);
+			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(98, 25);
+			this->label12->TabIndex = 26;
+			this->label12->Text = L"ID Article";
+			// 
 			// btnVModifier
 			// 
 			this->btnVModifier->Location = System::Drawing::Point(778, 319);
@@ -746,7 +905,7 @@ private: System::Windows::Forms::Label^ label3;
 			this->btnVModifier->TabIndex = 25;
 			this->btnVModifier->Text = L"Modifier";
 			this->btnVModifier->UseVisualStyleBackColor = true;
-			this->btnVModifier->Click += gcnew System::EventHandler(this, &FormStock::btnModifier_Click);
+			this->btnVModifier->Click += gcnew System::EventHandler(this, &FormStock::btnVModifier_Click);
 			// 
 			// txtUpdateCouleur
 			// 
@@ -890,70 +1049,22 @@ private: System::Windows::Forms::Label^ label3;
 			this->btnBack->UseVisualStyleBackColor = true;
 			this->btnBack->Click += gcnew System::EventHandler(this, &FormStock::btnBack_Click);
 			// 
-			// txtInsertPriceTTC
+			// btnAfficherAdds
 			// 
-			this->txtInsertPriceTTC->AccessibleName = L"prixTTC";
-			this->txtInsertPriceTTC->Location = System::Drawing::Point(764, 333);
-			this->txtInsertPriceTTC->Margin = System::Windows::Forms::Padding(4);
-			this->txtInsertPriceTTC->Name = L"txtInsertPriceTTC";
-			this->txtInsertPriceTTC->Size = System::Drawing::Size(298, 31);
-			this->txtInsertPriceTTC->TabIndex = 17;
-			this->txtInsertPriceTTC->Tag = L"priceTTC_pa";
-			// 
-			// txtInsertPriceTVA
-			// 
-			this->txtInsertPriceTVA->AccessibleName = L"tauxTVA";
-			this->txtInsertPriceTVA->Location = System::Drawing::Point(764, 217);
-			this->txtInsertPriceTVA->Margin = System::Windows::Forms::Padding(4);
-			this->txtInsertPriceTVA->Name = L"txtInsertPriceTVA";
-			this->txtInsertPriceTVA->Size = System::Drawing::Size(298, 31);
-			this->txtInsertPriceTVA->TabIndex = 16;
-			this->txtInsertPriceTVA->Tag = L"priceTVA_pa";
-			// 
-			// txtInsertPriceHT
-			// 
-			this->txtInsertPriceHT->AccessibleName = L"prixHT";
-			this->txtInsertPriceHT->Location = System::Drawing::Point(764, 108);
-			this->txtInsertPriceHT->Margin = System::Windows::Forms::Padding(4);
-			this->txtInsertPriceHT->Name = L"txtInsertPriceHT";
-			this->txtInsertPriceHT->Size = System::Drawing::Size(298, 31);
-			this->txtInsertPriceHT->TabIndex = 15;
-			this->txtInsertPriceHT->Tag = L"priceHT_pa";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(760, 63);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(77, 25);
-			this->label3->TabIndex = 14;
-			this->label3->Text = L"PrixHT";
-			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(760, 171);
-			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(96, 25);
-			this->label10->TabIndex = 18;
-			this->label10->Text = L"Prix TVA";
-			// 
-			// label11
-			// 
-			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(760, 290);
-			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(291, 25);
-			this->label11->TabIndex = 19;
-			this->label11->Text = L"Prix TTC = Somme TVA + HT";
+			this->btnAfficherAdds->Location = System::Drawing::Point(1279, 172);
+			this->btnAfficherAdds->Name = L"btnAfficherAdds";
+			this->btnAfficherAdds->Size = System::Drawing::Size(212, 91);
+			this->btnAfficherAdds->TabIndex = 33;
+			this->btnAfficherAdds->Text = L"Afficher Article->Commande";
+			this->btnAfficherAdds->UseVisualStyleBackColor = true;
+			this->btnAfficherAdds->Click += gcnew System::EventHandler(this, &FormStock::btnAfficherAdds_Click);
 			// 
 			// FormStock
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(2512, 856);
 			this->Controls->Add(this->btnBack);
 			this->Controls->Add(this->btnSupprimer);
@@ -961,10 +1072,11 @@ private: System::Windows::Forms::Label^ label3;
 			this->Controls->Add(this->btnInsert);
 			this->Controls->Add(this->btnAffiche);
 			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->panelInsert);
 			this->Controls->Add(this->panelUpdate);
 			this->Controls->Add(this->panelDelete);
 			this->Controls->Add(this->panelSelect);
+			this->Controls->Add(this->panelInsert);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"FormStock";
 			this->Text = L"FormStock";
@@ -1113,6 +1225,100 @@ private: System::Windows::Forms::Label^ label3;
 		this->dataGridView1->DataMember = "Rsl";
 		this->dataGridView1->Refresh();
 	}
-	};
+	private: System::Void btnVModifier_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		System::String^ res = "Rsl";
+		System::String^ tableName = "Product";
+		List<TextBox^>^ nonEmptyTxtBox;
+		nonEmptyTxtBox = (gcnew List<TextBox^>());
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->textBoxList = (gcnew List<TextBox^>());
+		this->textBoxList->Add(txtUpdateCouleur);
+		this->textBoxList->Add(txtUpdateNature);
+		this->textBoxList->Add(txtUpdateNomArticle);
+		this->textBoxList->Add(txtUpdateQuatite);
+		this->textBoxList->Add(txtUpdateReference);
+		this->textBoxList->Add(txtUpdateSeuil);
+		this->textBoxList->Add(txtUpdateIdArticle);
+		for each (TextBox ^ textBox in this->textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oDs = this->oSvc->updateSpe(res,tableName, nonEmptyTxtBox, "idArticle", "id_pr");
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+	}
+	private: System::Void btnVSupprimer_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->objfonction = (gcnew NS_objFonction::objFonction);
+		TextBox^ txtBox = gcnew(TextBox);
+		List<TextBox^>^ nonEmptyTxtBox = (gcnew List<TextBox^>());
+		this->textBoxList = (gcnew List<TextBox^>());
+		this->textBoxList->Add(txtDeleteNomArticle);
+		this->textBoxList->Add(txtDeleteReference);
+
+		for each (TextBox ^ textBox in this->textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		txtBox = this->oSvc->getSpeID("Product", nonEmptyTxtBox, "idArticle", "id_pr");
+		nonEmptyTxtBox->Add(txtBox);
+		this->oDs = this->oSvc->deleteSpe("Rsl", "Product", nonEmptyTxtBox, "idArticle", "id_pr");
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {	}
+	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		
+		this->objfonction = (gcnew NS_objFonction::objFonction);
+		this->objfonction->has2Query = false;
+		this->objfonction->currentObj = "Adds";
+		System::String^ res = "Rsl";
+		System::String^ tableName = "adds";
+		this->textBoxList = (gcnew List<TextBox^>());
+		List<TextBox^>^ textBoxListClient = (gcnew List<TextBox^>());
+		this->textBoxList->Add(txtUpdateIdArticle);
+		this->textBoxList->Add(txtUpdateCommande);
+		this->textBoxList->Add(txtQuantiteAdds);
+		if (textBoxList[0]->AccessibleName == "idArticle")
+		{
+			this->objfonction->article->setIdArticle(Convert::ToInt32(textBoxList[0]->Text));
+		}
+		if (textBoxList[1]->AccessibleName == "idCommande")
+		{
+			this->objfonction->commande->setIdCommande(Convert::ToInt32(textBoxList[1]->Text));
+		}
+		if (textBoxList[2]->AccessibleName == "quantiteAdds")
+		{
+			this->objfonction->article->setQuantiteAdds(Convert::ToInt32(textBoxList[2]->Text));
+		}
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oSvc->insertSpe(res, tableName, this->objfonction, this->textBoxList);
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+		this->dataGridView1->Refresh();
+	}
+private: System::Void txtUpdateIdArticle_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+	private: System::Void btnAfficherAdds_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oDs = this->oSvc->selectionnerToutesLesPersonnes("Rsl", "adds");
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+	}
+};
 }
 

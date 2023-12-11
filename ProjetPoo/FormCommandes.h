@@ -165,6 +165,7 @@ private: System::Windows::Forms::Label^ label6;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FormCommandes::typeid));
 			this->panelDelete = (gcnew System::Windows::Forms::Panel());
 			this->txtDeleteDateLivraison = (gcnew System::Windows::Forms::TextBox());
 			this->txtDeleteDateReglement = (gcnew System::Windows::Forms::TextBox());
@@ -228,6 +229,8 @@ private: System::Windows::Forms::Label^ label6;
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->btnVModifier = (gcnew System::Windows::Forms::Button());
 			this->panelUpdate = (gcnew System::Windows::Forms::Panel());
+			this->txtUpdateIdCommande = (gcnew System::Windows::Forms::TextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtUpdateDateLivraison = (gcnew System::Windows::Forms::TextBox());
 			this->label30 = (gcnew System::Windows::Forms::Label());
 			this->txtUpdateReference = (gcnew System::Windows::Forms::TextBox());
@@ -242,8 +245,6 @@ private: System::Windows::Forms::Label^ label6;
 			this->txtUpdateDateEmission = (gcnew System::Windows::Forms::TextBox());
 			this->txtUpdatePrenom = (gcnew System::Windows::Forms::TextBox());
 			this->txtUpdateNom = (gcnew System::Windows::Forms::TextBox());
-			this->txtUpdateIdCommande = (gcnew System::Windows::Forms::TextBox());
-			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->panelDelete->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panelSelect->SuspendLayout();
@@ -972,6 +973,26 @@ private: System::Windows::Forms::Label^ label6;
 			this->panelUpdate->Size = System::Drawing::Size(1964, 419);
 			this->panelUpdate->TabIndex = 25;
 			// 
+			// txtUpdateIdCommande
+			// 
+			this->txtUpdateIdCommande->AccessibleName = L"idCommande";
+			this->txtUpdateIdCommande->Location = System::Drawing::Point(772, 107);
+			this->txtUpdateIdCommande->Margin = System::Windows::Forms::Padding(4);
+			this->txtUpdateIdCommande->Name = L"txtUpdateIdCommande";
+			this->txtUpdateIdCommande->Size = System::Drawing::Size(215, 31);
+			this->txtUpdateIdCommande->TabIndex = 39;
+			this->txtUpdateIdCommande->Tag = L"id_o";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(772, 63);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(147, 25);
+			this->label6->TabIndex = 38;
+			this->label6->Text = L"ID Commande";
+			// 
 			// txtUpdateDateLivraison
 			// 
 			this->txtUpdateDateLivraison->AccessibleName = L"dateLivraisonPrev";
@@ -1112,30 +1133,12 @@ private: System::Windows::Forms::Label^ label6;
 			this->txtUpdateNom->TabIndex = 26;
 			this->txtUpdateNom->Tag = L"lastname_c";
 			// 
-			// txtUpdateIdCommande
-			// 
-			this->txtUpdateIdCommande->AccessibleName = L"idCommande";
-			this->txtUpdateIdCommande->Location = System::Drawing::Point(772, 107);
-			this->txtUpdateIdCommande->Margin = System::Windows::Forms::Padding(4);
-			this->txtUpdateIdCommande->Name = L"txtUpdateIdCommande";
-			this->txtUpdateIdCommande->Size = System::Drawing::Size(215, 31);
-			this->txtUpdateIdCommande->TabIndex = 39;
-			this->txtUpdateIdCommande->Tag = L"id_o";
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(772, 63);
-			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(147, 25);
-			this->label6->TabIndex = 38;
-			this->label6->Text = L"ID Commande";
-			// 
 			// FormCommandes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(2264, 1317);
 			this->Controls->Add(this->btnInsert);
 			this->Controls->Add(this->btnBack);
@@ -1144,10 +1147,11 @@ private: System::Windows::Forms::Label^ label6;
 			this->Controls->Add(this->btnModifier);
 			this->Controls->Add(this->btnAffiche);
 			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->panelUpdate);
 			this->Controls->Add(this->panelDelete);
 			this->Controls->Add(this->panelSelect);
 			this->Controls->Add(this->panelInsert);
+			this->Controls->Add(this->panelUpdate);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"FormCommandes";
 			this->Text = L"FormCommandes";
@@ -1308,9 +1312,6 @@ private: System::Windows::Forms::Label^ label6;
 
 
 
-	private: System::Void btnVDelete_Click(System::Object^ sender, System::EventArgs^ e) 
-	{
-	}
 	private: System::Void btnVInsert_Click(System::Object^ sender, System::EventArgs^ e) {
 		generateCommande();
 		System::String^ res = "Rsl";
@@ -1320,8 +1321,6 @@ private: System::Windows::Forms::Label^ label6;
 		this->dataGridView1->Refresh();
 
 	}
-
-	private: System::Void btnVUpdate_Click(System::Object^ sender, System::EventArgs^ e) {}
 	private: System::Void btnVSupprimer_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->objfonction = (gcnew NS_objFonction::objFonction);
 		List<TextBox^>^ nonEmptyTxtBox = (gcnew List<TextBox^>());

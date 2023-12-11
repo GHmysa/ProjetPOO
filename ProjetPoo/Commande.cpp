@@ -36,6 +36,10 @@ System::Int32^ NS_Commande::Commande::getIdFacture()
 {
 	return this->idFacture;
 }
+System::Int32^ NS_Commande::Commande::getIdCommande()
+{
+	return this->idCommande;
+}
 System::Int32^ NS_Commande::Commande::getNumClient()
 {
 	return this->numClient;
@@ -99,6 +103,10 @@ void NS_Commande::Commande::setNomSociete(String^ nomSociete)
 void NS_Commande::Commande::setIdFacture(Int32^ idFacture)
 {
 	this->idFacture = idFacture;
+}
+void NS_Commande::Commande::setIdCommande(Int32^ idFacture)
+{
+	this->idCommande = idFacture;
 }
 
 

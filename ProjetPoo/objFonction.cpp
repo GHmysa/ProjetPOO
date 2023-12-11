@@ -43,4 +43,8 @@ String^ NS_objFonction::objFonction::getAttributs()
 	{
 		return this->article->getPrixHT() + "," + this->article->getTauxTVA() + "," + this->article->getPrixTTC();
 	}
+	if (this->currentObj == "Adds")
+	{
+		return this->article->getIdArticle() +","+ this->commande->getIdCommande()+","+ this->article->getQuantiteAdds();
+	}
 }

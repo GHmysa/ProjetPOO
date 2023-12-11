@@ -163,8 +163,14 @@ void NS_sql_Function::sqlFunction::insertSpe(System::String^ res, System::String
 			this->oConn->actionRows(sql);
 
 		}
-
 	}
+	if (objFonction->currentObj == "Adds")
+	{
+		sql = this->oSqlMap->insert(tableName, objFonction, TxtBoxList);
+		this->oConn->actionRows(sql);
+	}
+
+	
 }
 
 System::Data::DataSet^ NS_sql_Function::sqlFunction::updateSpe(System::String^ dataTableName, System::String^ tableName, List<System::Windows::Forms::TextBox^>^ TxtBoxList, System::String^ AN, System::String^ id)

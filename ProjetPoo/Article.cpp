@@ -5,6 +5,7 @@ String^ NS_Article::Article::DonnerAttributsObjet() {
 }
 NS_Article::Article::Article()
 {
+	this->quantiteAdds = 0;
 	this->couleurProduit = "";
 	this->idArticle = 0;
 	this->idPayement = 0;
@@ -18,7 +19,8 @@ NS_Article::Article::Article()
 	this->tauxTVA = 0;
 
 }
-NS_Article::Article::Article(System::Int32^ idPayement,System::Int32^ idArticle, String^ nomArticle, float prixHT, System::Int32^ quantite, System::Int32^ seuilReaprovisionnement, String^ reference, String^ natureProduit, String^ couleurProduit) {
+NS_Article::Article::Article(System::Int32^ quantiteAdds,System::Int32^ idPayement,System::Int32^ idArticle, String^ nomArticle, float prixHT, System::Int32^ quantite, System::Int32^ seuilReaprovisionnement, String^ reference, String^ natureProduit, String^ couleurProduit) {
+	this->quantiteAdds = quantiteAdds;
 	this->idArticle = idArticle;
 	this->nomArticle = nomArticle;
 	this->prixHT = prixHT;
@@ -116,4 +118,12 @@ System::Int32^ NS_Article::Article::getIdPayement()
 void NS_Article::Article::setIdPayement(System::Int32^ idPayement)
 {
 	this->idPayement = idPayement;
+}
+System::Int32^ NS_Article::Article::getQuantiteAdds()
+{
+	return this->quantiteAdds;
+}
+void NS_Article::Article::setQuantiteAdds(System::Int32^ idPayement)
+{
+	this->quantiteAdds = idPayement;
 }

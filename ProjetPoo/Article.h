@@ -12,6 +12,7 @@ namespace NS_Article
 		float prixTTC;
 		float tauxTVA;
 		System::Int32^ quantite;
+		System::Int32^ quantiteAdds;
 		System::Int32^ seuilReaprovisionnement;
 		String^ reference;
 		String^ natureProduit;
@@ -21,7 +22,7 @@ namespace NS_Article
 
 		virtual String^ DonnerAttributsObjet();
 		Article();
-		Article(System::Int32^ idPayement,System::Int32^ idArticle, String^ nomArticle, float prixHT, System::Int32^ quantite, System::Int32^ seuilReaprovisionnement, String^ reference, String^ natureProduit, String^ couleurProduit);
+		Article(System::Int32^ quantiteAdds,System::Int32^ idPayement,System::Int32^ idArticle, String^ nomArticle, float prixHT, System::Int32^ quantite, System::Int32^ seuilReaprovisionnement, String^ reference, String^ natureProduit, String^ couleurProduit);
 		System::Int32^ getIdArticle();
 		String^ getNomArticle();
 		float getPrixHT();
@@ -33,6 +34,7 @@ namespace NS_Article
 		System::Int32^ getIdPayement();
 		float getPrixTTC();
 		float getTauxTVA();
+		System::Int32^ getQuantiteAdds();
 
 		void setIdArticle(System::Int32^ idArticle);
 		void setNomArticle(String^ nomArticle);
@@ -45,6 +47,7 @@ namespace NS_Article
 		void setPrixTTC(float prixTTC);
 		void setTauxTVA(float tauxTVA);
 		void setIdPayement(System::Int32^);
+		void setQuantiteAdds(System::Int32^ quantiteAdds);
 
 	};
 }

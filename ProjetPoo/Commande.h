@@ -31,6 +31,7 @@ namespace NS_Commande
 		String^ getDateReglement();
 		Int32^ getTotalItems();
 		Int32^ getIdFacture();
+		Int32^ getIdCommande();
 		Int32^ getNumClient();
 		String^ getNomSociete();
 
@@ -44,6 +45,7 @@ namespace NS_Commande
 		void setNomSociete(String^ nomSociete);
 		void setNumClient(Int32^ numClient);
 		void setIdFacture(Int32^ idFacture);
+		void setIdCommande(Int32^ idFacture);
 
 
 

@@ -603,9 +603,9 @@ namespace ProjetPoo {
 			this->label17->AutoSize = true;
 			this->label17->Location = System::Drawing::Point(773, 62);
 			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(93, 25);
+			this->label17->Size = System::Drawing::Size(135, 25);
 			this->label17->TabIndex = 27;
-			this->label17->Text = L"ID Client";
+			this->label17->Text = L"ID Personnel";
 			// 
 			// txtUpdateId
 			// 
@@ -624,6 +624,7 @@ namespace ProjetPoo {
 			this->btnVModifier->TabIndex = 25;
 			this->btnVModifier->Text = L"Modifier";
 			this->btnVModifier->UseVisualStyleBackColor = true;
+			this->btnVModifier->Click += gcnew System::EventHandler(this, &FormPersonnel::btnVModifier_Click);
 			// 
 			// textBox1
 			// 
@@ -1011,7 +1012,54 @@ namespace ProjetPoo {
 	}
 
 	private: System::Void btnVSupprimer_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		this->objfonction = (gcnew NS_objFonction::objFonction);
+		List<TextBox^>^ nonEmptyTxtBox = (gcnew List<TextBox^>());
+		TextBox^ txtBox = gcnew(TextBox);
+		this->textBoxList = (gcnew List<TextBox^>());
+		this->textBoxList->Add(this->textBox16);
+		this->textBoxList->Add(this->textBox15);
+		this->textBoxList->Add(this->textBox14);
+		for each (TextBox ^ textBox in this->textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oDs = this->oSvc->deleteSpe("Rsl", "Personnel", nonEmptyTxtBox, "idPersonnel", "id_p");
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
+	}
+	private: System::Void btnVModifier_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::String^ res = "Rsl";
+		System::String^ tableName = "Personnel";
+		List<TextBox^>^ nonEmptyTxtBox;
+		nonEmptyTxtBox = (gcnew List<TextBox^>());
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->textBoxList = (gcnew List<TextBox^>());
+		this->textBoxList->Add(textBox10);
+		this->textBoxList->Add(textBox9);
+		this->textBoxList->Add(textBox8);
+		this->textBoxList->Add(textBox7);
+		this->textBoxList->Add(textBox6);
+		this->textBoxList->Add(textBox1);
+		this->textBoxList->Add(txtUpdateId);
+		for each (TextBox ^ textBox in this->textBoxList)
+		{
+			String^ text = textBox->Text->Trim();
+			if (!String::IsNullOrEmpty(text))
+			{
+				nonEmptyTxtBox->Add(textBox);
+			}
+		}
+		this->dataGridView1->Refresh();
+		oSvc = gcnew NS_sql_Function::sqlFunction();
+		this->oDs = this->oSvc->updateSpe(res, tableName, nonEmptyTxtBox, "idPersonnel", "id_p");
+		this->dataGridView1->DataSource = this->oDs;
+		this->dataGridView1->DataMember = "Rsl";
 	}
 };
 }
