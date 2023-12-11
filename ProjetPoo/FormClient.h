@@ -924,7 +924,6 @@ private: System::Windows::Forms::TextBox^ txtUpdateIdClient;
 		   
 	private: void generateClient()
 	{
-		this->objfonction = (gcnew NS_objFonction::objFonction);
 		this->textBoxList = (gcnew List<TextBox^>());
 		this->textBoxList->Add(this->txtInsertPrenom);
 		this->textBoxList->Add(this->txtInsertNom);
@@ -968,6 +967,8 @@ private: System::Windows::Forms::TextBox^ txtUpdateIdClient;
 		this->objfonction->currentObj = "Client";
 	}
 	private: System::Void btnVInsert_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		this->objfonction = (gcnew NS_objFonction::objFonction);
 		generateClient();
 		System::String^ res = "Rsl";
 		System::String^ tableName = "Client";

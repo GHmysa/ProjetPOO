@@ -1283,7 +1283,7 @@ private: System::Windows::Forms::Label^ label12;
 	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		
 		this->objfonction = (gcnew NS_objFonction::objFonction);
-		this->objfonction->has2Query = false;
+		this->objfonction->has2Query = true;
 		this->objfonction->currentObj = "Adds";
 		System::String^ res = "Rsl";
 		System::String^ tableName = "adds";

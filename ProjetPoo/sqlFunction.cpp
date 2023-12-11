@@ -24,7 +24,7 @@ System::Data::DataSet^ NS_sql_Function::sqlFunction::selectSpe(System::String^ d
 System::Data::DataSet^ NS_sql_Function::sqlFunction::select(System::String^ dataTableName, System::String^ sql)
 {
 	return this->oConn->getRows(sql, dataTableName);
-
+}
 System::Windows::Forms::TextBox^ NS_sql_Function::sqlFunction::getSpeID(String^ tableName, List<System::Windows::Forms::TextBox^>^ TxtBoxList, String^ AN, String^ id)
 {
 	System::Data::DataSet^ ds = gcnew(System::Data::DataSet);
@@ -104,8 +104,10 @@ void NS_sql_Function::sqlFunction::insertSpe(System::String^ res, System::String
 				i++;
 			}
 			
+			
 		}
-		if (objFonction->currentObj == "Client", objFonction->currentObj == "Personnel")
+		
+		if (objFonction->currentObj == "Client" || objFonction->currentObj == "Personnel")
 		{
 			tmpObj = objFonction->currentObj;
 			objFonction->currentObj = "Adresse";
@@ -135,7 +137,7 @@ void NS_sql_Function::sqlFunction::insertSpe(System::String^ res, System::String
 
 			}
 		}
-		
+
 		if (objFonction->currentObj == "Commande")
 		{
 			tmpObj = objFonction->currentObj;
@@ -168,12 +170,13 @@ void NS_sql_Function::sqlFunction::insertSpe(System::String^ res, System::String
 			this->oConn->actionRows(sql);
 
 		}
+		if (objFonction->currentObj == "Adds")
+		{
+			sql = this->oSqlMap->insert(tableName, objFonction, TxtBoxList);
+			this->oConn->actionRows(sql);
+		}
 	}
-	if (objFonction->currentObj == "Adds")
-	{
-		sql = this->oSqlMap->insert(tableName, objFonction, TxtBoxList);
-		this->oConn->actionRows(sql);
-	}
+	
 
 	
 }
