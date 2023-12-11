@@ -29,10 +29,18 @@ String^ NS_objFonction::objFonction::getAttributs()
 	}
 	if (this->currentObj == "Commande")
 	{
-		return "'" + this->commande->getReferenceCommande() + "', '" + this->commande->getDateEmission() + "', '" + this->commande->getDateLivraisonPrev() + "', '" + this->commande->getDatePaiement() + "', '" + this->commande->getMoyenPaiement() + "', '" + this->commande->getDateReglement() + "'.'" + Convert::ToString(this->commande->getTotalItems()) + "'.'";
+		return "'" + this->commande->getDateReglement() + "', '" + this->commande->getDateEmission() + "', '" + this->commande->getDatePaiement() + "'," + this->commande->getTotalItems() + "," + this->commande->getReferenceCommande() + ",'" + this->commande->getDateLivraisonPrev() + "'," + this->commande->getIdFacture() +"," + this->client->getIdClient();
 	}
-
-	if (this->currentObj == "Article") {
-		return "'";
+	if (this->currentObj == "Facture")
+	{
+		return "'" + this->commande->getNomSociete() + "'," + this->commande->getNumClient();
+	}
+	if (this->currentObj == "Article") 
+	{
+		return "'" + this->article->getCouleurProduit()+"','"+this->article->getNatureProduit()+"','"+this->article->getNomArticle()+"',"+this->article->getQuantite()+","+this->article->getReference()+","+this->article->getSeuilReaprovisionnement()+","+this->article->getIdPayement();
+	}
+	if (this->currentObj == "Payment")
+	{
+		return this->article->getPrixHT() + "," + this->article->getTauxTVA() + "," + this->article->getPrixTTC();
 	}
 }

@@ -5,13 +5,14 @@ namespace NS_Article
 	ref class Article
 	{
 	private:
-		int idArticle;
+		System::Int32^ idArticle;
+		System::Int32^ idPayement;
 		String^ nomArticle;
 		float prixHT;
 		float prixTTC;
 		float tauxTVA;
-		int quantite;
-		int seuilReaprovisionnement;
+		System::Int32^ quantite;
+		System::Int32^ seuilReaprovisionnement;
 		String^ reference;
 		String^ natureProduit;
 		String^ couleurProduit;
@@ -20,28 +21,30 @@ namespace NS_Article
 
 		virtual String^ DonnerAttributsObjet();
 		Article();
-		Article(int idArticle, String^ nomArticle, float prixHT, int quantite, int seuilReaprovisionnement, String^ reference, String^ natureProduit, String^ couleurProduit);
-		int getIdArticle();
+		Article(System::Int32^ idPayement,System::Int32^ idArticle, String^ nomArticle, float prixHT, System::Int32^ quantite, System::Int32^ seuilReaprovisionnement, String^ reference, String^ natureProduit, String^ couleurProduit);
+		System::Int32^ getIdArticle();
 		String^ getNomArticle();
 		float getPrixHT();
-		int getQuantite();
-		int getSeuilReaprovisionnement();
+		System::Int32^ getQuantite();
+		System::Int32^ getSeuilReaprovisionnement();
 		String^ getReference();
 		String^ getNatureProduit();
 		String^ getCouleurProduit();
+		System::Int32^ getIdPayement();
 		float getPrixTTC();
 		float getTauxTVA();
 
-		void setIdArticle(int idArticle);
+		void setIdArticle(System::Int32^ idArticle);
 		void setNomArticle(String^ nomArticle);
 		void setPrixHT(float prixHT);
-		void setQuantite(int quantite);
-		void setSeuilReaprovisionnement(int seuilReaprovisionnement);
+		void setQuantite(System::Int32^ quantite);
+		void setSeuilReaprovisionnement(System::Int32^ seuilReaprovisionnement);
 		void setReference(String^ reference);
 		void setNatureProduit(String^ natureProduit);
 		void setCouleurProduit(String^ couleurProduit);
 		void setPrixTTC(float prixTTC);
 		void setTauxTVA(float tauxTVA);
+		void setIdPayement(System::Int32^);
 
 	};
 }

@@ -6,7 +6,11 @@ namespace NS_Commande
 	{
 	private:
 
+		System::Int32^ idCommande;
+		System::Int32^ idFacture;
 		String^ referenceCommande;
+		String^ nomSociete;
+		Int32^ numClient;
 		String^ dateEmission;
 		String^ dateLivraisonPrev;
 		String^ moyenPaiement; // pas dans la BDD
@@ -17,7 +21,7 @@ namespace NS_Commande
 
 	public:
 		Commande();
-		Commande(String^ referenceCommande, String^ dateEmission, String^ dateLivraisonPrev, String^ moyenPaiement);
+		Commande(System::Int32^ idCommande, System::Int32^ idFacture,String^ referenceCommande, String^ dateEmission, String^ dateLivraisonPrev, String^ moyenPaiement);
 
 		String^ getReferenceCommande();
 		String^ getDateEmission();
@@ -26,7 +30,9 @@ namespace NS_Commande
 		String^ getDatePaiement();
 		String^ getDateReglement();
 		Int32^ getTotalItems();
-
+		Int32^ getIdFacture();
+		Int32^ getNumClient();
+		String^ getNomSociete();
 
 		void setReferenceCommande(String^ referenceCommande);
 		void setDateEmission(String^ dateEmission);
@@ -35,6 +41,9 @@ namespace NS_Commande
 		void setDatePaiement(String^ datePaiement);
 		void setDateReglement(String^ dateReglement);
 		void setTotalItems(Int32^ totalItems);
+		void setNomSociete(String^ nomSociete);
+		void setNumClient(Int32^ numClient);
+		void setIdFacture(Int32^ idFacture);
 
 
 

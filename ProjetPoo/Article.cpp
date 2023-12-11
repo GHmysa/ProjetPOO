@@ -7,6 +7,7 @@ NS_Article::Article::Article()
 {
 	this->couleurProduit = "";
 	this->idArticle = 0;
+	this->idPayement = 0;
 	this->nomArticle = "";
 	this->prixHT = 0;
 	this->quantite = 0;
@@ -17,7 +18,7 @@ NS_Article::Article::Article()
 	this->tauxTVA = 0;
 
 }
-NS_Article::Article::Article(int idArticle, String^ nomArticle, float prixHT, int quantite, int seuilReaprovisionnement, String^ reference, String^ natureProduit, String^ couleurProduit) {
+NS_Article::Article::Article(System::Int32^ idPayement,System::Int32^ idArticle, String^ nomArticle, float prixHT, System::Int32^ quantite, System::Int32^ seuilReaprovisionnement, String^ reference, String^ natureProduit, String^ couleurProduit) {
 	this->idArticle = idArticle;
 	this->nomArticle = nomArticle;
 	this->prixHT = prixHT;
@@ -26,9 +27,10 @@ NS_Article::Article::Article(int idArticle, String^ nomArticle, float prixHT, in
 	this->reference = reference;
 	this->natureProduit = natureProduit;
 	this->couleurProduit = couleurProduit;
+	this->idPayement = idPayement;
 }
 
-int NS_Article::Article::getIdArticle() {
+System::Int32^ NS_Article::Article::getIdArticle() {
 	return idArticle;
 }
 
@@ -40,11 +42,11 @@ float NS_Article::Article::getPrixHT() {
 	return prixHT;
 }
 
-int NS_Article::Article::getQuantite() {
+System::Int32^ NS_Article::Article::getQuantite() {
 	return quantite;
 }
 
-int NS_Article::Article::getSeuilReaprovisionnement() {
+System::Int32^ NS_Article::Article::getSeuilReaprovisionnement() {
 	return seuilReaprovisionnement;
 }
 
@@ -60,7 +62,7 @@ String^ NS_Article::Article::getCouleurProduit() {
 	return couleurProduit;
 }
 
-void NS_Article::Article::setIdArticle(int idArticle) {
+void NS_Article::Article::setIdArticle(System::Int32^ idArticle) {
 	this->idArticle = idArticle;
 }
 
@@ -72,11 +74,11 @@ void NS_Article::Article::setPrixHT(float prixHT) {
 	this->prixHT = prixHT;
 }
 
-void NS_Article::Article::setQuantite(int quantite) {
+void NS_Article::Article::setQuantite(System::Int32^ quantite) {
 	this->quantite = quantite;
 }
 
-void NS_Article::Article::setSeuilReaprovisionnement(int seuilReaprovisionnement) {
+void NS_Article::Article::setSeuilReaprovisionnement(System::Int32^ seuilReaprovisionnement) {
 	this->seuilReaprovisionnement = seuilReaprovisionnement;
 }
 
@@ -107,4 +109,11 @@ void NS_Article::Article::setTauxTVA(float tauxTVA) {
 float NS_Article::Article::getTauxTVA() {
 	return tauxTVA;
 }
-
+System::Int32^ NS_Article::Article::getIdPayement()
+{
+	return this->idPayement;
+}
+void NS_Article::Article::setIdPayement(System::Int32^ idPayement)
+{
+	this->idPayement = idPayement;
+}

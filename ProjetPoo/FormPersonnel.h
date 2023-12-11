@@ -999,10 +999,7 @@ namespace ProjetPoo {
 		this->dataGridView1->DataSource = this->oDs;
 		this->dataGridView1->DataMember = "Rsl";
 		this->dataGridView1->Refresh();
-
-
 	}
-	
 
 	private: System::Void btnBack_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->panelDelete->Hide();
