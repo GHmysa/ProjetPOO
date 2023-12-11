@@ -4,8 +4,14 @@
 
 NS_sql_Conn::sqlConn::sqlConn(void)
 {
-	this->sCnx = "Data Source=PC-CEDRIC\\MSSQLSERVER01;Persist Security Info=True;User ID=CNX_P6;Password=azerty";
+
+	//this->sCnx = "Data Source=PC-CEDRIC\\MSSQLSERVER01;Persist Security Info=True;User ID=CNX_P6;Password=azerty";
+	
+
+	this->sCnx = "Data Source=PCMAX;Initial Catalog=Projet;Integrated Security=True";
+	/*this->sCnx = "Data Source=PC-CEDRIC\\MSSQLSERVER01;Persist Security Info=True;User ID=CNX_P6;Password=azerty";*/
 	//this->sCnx = "Data Source=ARTHUR\\MSSQLSERVER01;Initial Catalog=Projet;Integrated Security=True;Encrypt=False";
+
 
 	this->sSql = "Rien";
 
@@ -31,7 +37,10 @@ void NS_sql_Conn::sqlConn::actionRows(System::String^ sSql)
 	this->sSql = sSql;
 	this->sqlCommand->CommandText = this->sSql;
 	this->oDA->SelectCommand = this->sqlCommand;
-	this->conn->Open();
+	if (this->conn->State != System::Data::ConnectionState::Open) {
+		this->conn->Open();
+	}
+
 	this->sqlCommand->ExecuteNonQuery();
 	this->conn->Close();
 }

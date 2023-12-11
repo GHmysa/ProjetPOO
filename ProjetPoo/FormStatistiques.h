@@ -1,5 +1,6 @@
 #pragma once
 #include "sqlFunction.h"
+#include "objFonction.h"
 
 namespace ProjetPoo {
 
@@ -9,10 +10,11 @@ namespace ProjetPoo {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	
+	using namespace System::Collections::Generic;
+
 
 	/// <summary>
-	/// Description résumée de FormStatistiques
+	/// Description rÃ©sumÃ©e de FormStatistiques
 	/// </summary>
 	public ref class FormStatistiques : public System::Windows::Forms::Form
 	{
@@ -25,7 +27,7 @@ namespace ProjetPoo {
 
 	protected:
 		/// <summary>
-		/// Nettoyage des ressources utilisées.
+		/// Nettoyage des ressources utilisÃ©es.
 		/// </summary>
 		~FormStatistiques()
 		{
@@ -37,7 +39,7 @@ namespace ProjetPoo {
 
 	private:
 		/// <summary>
-		/// Variable nécessaire au concepteur.
+		/// Variable nÃ©cessaire au concepteur.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 	private: System::Windows::Forms::Button^ btnBack;
@@ -191,8 +193,8 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
-		/// le contenu de cette méthode avec l'éditeur de code.
+		/// MÃ©thode requise pour la prise en charge du concepteur - ne modifiez pas
+		/// le contenu de cette mÃ©thode avec l'Ã©diteur de code.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -400,7 +402,7 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 			this->radioButtonPaR->Size = System::Drawing::Size(399, 36);
 			this->radioButtonPaR->TabIndex = 41;
 			this->radioButtonPaR->TabStop = true;
-			this->radioButtonPaR->Text = L"Produits à réapprovisionner";
+			this->radioButtonPaR->Text = L"Produits Ã  rÃ©approvisionner";
 			this->radioButtonPaR->UseVisualStyleBackColor = true;
 			this->radioButtonPaR->CheckedChanged += gcnew System::EventHandler(this, &FormStatistiques::radioButtonProduitReapprovisionnement_CheckedChanged);
 			// 
@@ -481,7 +483,7 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(113, 32);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"Prénom";
+			this->label2->Text = L"PrÃ©nom";
 			// 
 			// label1
 			// 
@@ -565,7 +567,7 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(379, 32);
 			this->label3->TabIndex = 5;
-			this->label3->Text = L"Combinaisons personalisées";
+			this->label3->Text = L"Combinaisons personalisÃ©es";
 			// 
 			// EstimationPredetermineesPanel
 			// 
@@ -853,7 +855,7 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(270, 32);
 			this->label5->TabIndex = 11;
-			this->label5->Text = L"Démarque inconnue";
+			this->label5->Text = L"DÃ©marque inconnue";
 			// 
 			// label7
 			// 
@@ -937,7 +939,7 @@ private: System::Windows::Forms::TextBox^ txtTVAEstimationLibre;
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(320, 32);
 			this->label10->TabIndex = 11;
-			this->label10->Text = L"Démarque inconnue (%)";
+			this->label10->Text = L"DÃ©marque inconnue (%)";
 			// 
 			// label11
 			// 
